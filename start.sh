@@ -1,5 +1,5 @@
 echo "🚀 Démarrage du frontend (Next.js)..."
-cd matcha && npx run dev &
+cd frontend && npx next dev &
 
 echo "🚀 Démarrage du backend (NestJS)..."
 cd backend && npm run start &
