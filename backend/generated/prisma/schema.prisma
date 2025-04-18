@@ -9,31 +9,72 @@ datasource db {
 }
 
 model User {
-  id        Int        @id @default(autoincrement())
-  email     String     @unique
-  password  String
-  username  String     @unique
-  firstName String
-  lastName  String
-  birthDate DateTime
-  gender    String
-  bio       String?
-  avatar    String?    @default("/default-avatar.png")
-  photos    Photo[]
-  interests Interest[] @relation("UserInterests")
-  createdAt DateTime   @default(now())
-  updatedAt DateTime   @updatedAt
+  id                Int        @id @default(autoincrement())
+  email             String     @unique
+  password          String
+  username          String     @unique
+  firstName         String
+  lastName          String
+  birthDate         DateTime
+  gender            String
+  bio               String?
+  avatar            String?    @default("/default-avatar.png")
+  sexualOrientation String?
+  latitude          Float?
+  longitude         Float?
+  photos            Photo[]
+  likesSent         Like[]     @relation("LikesSent")
+  likesReceived     Like[]     @relation("LikesReceived")
+  blocksSent        Block[]    @relation("BlocksSent")
+  blocksReceived    Block[]    @relation("BlocksReceived")
+  messagesSent      Message[]  @relation("MessagesSent")
+  messagesReceived  Message[]  @relation("MessagesReceived")
+  interests         Interest[] @relation("UserInterests")
+  createdAt         DateTime   @default(now())
+  updatedAt         DateTime   @updatedAt
 }
 
 model Photo {
   id     Int    @id @default(autoincrement())
   url    String
   user   User   @relation(fields: [userId], references: [id])
-  userId Int    @unique
+  userId Int
 }
 
 model Interest {
   id    Int    @id @default(autoincrement())
   name  String @unique
   users User[] @relation("UserInterests")
+}
+
+model Like {
+  id         Int      @id @default(autoincrement())
+  fromUser   User     @relation("LikesSent", fields: [fromUserId], references: [id])
+  toUser     User     @relation("LikesReceived", fields: [toUserId], references: [id])
+  fromUserId Int
+  toUserId   Int
+  createdAt  DateTime @default(now())
+
+  @@unique([fromUserId, toUserId])
+}
+
+model Block {
+  id        Int      @id @default(autoincrement())
+  blocker   User     @relation("BlocksSent", fields: [blockerId], references: [id])
+  blocked   User     @relation("BlocksReceived", fields: [blockedId], references: [id])
+  blockerId Int
+  blockedId Int
+  createdAt DateTime @default(now())
+
+  @@unique([blockerId, blockedId])
+}
+
+model Message {
+  id         Int      @id @default(autoincrement())
+  sender     User     @relation("MessagesSent", fields: [senderId], references: [id])
+  receiver   User     @relation("MessagesReceived", fields: [receiverId], references: [id])
+  senderId   Int
+  receiverId Int
+  content    String
+  createdAt  DateTime @default(now())
 }

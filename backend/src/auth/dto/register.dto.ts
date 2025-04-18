@@ -34,4 +34,10 @@ export class RegisterDto {
   @IsDateString() 
   @IsNotEmpty()
   birthDate: string;
+
+  @IsNotEmpty()
+  latitude: number;
+
+  @IsNotEmpty()
+  longitude: number;
 }

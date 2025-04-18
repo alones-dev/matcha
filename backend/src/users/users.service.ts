@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from 'src/prisma/prisma.service';
+import * as bcrypt from 'bcrypt';
 
 @Injectable()
 export class UsersService {
@@ -31,7 +32,9 @@ export class UsersService {
         lastName: string,
         gender: string,
         password: string,
-        birthDate: Date
+        birthDate: Date,
+        latitude: number,
+        longitude: number,
     }) {
         const user = await this.prisma.user.create({
             data: {
@@ -42,8 +45,75 @@ export class UsersService {
                 gender: data.gender,
                 password: data.password,
                 birthDate: data.birthDate,
+                latitude: data.latitude,
+                longitude: data.longitude,
             },
         });
         return user;
-    }  
+    }
+
+    async updateUser(user: any, id: number, data: {
+        email: string,
+        username: string,
+        firstName: string,
+        lastName: string,
+        birthDate: string,
+        password: string
+    }) {
+        if (user.id !== id) {
+            throw new Error('You are not authorized to update this user');
+        }
+
+        const birthDateValid = new Date(data.birthDate);
+        if (isNaN(birthDateValid.getTime())) {
+            throw new Error('Invalid birth date');
+        }
+
+        const passwordMatch = await bcrypt.compare(data.password, user.password);
+        if (!passwordMatch) {
+            throw new Error('Incorrect password');
+        }
+
+        const updatedUser = await this.prisma.user.update({
+            where: { id },
+            data: {
+                email: data.email,
+                username: data.username,
+                firstName: data.firstName,
+                lastName: data.lastName,
+                birthDate: birthDateValid,
+            },
+        });
+        return updatedUser;
+    }
+
+    async updateInfos(user: any, id: number, data: {
+        bio: string,
+        interests: string[],
+    }) {
+        if (user.id !== id) {
+            throw new Error('You are not authorized to update this user');
+        }
+
+        const interests = await Promise.all(
+            data.interests.map(async (interestName) => {
+                return this.prisma.interest.upsert({
+                    where: { name: interestName },
+                    update: {},
+                    create: { name: interestName },
+                });
+            })
+        );
+
+        const updatedUser = await this.prisma.user.update({
+            where: { id },
+            data: {
+                bio: data.bio,
+                interests: {
+                    set: interests.map(interest => ({ id: interest.id })),
+                },
+            },
+        });
+        return updatedUser;
+    }
 }

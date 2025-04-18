@@ -32,7 +32,7 @@ export class AuthService {
     }
 
     async register(registerDto: RegisterDto) {
-        const {email, username, firstName, lastName, gender, password, confirmPassword, birthDate} = registerDto;
+        const {email, username, firstName, lastName, gender, password, confirmPassword, birthDate, latitude, longitude} = registerDto;
 
         if (password !== confirmPassword) {
             throw new Error('Passwords do not match');
@@ -74,6 +74,8 @@ export class AuthService {
             gender,
             password: hashedPassword,
             birthDate: birthDateObj,
+            latitude,
+            longitude
         });
 
         const payload = {sub: user.id, email: user.email, username: user.username};
@@ -88,5 +90,8 @@ export class AuthService {
                 avatar: user.avatar,
             }
         }
+    }
+
+    async logout() {
     }
 }

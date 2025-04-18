@@ -125,6 +125,9 @@ exports.Prisma.UserScalarFieldEnum = {
   gender: 'gender',
   bio: 'bio',
   avatar: 'avatar',
+  sexualOrientation: 'sexualOrientation',
+  latitude: 'latitude',
+  longitude: 'longitude',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
@@ -138,6 +141,28 @@ exports.Prisma.PhotoScalarFieldEnum = {
 exports.Prisma.InterestScalarFieldEnum = {
   id: 'id',
   name: 'name'
+};
+
+exports.Prisma.LikeScalarFieldEnum = {
+  id: 'id',
+  fromUserId: 'fromUserId',
+  toUserId: 'toUserId',
+  createdAt: 'createdAt'
+};
+
+exports.Prisma.BlockScalarFieldEnum = {
+  id: 'id',
+  blockerId: 'blockerId',
+  blockedId: 'blockedId',
+  createdAt: 'createdAt'
+};
+
+exports.Prisma.MessageScalarFieldEnum = {
+  id: 'id',
+  senderId: 'senderId',
+  receiverId: 'receiverId',
+  content: 'content',
+  createdAt: 'createdAt'
 };
 
 exports.Prisma.SortOrder = {
@@ -154,7 +179,10 @@ exports.Prisma.NullsOrder = {
 exports.Prisma.ModelName = {
   User: 'User',
   Photo: 'Photo',
-  Interest: 'Interest'
+  Interest: 'Interest',
+  Like: 'Like',
+  Block: 'Block',
+  Message: 'Message'
 };
 
 /**
