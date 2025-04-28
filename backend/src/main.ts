@@ -13,7 +13,10 @@ async function bootstrap() {
         whitelist: true
     }));
 
-    app.enableCors();
+    app.enableCors({
+        origin: "http://localhost:3000",
+        credentials: true,
+    });
 
     await app.listen(process.env.PORT || 4000);
 }

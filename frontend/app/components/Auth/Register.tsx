@@ -83,6 +83,7 @@ const Register = () => {
 
       const response = await fetch("http://localhost:4000/api/auth/register", {
         method: "POST",
+        credentials: "include",
         headers: {
           "Content-Type": "application/json",
         },
@@ -105,7 +106,6 @@ const Register = () => {
         throw new Error(data.message || 'Erreur d\'inscription')
       }
 
-      localStorage.setItem('token', data.access_token)
       localStorage.setItem('user', JSON.stringify(data.user))
       router.push('/home')
     }

@@ -25,6 +25,22 @@ export class UsersService {
         return user;
     }
 
+    async getUserInfos(id: number) {
+        const user = await this.prisma.user.findUnique({
+            where: { id },
+            select: {
+                id: true,
+                firstName: true,
+                lastName: true,
+                username: true,
+                avatar: true,
+                birthDate: true,
+                bio: true,
+            }
+        });
+        return user;
+    }
+
     async createUser(data: {
         email: string,
         username: string,

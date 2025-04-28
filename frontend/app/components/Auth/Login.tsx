@@ -31,7 +31,6 @@ const Login = () => {
         throw new Error(data.message || 'Erreur de connexion')
       }
 
-      localStorage.setItem('token', data.access_token)
       localStorage.setItem('user', JSON.stringify(data.user))
 
       router.push('/home')

@@ -18,7 +18,7 @@ model User {
   birthDate      DateTime
   gender         String   
   bio            String?
-  avatar         String? @default("/default-avatar.png")
+  avatar         String?
   sexualOrientation    String?
   latitude       Float?
   longitude      Float?

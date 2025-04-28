@@ -1,6 +1,6 @@
 import React from 'react'
-import BaseRegister from './BaseRegister'
-import Login from './Login'
+import BaseRegister from './Auth/BaseRegister'
+import Login from './Auth/Login'
 
 interface HeroProps {
   isLogin: boolean
