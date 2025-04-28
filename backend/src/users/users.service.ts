@@ -30,15 +30,35 @@ export class UsersService {
             where: { id },
             select: {
                 id: true,
+                email: true,
                 firstName: true,
                 lastName: true,
                 username: true,
                 avatar: true,
                 birthDate: true,
                 bio: true,
+                photos: true,
+                interests: true
             }
         });
         return user;
+    }
+
+    async getAllUsers() {
+        const users = await this.prisma.user.findMany({
+            select: {
+                id: true,
+                firstName: true,
+                lastName: true,
+                username: true,
+                avatar: true,
+                birthDate: true,
+                bio: true,
+                photos: true,
+                interests: true
+            }
+        });
+        return users;
     }
 
     async createUser(data: {
