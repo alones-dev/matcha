@@ -32,6 +32,6 @@ Whether you're here to swipe right, build cool stuff, or debug some WebSocket ma
 - ❤️ Like, match, and unmatch system
 - 🗺 Geolocation-based match suggestions
 - 💬 Real-time chat between matched users
-- 🛑 Block/report users
-- 🔔 Notifications in real-time
-- 🖼 Upload & manage profile pictures
+- 🛑 Block users
+- 🔔 Notifications
+- 🖼 Upload & manage pictures
