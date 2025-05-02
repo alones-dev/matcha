@@ -9,29 +9,27 @@ datasource db {
 }
 
 model User {
-  id                Int        @id @default(autoincrement())
-  email             String     @unique
-  password          String
-  username          String     @unique
-  firstName         String
-  lastName          String
-  birthDate         DateTime
-  gender            String
-  bio               String?
-  avatar            String?
-  sexualOrientation String?
-  latitude          Float?
-  longitude         Float?
-  photos            Photo[]
-  likesSent         Like[]     @relation("LikesSent")
-  likesReceived     Like[]     @relation("LikesReceived")
-  blocksSent        Block[]    @relation("BlocksSent")
-  blocksReceived    Block[]    @relation("BlocksReceived")
-  messagesSent      Message[]  @relation("MessagesSent")
-  messagesReceived  Message[]  @relation("MessagesReceived")
-  interests         Interest[] @relation("UserInterests")
-  createdAt         DateTime   @default(now())
-  updatedAt         DateTime   @updatedAt
+  id             Int        @id @default(autoincrement())
+  email          String     @unique
+  password       String
+  username       String     @unique
+  firstName      String
+  lastName       String
+  birthDate      DateTime
+  gender         String
+  bio            String?
+  avatar         String?
+  latitude       Float?
+  longitude      Float?
+  photos         Photo[]
+  interests      Interest[] @relation("UserInterests")
+  sentLikes      Like[]     @relation("SentLikes")
+  receivedLikes  Like[]     @relation("ReceivedLikes")
+  matchesAsUser1 Match[]    @relation("MatchesAsUser1")
+  matchesAsUser2 Match[]    @relation("MatchesAsUser2")
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
 model Photo {
@@ -49,32 +47,22 @@ model Interest {
 
 model Like {
   id         Int      @id @default(autoincrement())
-  fromUser   User     @relation("LikesSent", fields: [fromUserId], references: [id])
-  toUser     User     @relation("LikesReceived", fields: [toUserId], references: [id])
-  fromUserId Int
-  toUserId   Int
+  sender     User     @relation("SentLikes", fields: [senderId], references: [id])
+  senderId   Int
+  receiver   User     @relation("ReceivedLikes", fields: [receiverId], references: [id])
+  receiverId Int
   createdAt  DateTime @default(now())
 
-  @@unique([fromUserId, toUserId])
+  @@unique([senderId, receiverId])
 }
 
-model Block {
+model Match {
   id        Int      @id @default(autoincrement())
-  blocker   User     @relation("BlocksSent", fields: [blockerId], references: [id])
-  blocked   User     @relation("BlocksReceived", fields: [blockedId], references: [id])
-  blockerId Int
-  blockedId Int
+  user1     User     @relation("MatchesAsUser1", fields: [user1Id], references: [id])
+  user1Id   Int
+  user2     User     @relation("MatchesAsUser2", fields: [user2Id], references: [id])
+  user2Id   Int
   createdAt DateTime @default(now())
 
-  @@unique([blockerId, blockedId])
-}
-
-model Message {
-  id         Int      @id @default(autoincrement())
-  sender     User     @relation("MessagesSent", fields: [senderId], references: [id])
-  receiver   User     @relation("MessagesReceived", fields: [receiverId], references: [id])
-  senderId   Int
-  receiverId Int
-  content    String
-  createdAt  DateTime @default(now())
+  @@unique([user1Id, user2Id])
 }

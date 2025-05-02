@@ -1,42 +1,107 @@
 "use client"
 
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
 import { FaRegCommentAlt, FaTimes } from 'react-icons/fa'
+import { useUser } from '@/hooks/useUser'
+
+type MatchProfile = {
+  id: number
+  firstName: string
+  lastName: string
+  username: string
+  avatar: string
+  age: number
+}
+
 
 const Matches = () => {
-  // Données de démo pour les matchs
-  const matches = [
-    {
-      id: 1,
-      profilePic: '/default_avatar.png',
-      firstName: 'Jean',
-      lastName: 'Dupont',
-      username: 'jeandupont42',
-      age: 28,
-    },
-    {
-      id: 2,
-      profilePic: '/default_avatar.png',
-      firstName: 'Marie',
-      lastName: 'Martin',
-      username: 'mariem',
-      age: 25,
-    },
-  ]
+  const user = useUser()
+  const [matches, setMatches] = useState<MatchProfile[]>([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
+
+  useEffect(() => {
+    if (!user?.id) return
+
+    const fetchMatches = async () => {
+      try {
+        const res = await fetch(`http://localhost:4000/api/users/matches/${user.id}`, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          credentials: 'include'
+        })
+        const data = await res.json()
+        setMatches(data)
+      }
+      catch(error) {
+        if (error instanceof Error) {
+          setError(error.message)
+        }
+        else {
+          setError('Une erreur est survenue lors de la récupération des matchs')
+        }
+      }
+      finally {
+        setLoading(false)
+      }
+    }
+
+    fetchMatches()
+  }, [user])
 
   const handleMessage = (userId: number, e: React.MouseEvent) => {
     e.stopPropagation()
     console.log('Message à', userId)
   }
 
-  const handleUnmatch = (userId: number, e: React.MouseEvent) => {
+  const handleUnmatch = async (userId: number, e: React.MouseEvent) => {
     e.stopPropagation()
-    console.log('Unmatch avec', userId)
+    
+    try {
+      const body = {
+        userLiked: userId,
+        userId: user?.id
+      }
+
+      const res = await fetch("http://localhost:4000/api/users/unlike", {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        credentials: "include",
+        body: JSON.stringify(body)
+      });
+
+      if (!res.ok) throw new Error('Erreur lors de la suppression du like');
+
+      setMatches((prevMatches) => prevMatches.filter((match) => match.id !== userId))
+    }
+    catch (error) {
+      if (error instanceof Error) {
+        setError(error.message)
+      }
+      else {
+        setError('Une erreur est survenue lors de la suppression du match')
+      }
+    }
   }
 
-  const handleProfileClick = (userId: number) => {
-    console.log('Voir le profil de', userId)
+  if (user === null || loading) {
+    return (
+      <div className="flex items-center justify-center h-screen">
+          <p className="text-gray-500">Chargement...</p>
+      </div>
+    )
+  }
+  if (error) {
+      return (
+        <div className="flex items-center justify-center h-screen">
+            <p className="text-red-500">{error || 'Vous devez être connecté pour accéder à cette page'}</p>
+        </div>
+      )
   }
 
   return (
@@ -53,13 +118,12 @@ const Matches = () => {
             {matches.map((match) => (
               <div 
                 key={match.id} 
-                className="rounded-lg p-4 inset-shadow-sm shadow-sm drop-shadow-sm cursor-pointer flex justify-between"
-                onClick={() => handleProfileClick(match.id)}
+                className="rounded-lg p-4 shadow-sm flex justify-between"
               >
                 <div className="flex items-center space-x-4 flex-1 min-w-0">
                   <div className="relative h-12 w-12 rounded-full overflow-hidden flex-shrink-0">
                     <Image
-                      src={match.profilePic}
+                      src={match.avatar}
                       alt={`${match.firstName} ${match.lastName}`}
                       layout="fill"
                       objectFit="cover"
@@ -75,14 +139,14 @@ const Matches = () => {
                 <div className="flex flex-col justify-center items-center space-y-2 ml-4">
                   <button 
                     onClick={(e) => handleMessage(match.id, e)}
-                    className="text-blue-500 hover:text-blue-600 p-1 rounded-full hover:bg-blue-50 transition-colors"
+                    className="text-blue-500 hover:text-blue-600 p-1 rounded-full hover:bg-blue-50 transition-colors cursor-pointer"
                     title="Envoyer un message"
                   >
                     <FaRegCommentAlt size={16} />
                   </button>
                   <button 
                     onClick={(e) => handleUnmatch(match.id, e)}
-                    className="text-red-500 hover:text-red-600 p-1 rounded-full hover:bg-red-50 transition-colors"
+                    className="text-red-500 hover:text-red-600 p-1 rounded-full hover:bg-red-50 transition-colors cursor-pointer"
                     title="Supprimer le match"
                   >
                     <FaTimes size={16} />

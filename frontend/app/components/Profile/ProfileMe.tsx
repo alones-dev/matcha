@@ -6,7 +6,9 @@ import { BsCake2 } from "react-icons/bs";
 import Image from 'next/image'
 import { useAuth } from '@/hooks/useAuth'
 import { useUser } from '@/hooks/useUser'
-import { formatDate } from '@/utils/date'
+import { formatDate, getAge } from '@/utils/date'
+import ChangeProfilePicture from './ChangeProfilePicture'
+import ManagePhotos from './ManagePhotos'
 
 interface UserData {
   id: number;
@@ -16,8 +18,8 @@ interface UserData {
   username: string;
   birthDate: string;
   bio: string;
-  photos: string[];
-  interests: string[];
+  photos: { id: number, url: string }[];
+  interests: { id: number, name: string }[];
 }
 
 const ProfileMe = () => {
@@ -27,6 +29,8 @@ const ProfileMe = () => {
   const [userData, setUserData] = useState<UserData | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+  const [showChangeProfilePicture, setShowChangeProfilePicture] = useState(false)
+  const [showManagePhotos, setShowManagePhotos] = useState(false)
 
   useEffect(() => {
     if (userStorage === null) {
@@ -56,7 +60,6 @@ const ProfileMe = () => {
         if (data.error) {
           throw new Error(data.error)
         }
-        console.log(data)
         setUserData(data)
       }
       catch (error) {
@@ -74,6 +77,103 @@ const ProfileMe = () => {
 
     fetchUserData()
   }, [userStorage])
+
+  const handleUpdateProfilePicture = async (file: File) => {
+    if (userStorage === null) {
+      return
+    }
+
+    try {
+      const formData = new FormData()
+      formData.append('file', file)
+
+      const res = await fetch(`http://localhost:4000/api/users/updateAvatar/${userStorage.id}`, {
+        method: 'PUT',
+        body: formData,
+        credentials: 'include',
+      })
+
+      if (!res.ok) {
+        throw new Error('Erreur lors de la mise à jour de l\'image de profil')
+      }
+
+      const data = await res.json()
+      if (data.error) {
+        throw new Error(data.error)
+      }
+      
+      const updatedUser = {
+        ...userStorage,
+        avatar: data.avatar,
+      }
+      localStorage.setItem("user", JSON.stringify(updatedUser))
+
+      setShowChangeProfilePicture(false)
+      window.location.reload()
+    }
+    catch (error) {
+      if (error instanceof Error) {
+        setError(error.message)
+      }
+      else {
+        setError('Une erreur inconnue est survenue')
+      }
+    }
+  }
+
+  const handleUpdatePhotos = async (files: (File | null)[], deletions: number[]) => {
+    if (userStorage === null || !userData) {
+      return;
+    }
+  
+    try {
+      const formData = new FormData();
+      
+      files.forEach((file) => {
+        if (file) {
+          formData.append('photos', file); 
+        }
+      });
+  
+      const photoIdsToDelete = deletions.filter(id => id !== null);
+      if (photoIdsToDelete.length === 0) {
+        formData.append('deletions', JSON.stringify([]));
+      } else {
+        formData.append('deletions', JSON.stringify(photoIdsToDelete));
+      }
+  
+      const res = await fetch(`http://localhost:4000/api/users/updatePhotos/${userStorage.id}`, {
+        method: 'PUT',
+        body: formData,
+        credentials: 'include',
+      });
+  
+      if (!res.ok) {
+        throw new Error('Erreur lors de la mise à jour des photos');
+      }
+  
+      const data = await res.json();
+      if (data.error) {
+        throw new Error(data.error);
+      }
+  
+      setUserData(prev => {
+        if (!prev) return null;
+        return {
+          ...prev,
+          photos: data.photos
+        };
+      });
+  
+      setShowManagePhotos(false);
+    } catch (error) {
+      if (error instanceof Error) {
+        setError(error.message);
+      } else {
+        setError('Une erreur inconnue est survenue');
+      }
+    }
+  };
 
   if (userStorage === null || loading) {
     return (
@@ -115,7 +215,7 @@ const ProfileMe = () => {
           <div className="flex flex-col items-center md:flex-row md:items-start gap-6">
             <div 
               className="relative w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden border-2 border-white shadow cursor-pointer group"
-              onClick={() => alert('Modifier la photo de profil')}
+              onClick={() => setShowChangeProfilePicture(true)}
             >
               <Image 
                 src={userData.avatar || '/default_avatar.png'}
@@ -135,7 +235,7 @@ const ProfileMe = () => {
               <div className="my-4">
                 <div className="flex items-center text-gray-700 gap-2">
                   <BsCake2 className="text-pink-500" />
-                  <span>{formatDate(userData.birthDate)}</span>
+                  <span>{formatDate(userData.birthDate)} <a>({getAge(userData.birthDate)} ans)</a></span>
                 </div>
                 <p className="mt-2 text-gray-800 italic">{userData.bio || "Aucune bio."}</p>
               </div>
@@ -151,7 +251,7 @@ const ProfileMe = () => {
                     key={index}
                     className="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm font-medium"
                   >
-                    {interest}
+                    {interest.name}
                   </span>
                 ))}
               </div>
@@ -165,7 +265,7 @@ const ProfileMe = () => {
               <h2 className="text-xl font-semibold">Mes photos</h2>
               <button 
                 className="cursor-pointer flex items-center gap-1 text-sm text-gray-600 hover:text-gray-900"
-                onClick={() => alert('Modifier toutes les photos')}
+                onClick={() => setShowManagePhotos(true)}
               >
                 <FiEdit className="text-base" />
                 <span>Modifier</span>
@@ -173,34 +273,64 @@ const ProfileMe = () => {
             </div>
             
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2">
-              {Array.from({ length: 5 }).map((_, index) => (
-                <div 
-                  key={index} 
-                  className="group aspect-square rounded-lg overflow-hidden shadow relative bg-gray-100 cursor-pointer"
-                >
-                  {userData.photos[index] ? (
-                    <>
-                      <Image
-                        src={userData.photos[index]}
-                        alt={`Photo ${index + 1}`}
-                        width={200}
-                        height={200}
-                        className="w-full h-full object-cover"
-                      />
-                      <button className="absolute top-2 right-2 p-1 bg-black/50 rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
-                        <FiEdit className="text-white text-sm" />
+              {Array.from({ length: 5 }).map((_, index) => {
+                const photo = userData.photos[index];
+                return (
+                  <div 
+                    key={photo ? photo.id : `empty-${index}`} 
+                    className="group aspect-square rounded-lg overflow-hidden shadow relative bg-gray-100 cursor-pointer"
+                  >
+                    {photo ? (
+                      <>
+                        <Image
+                          src={photo.url}
+                          alt={`Photo ${index + 1}`}
+                          width={200}
+                          height={200}
+                          className="w-full h-full object-cover"
+                          onError={(e) => {
+                            const target = e.target as HTMLImageElement;
+                            target.onerror = null;
+                            target.src = '/default-photo.png';
+                          }}
+                        />
+                        <button 
+                          className="absolute top-2 right-2 p-1 bg-black/50 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
+                          onClick={() => setShowManagePhotos(true)}
+                        >
+                          <FiEdit className="text-white text-sm" />
+                        </button>
+                      </>
+                    ) : (
+                      <button 
+                        className="cursor-pointer w-full h-full flex items-center justify-center text-gray-400"
+                        onClick={() => setShowManagePhotos(true)}
+                      >
+                        <FiPlus className="text-2xl" />
                       </button>
-                    </>
-                  ) : (
-                    <div className="w-full h-full flex items-center justify-center text-gray-400">
-                      <FiPlus className="text-2xl" />
-                    </div>
-                  )}
-                </div>
-              ))}
+                    )}
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>
+
+        {showChangeProfilePicture && userData && (
+          <ChangeProfilePicture
+            currentAvatar={userData.avatar}
+            onClose={() => setShowChangeProfilePicture(false)}
+            onSave={handleUpdateProfilePicture}
+          />
+        )}
+
+        {showManagePhotos && userData && (
+          <ManagePhotos
+            initialPhotos={userData.photos}
+            onClose={() => setShowManagePhotos(false)}
+            onSave={handleUpdatePhotos}
+          />
+        )}
       </div>
   )
 }

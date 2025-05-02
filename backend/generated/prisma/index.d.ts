@@ -34,15 +34,10 @@ export type Interest = $Result.DefaultSelection<Prisma.$InterestPayload>
  */
 export type Like = $Result.DefaultSelection<Prisma.$LikePayload>
 /**
- * Model Block
+ * Model Match
  * 
  */
-export type Block = $Result.DefaultSelection<Prisma.$BlockPayload>
-/**
- * Model Message
- * 
- */
-export type Message = $Result.DefaultSelection<Prisma.$MessagePayload>
+export type Match = $Result.DefaultSelection<Prisma.$MatchPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -210,24 +205,14 @@ export class PrismaClient<
   get like(): Prisma.LikeDelegate<ExtArgs, ClientOptions>;
 
   /**
-   * `prisma.block`: Exposes CRUD operations for the **Block** model.
+   * `prisma.match`: Exposes CRUD operations for the **Match** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more Blocks
-    * const blocks = await prisma.block.findMany()
+    * // Fetch zero or more Matches
+    * const matches = await prisma.match.findMany()
     * ```
     */
-  get block(): Prisma.BlockDelegate<ExtArgs, ClientOptions>;
-
-  /**
-   * `prisma.message`: Exposes CRUD operations for the **Message** model.
-    * Example usage:
-    * ```ts
-    * // Fetch zero or more Messages
-    * const messages = await prisma.message.findMany()
-    * ```
-    */
-  get message(): Prisma.MessageDelegate<ExtArgs, ClientOptions>;
+  get match(): Prisma.MatchDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -672,8 +657,7 @@ export namespace Prisma {
     Photo: 'Photo',
     Interest: 'Interest',
     Like: 'Like',
-    Block: 'Block',
-    Message: 'Message'
+    Match: 'Match'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -692,7 +676,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user" | "photo" | "interest" | "like" | "block" | "message"
+      modelProps: "user" | "photo" | "interest" | "like" | "match"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -992,151 +976,77 @@ export namespace Prisma {
           }
         }
       }
-      Block: {
-        payload: Prisma.$BlockPayload<ExtArgs>
-        fields: Prisma.BlockFieldRefs
+      Match: {
+        payload: Prisma.$MatchPayload<ExtArgs>
+        fields: Prisma.MatchFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.BlockFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$BlockPayload> | null
+            args: Prisma.MatchFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MatchPayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.BlockFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$BlockPayload>
+            args: Prisma.MatchFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MatchPayload>
           }
           findFirst: {
-            args: Prisma.BlockFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$BlockPayload> | null
+            args: Prisma.MatchFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MatchPayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.BlockFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$BlockPayload>
+            args: Prisma.MatchFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MatchPayload>
           }
           findMany: {
-            args: Prisma.BlockFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$BlockPayload>[]
+            args: Prisma.MatchFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MatchPayload>[]
           }
           create: {
-            args: Prisma.BlockCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$BlockPayload>
+            args: Prisma.MatchCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MatchPayload>
           }
           createMany: {
-            args: Prisma.BlockCreateManyArgs<ExtArgs>
+            args: Prisma.MatchCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
           createManyAndReturn: {
-            args: Prisma.BlockCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$BlockPayload>[]
+            args: Prisma.MatchCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MatchPayload>[]
           }
           delete: {
-            args: Prisma.BlockDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$BlockPayload>
+            args: Prisma.MatchDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MatchPayload>
           }
           update: {
-            args: Prisma.BlockUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$BlockPayload>
+            args: Prisma.MatchUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MatchPayload>
           }
           deleteMany: {
-            args: Prisma.BlockDeleteManyArgs<ExtArgs>
+            args: Prisma.MatchDeleteManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateMany: {
-            args: Prisma.BlockUpdateManyArgs<ExtArgs>
+            args: Prisma.MatchUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateManyAndReturn: {
-            args: Prisma.BlockUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$BlockPayload>[]
+            args: Prisma.MatchUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MatchPayload>[]
           }
           upsert: {
-            args: Prisma.BlockUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$BlockPayload>
+            args: Prisma.MatchUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MatchPayload>
           }
           aggregate: {
-            args: Prisma.BlockAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateBlock>
+            args: Prisma.MatchAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateMatch>
           }
           groupBy: {
-            args: Prisma.BlockGroupByArgs<ExtArgs>
-            result: $Utils.Optional<BlockGroupByOutputType>[]
+            args: Prisma.MatchGroupByArgs<ExtArgs>
+            result: $Utils.Optional<MatchGroupByOutputType>[]
           }
           count: {
-            args: Prisma.BlockCountArgs<ExtArgs>
-            result: $Utils.Optional<BlockCountAggregateOutputType> | number
-          }
-        }
-      }
-      Message: {
-        payload: Prisma.$MessagePayload<ExtArgs>
-        fields: Prisma.MessageFieldRefs
-        operations: {
-          findUnique: {
-            args: Prisma.MessageFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$MessagePayload> | null
-          }
-          findUniqueOrThrow: {
-            args: Prisma.MessageFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$MessagePayload>
-          }
-          findFirst: {
-            args: Prisma.MessageFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$MessagePayload> | null
-          }
-          findFirstOrThrow: {
-            args: Prisma.MessageFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$MessagePayload>
-          }
-          findMany: {
-            args: Prisma.MessageFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$MessagePayload>[]
-          }
-          create: {
-            args: Prisma.MessageCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$MessagePayload>
-          }
-          createMany: {
-            args: Prisma.MessageCreateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          createManyAndReturn: {
-            args: Prisma.MessageCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$MessagePayload>[]
-          }
-          delete: {
-            args: Prisma.MessageDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$MessagePayload>
-          }
-          update: {
-            args: Prisma.MessageUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$MessagePayload>
-          }
-          deleteMany: {
-            args: Prisma.MessageDeleteManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          updateMany: {
-            args: Prisma.MessageUpdateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          updateManyAndReturn: {
-            args: Prisma.MessageUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$MessagePayload>[]
-          }
-          upsert: {
-            args: Prisma.MessageUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$MessagePayload>
-          }
-          aggregate: {
-            args: Prisma.MessageAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateMessage>
-          }
-          groupBy: {
-            args: Prisma.MessageGroupByArgs<ExtArgs>
-            result: $Utils.Optional<MessageGroupByOutputType>[]
-          }
-          count: {
-            args: Prisma.MessageCountArgs<ExtArgs>
-            result: $Utils.Optional<MessageCountAggregateOutputType> | number
+            args: Prisma.MatchCountArgs<ExtArgs>
+            result: $Utils.Optional<MatchCountAggregateOutputType> | number
           }
         }
       }
@@ -1228,8 +1138,7 @@ export namespace Prisma {
     photo?: PhotoOmit
     interest?: InterestOmit
     like?: LikeOmit
-    block?: BlockOmit
-    message?: MessageOmit
+    match?: MatchOmit
   }
 
   /* Types for Logging */
@@ -1325,24 +1234,20 @@ export namespace Prisma {
 
   export type UserCountOutputType = {
     photos: number
-    likesSent: number
-    likesReceived: number
-    blocksSent: number
-    blocksReceived: number
-    messagesSent: number
-    messagesReceived: number
     interests: number
+    sentLikes: number
+    receivedLikes: number
+    matchesAsUser1: number
+    matchesAsUser2: number
   }
 
   export type UserCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     photos?: boolean | UserCountOutputTypeCountPhotosArgs
-    likesSent?: boolean | UserCountOutputTypeCountLikesSentArgs
-    likesReceived?: boolean | UserCountOutputTypeCountLikesReceivedArgs
-    blocksSent?: boolean | UserCountOutputTypeCountBlocksSentArgs
-    blocksReceived?: boolean | UserCountOutputTypeCountBlocksReceivedArgs
-    messagesSent?: boolean | UserCountOutputTypeCountMessagesSentArgs
-    messagesReceived?: boolean | UserCountOutputTypeCountMessagesReceivedArgs
     interests?: boolean | UserCountOutputTypeCountInterestsArgs
+    sentLikes?: boolean | UserCountOutputTypeCountSentLikesArgs
+    receivedLikes?: boolean | UserCountOutputTypeCountReceivedLikesArgs
+    matchesAsUser1?: boolean | UserCountOutputTypeCountMatchesAsUser1Args
+    matchesAsUser2?: boolean | UserCountOutputTypeCountMatchesAsUser2Args
   }
 
   // Custom InputTypes
@@ -1366,50 +1271,36 @@ export namespace Prisma {
   /**
    * UserCountOutputType without action
    */
-  export type UserCountOutputTypeCountLikesSentArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: LikeWhereInput
-  }
-
-  /**
-   * UserCountOutputType without action
-   */
-  export type UserCountOutputTypeCountLikesReceivedArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: LikeWhereInput
-  }
-
-  /**
-   * UserCountOutputType without action
-   */
-  export type UserCountOutputTypeCountBlocksSentArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: BlockWhereInput
-  }
-
-  /**
-   * UserCountOutputType without action
-   */
-  export type UserCountOutputTypeCountBlocksReceivedArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: BlockWhereInput
-  }
-
-  /**
-   * UserCountOutputType without action
-   */
-  export type UserCountOutputTypeCountMessagesSentArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: MessageWhereInput
-  }
-
-  /**
-   * UserCountOutputType without action
-   */
-  export type UserCountOutputTypeCountMessagesReceivedArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: MessageWhereInput
-  }
-
-  /**
-   * UserCountOutputType without action
-   */
   export type UserCountOutputTypeCountInterestsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: InterestWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountSentLikesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: LikeWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountReceivedLikesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: LikeWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountMatchesAsUser1Args<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: MatchWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountMatchesAsUser2Args<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: MatchWhereInput
   }
 
 
@@ -1483,7 +1374,6 @@ export namespace Prisma {
     gender: string | null
     bio: string | null
     avatar: string | null
-    sexualOrientation: string | null
     latitude: number | null
     longitude: number | null
     createdAt: Date | null
@@ -1501,7 +1391,6 @@ export namespace Prisma {
     gender: string | null
     bio: string | null
     avatar: string | null
-    sexualOrientation: string | null
     latitude: number | null
     longitude: number | null
     createdAt: Date | null
@@ -1519,7 +1408,6 @@ export namespace Prisma {
     gender: number
     bio: number
     avatar: number
-    sexualOrientation: number
     latitude: number
     longitude: number
     createdAt: number
@@ -1551,7 +1439,6 @@ export namespace Prisma {
     gender?: true
     bio?: true
     avatar?: true
-    sexualOrientation?: true
     latitude?: true
     longitude?: true
     createdAt?: true
@@ -1569,7 +1456,6 @@ export namespace Prisma {
     gender?: true
     bio?: true
     avatar?: true
-    sexualOrientation?: true
     latitude?: true
     longitude?: true
     createdAt?: true
@@ -1587,7 +1473,6 @@ export namespace Prisma {
     gender?: true
     bio?: true
     avatar?: true
-    sexualOrientation?: true
     latitude?: true
     longitude?: true
     createdAt?: true
@@ -1692,7 +1577,6 @@ export namespace Prisma {
     gender: string
     bio: string | null
     avatar: string | null
-    sexualOrientation: string | null
     latitude: number | null
     longitude: number | null
     createdAt: Date
@@ -1729,19 +1613,16 @@ export namespace Prisma {
     gender?: boolean
     bio?: boolean
     avatar?: boolean
-    sexualOrientation?: boolean
     latitude?: boolean
     longitude?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     photos?: boolean | User$photosArgs<ExtArgs>
-    likesSent?: boolean | User$likesSentArgs<ExtArgs>
-    likesReceived?: boolean | User$likesReceivedArgs<ExtArgs>
-    blocksSent?: boolean | User$blocksSentArgs<ExtArgs>
-    blocksReceived?: boolean | User$blocksReceivedArgs<ExtArgs>
-    messagesSent?: boolean | User$messagesSentArgs<ExtArgs>
-    messagesReceived?: boolean | User$messagesReceivedArgs<ExtArgs>
     interests?: boolean | User$interestsArgs<ExtArgs>
+    sentLikes?: boolean | User$sentLikesArgs<ExtArgs>
+    receivedLikes?: boolean | User$receivedLikesArgs<ExtArgs>
+    matchesAsUser1?: boolean | User$matchesAsUser1Args<ExtArgs>
+    matchesAsUser2?: boolean | User$matchesAsUser2Args<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
 
@@ -1756,7 +1637,6 @@ export namespace Prisma {
     gender?: boolean
     bio?: boolean
     avatar?: boolean
-    sexualOrientation?: boolean
     latitude?: boolean
     longitude?: boolean
     createdAt?: boolean
@@ -1774,7 +1654,6 @@ export namespace Prisma {
     gender?: boolean
     bio?: boolean
     avatar?: boolean
-    sexualOrientation?: boolean
     latitude?: boolean
     longitude?: boolean
     createdAt?: boolean
@@ -1792,23 +1671,20 @@ export namespace Prisma {
     gender?: boolean
     bio?: boolean
     avatar?: boolean
-    sexualOrientation?: boolean
     latitude?: boolean
     longitude?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "email" | "password" | "username" | "firstName" | "lastName" | "birthDate" | "gender" | "bio" | "avatar" | "sexualOrientation" | "latitude" | "longitude" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
+  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "email" | "password" | "username" | "firstName" | "lastName" | "birthDate" | "gender" | "bio" | "avatar" | "latitude" | "longitude" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     photos?: boolean | User$photosArgs<ExtArgs>
-    likesSent?: boolean | User$likesSentArgs<ExtArgs>
-    likesReceived?: boolean | User$likesReceivedArgs<ExtArgs>
-    blocksSent?: boolean | User$blocksSentArgs<ExtArgs>
-    blocksReceived?: boolean | User$blocksReceivedArgs<ExtArgs>
-    messagesSent?: boolean | User$messagesSentArgs<ExtArgs>
-    messagesReceived?: boolean | User$messagesReceivedArgs<ExtArgs>
     interests?: boolean | User$interestsArgs<ExtArgs>
+    sentLikes?: boolean | User$sentLikesArgs<ExtArgs>
+    receivedLikes?: boolean | User$receivedLikesArgs<ExtArgs>
+    matchesAsUser1?: boolean | User$matchesAsUser1Args<ExtArgs>
+    matchesAsUser2?: boolean | User$matchesAsUser2Args<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type UserIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -1818,13 +1694,11 @@ export namespace Prisma {
     name: "User"
     objects: {
       photos: Prisma.$PhotoPayload<ExtArgs>[]
-      likesSent: Prisma.$LikePayload<ExtArgs>[]
-      likesReceived: Prisma.$LikePayload<ExtArgs>[]
-      blocksSent: Prisma.$BlockPayload<ExtArgs>[]
-      blocksReceived: Prisma.$BlockPayload<ExtArgs>[]
-      messagesSent: Prisma.$MessagePayload<ExtArgs>[]
-      messagesReceived: Prisma.$MessagePayload<ExtArgs>[]
       interests: Prisma.$InterestPayload<ExtArgs>[]
+      sentLikes: Prisma.$LikePayload<ExtArgs>[]
+      receivedLikes: Prisma.$LikePayload<ExtArgs>[]
+      matchesAsUser1: Prisma.$MatchPayload<ExtArgs>[]
+      matchesAsUser2: Prisma.$MatchPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -1837,7 +1711,6 @@ export namespace Prisma {
       gender: string
       bio: string | null
       avatar: string | null
-      sexualOrientation: string | null
       latitude: number | null
       longitude: number | null
       createdAt: Date
@@ -2237,13 +2110,11 @@ export namespace Prisma {
   export interface Prisma__UserClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     photos<T extends User$photosArgs<ExtArgs> = {}>(args?: Subset<T, User$photosArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PhotoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    likesSent<T extends User$likesSentArgs<ExtArgs> = {}>(args?: Subset<T, User$likesSentArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LikePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    likesReceived<T extends User$likesReceivedArgs<ExtArgs> = {}>(args?: Subset<T, User$likesReceivedArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LikePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    blocksSent<T extends User$blocksSentArgs<ExtArgs> = {}>(args?: Subset<T, User$blocksSentArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BlockPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    blocksReceived<T extends User$blocksReceivedArgs<ExtArgs> = {}>(args?: Subset<T, User$blocksReceivedArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BlockPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    messagesSent<T extends User$messagesSentArgs<ExtArgs> = {}>(args?: Subset<T, User$messagesSentArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MessagePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    messagesReceived<T extends User$messagesReceivedArgs<ExtArgs> = {}>(args?: Subset<T, User$messagesReceivedArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MessagePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     interests<T extends User$interestsArgs<ExtArgs> = {}>(args?: Subset<T, User$interestsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$InterestPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    sentLikes<T extends User$sentLikesArgs<ExtArgs> = {}>(args?: Subset<T, User$sentLikesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LikePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    receivedLikes<T extends User$receivedLikesArgs<ExtArgs> = {}>(args?: Subset<T, User$receivedLikesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LikePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    matchesAsUser1<T extends User$matchesAsUser1Args<ExtArgs> = {}>(args?: Subset<T, User$matchesAsUser1Args<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MatchPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    matchesAsUser2<T extends User$matchesAsUser2Args<ExtArgs> = {}>(args?: Subset<T, User$matchesAsUser2Args<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MatchPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2283,7 +2154,6 @@ export namespace Prisma {
     readonly gender: FieldRef<"User", 'String'>
     readonly bio: FieldRef<"User", 'String'>
     readonly avatar: FieldRef<"User", 'String'>
-    readonly sexualOrientation: FieldRef<"User", 'String'>
     readonly latitude: FieldRef<"User", 'Float'>
     readonly longitude: FieldRef<"User", 'Float'>
     readonly createdAt: FieldRef<"User", 'DateTime'>
@@ -2698,150 +2568,6 @@ export namespace Prisma {
   }
 
   /**
-   * User.likesSent
-   */
-  export type User$likesSentArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Like
-     */
-    select?: LikeSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Like
-     */
-    omit?: LikeOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: LikeInclude<ExtArgs> | null
-    where?: LikeWhereInput
-    orderBy?: LikeOrderByWithRelationInput | LikeOrderByWithRelationInput[]
-    cursor?: LikeWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: LikeScalarFieldEnum | LikeScalarFieldEnum[]
-  }
-
-  /**
-   * User.likesReceived
-   */
-  export type User$likesReceivedArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Like
-     */
-    select?: LikeSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Like
-     */
-    omit?: LikeOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: LikeInclude<ExtArgs> | null
-    where?: LikeWhereInput
-    orderBy?: LikeOrderByWithRelationInput | LikeOrderByWithRelationInput[]
-    cursor?: LikeWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: LikeScalarFieldEnum | LikeScalarFieldEnum[]
-  }
-
-  /**
-   * User.blocksSent
-   */
-  export type User$blocksSentArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Block
-     */
-    select?: BlockSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Block
-     */
-    omit?: BlockOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: BlockInclude<ExtArgs> | null
-    where?: BlockWhereInput
-    orderBy?: BlockOrderByWithRelationInput | BlockOrderByWithRelationInput[]
-    cursor?: BlockWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: BlockScalarFieldEnum | BlockScalarFieldEnum[]
-  }
-
-  /**
-   * User.blocksReceived
-   */
-  export type User$blocksReceivedArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Block
-     */
-    select?: BlockSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Block
-     */
-    omit?: BlockOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: BlockInclude<ExtArgs> | null
-    where?: BlockWhereInput
-    orderBy?: BlockOrderByWithRelationInput | BlockOrderByWithRelationInput[]
-    cursor?: BlockWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: BlockScalarFieldEnum | BlockScalarFieldEnum[]
-  }
-
-  /**
-   * User.messagesSent
-   */
-  export type User$messagesSentArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Message
-     */
-    select?: MessageSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Message
-     */
-    omit?: MessageOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: MessageInclude<ExtArgs> | null
-    where?: MessageWhereInput
-    orderBy?: MessageOrderByWithRelationInput | MessageOrderByWithRelationInput[]
-    cursor?: MessageWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: MessageScalarFieldEnum | MessageScalarFieldEnum[]
-  }
-
-  /**
-   * User.messagesReceived
-   */
-  export type User$messagesReceivedArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Message
-     */
-    select?: MessageSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Message
-     */
-    omit?: MessageOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: MessageInclude<ExtArgs> | null
-    where?: MessageWhereInput
-    orderBy?: MessageOrderByWithRelationInput | MessageOrderByWithRelationInput[]
-    cursor?: MessageWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: MessageScalarFieldEnum | MessageScalarFieldEnum[]
-  }
-
-  /**
    * User.interests
    */
   export type User$interestsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -2863,6 +2589,102 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: InterestScalarFieldEnum | InterestScalarFieldEnum[]
+  }
+
+  /**
+   * User.sentLikes
+   */
+  export type User$sentLikesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Like
+     */
+    select?: LikeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Like
+     */
+    omit?: LikeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LikeInclude<ExtArgs> | null
+    where?: LikeWhereInput
+    orderBy?: LikeOrderByWithRelationInput | LikeOrderByWithRelationInput[]
+    cursor?: LikeWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: LikeScalarFieldEnum | LikeScalarFieldEnum[]
+  }
+
+  /**
+   * User.receivedLikes
+   */
+  export type User$receivedLikesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Like
+     */
+    select?: LikeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Like
+     */
+    omit?: LikeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LikeInclude<ExtArgs> | null
+    where?: LikeWhereInput
+    orderBy?: LikeOrderByWithRelationInput | LikeOrderByWithRelationInput[]
+    cursor?: LikeWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: LikeScalarFieldEnum | LikeScalarFieldEnum[]
+  }
+
+  /**
+   * User.matchesAsUser1
+   */
+  export type User$matchesAsUser1Args<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Match
+     */
+    select?: MatchSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Match
+     */
+    omit?: MatchOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MatchInclude<ExtArgs> | null
+    where?: MatchWhereInput
+    orderBy?: MatchOrderByWithRelationInput | MatchOrderByWithRelationInput[]
+    cursor?: MatchWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: MatchScalarFieldEnum | MatchScalarFieldEnum[]
+  }
+
+  /**
+   * User.matchesAsUser2
+   */
+  export type User$matchesAsUser2Args<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Match
+     */
+    select?: MatchSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Match
+     */
+    omit?: MatchOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MatchInclude<ExtArgs> | null
+    where?: MatchWhereInput
+    orderBy?: MatchOrderByWithRelationInput | MatchOrderByWithRelationInput[]
+    cursor?: MatchWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: MatchScalarFieldEnum | MatchScalarFieldEnum[]
   }
 
   /**
@@ -5029,34 +4851,34 @@ export namespace Prisma {
 
   export type LikeAvgAggregateOutputType = {
     id: number | null
-    fromUserId: number | null
-    toUserId: number | null
+    senderId: number | null
+    receiverId: number | null
   }
 
   export type LikeSumAggregateOutputType = {
     id: number | null
-    fromUserId: number | null
-    toUserId: number | null
+    senderId: number | null
+    receiverId: number | null
   }
 
   export type LikeMinAggregateOutputType = {
     id: number | null
-    fromUserId: number | null
-    toUserId: number | null
+    senderId: number | null
+    receiverId: number | null
     createdAt: Date | null
   }
 
   export type LikeMaxAggregateOutputType = {
     id: number | null
-    fromUserId: number | null
-    toUserId: number | null
+    senderId: number | null
+    receiverId: number | null
     createdAt: Date | null
   }
 
   export type LikeCountAggregateOutputType = {
     id: number
-    fromUserId: number
-    toUserId: number
+    senderId: number
+    receiverId: number
     createdAt: number
     _all: number
   }
@@ -5064,34 +4886,34 @@ export namespace Prisma {
 
   export type LikeAvgAggregateInputType = {
     id?: true
-    fromUserId?: true
-    toUserId?: true
+    senderId?: true
+    receiverId?: true
   }
 
   export type LikeSumAggregateInputType = {
     id?: true
-    fromUserId?: true
-    toUserId?: true
+    senderId?: true
+    receiverId?: true
   }
 
   export type LikeMinAggregateInputType = {
     id?: true
-    fromUserId?: true
-    toUserId?: true
+    senderId?: true
+    receiverId?: true
     createdAt?: true
   }
 
   export type LikeMaxAggregateInputType = {
     id?: true
-    fromUserId?: true
-    toUserId?: true
+    senderId?: true
+    receiverId?: true
     createdAt?: true
   }
 
   export type LikeCountAggregateInputType = {
     id?: true
-    fromUserId?: true
-    toUserId?: true
+    senderId?: true
+    receiverId?: true
     createdAt?: true
     _all?: true
   }
@@ -5184,8 +5006,8 @@ export namespace Prisma {
 
   export type LikeGroupByOutputType = {
     id: number
-    fromUserId: number
-    toUserId: number
+    senderId: number
+    receiverId: number
     createdAt: Date
     _count: LikeCountAggregateOutputType | null
     _avg: LikeAvgAggregateOutputType | null
@@ -5210,62 +5032,62 @@ export namespace Prisma {
 
   export type LikeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    fromUserId?: boolean
-    toUserId?: boolean
+    senderId?: boolean
+    receiverId?: boolean
     createdAt?: boolean
-    fromUser?: boolean | UserDefaultArgs<ExtArgs>
-    toUser?: boolean | UserDefaultArgs<ExtArgs>
+    sender?: boolean | UserDefaultArgs<ExtArgs>
+    receiver?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["like"]>
 
   export type LikeSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    fromUserId?: boolean
-    toUserId?: boolean
+    senderId?: boolean
+    receiverId?: boolean
     createdAt?: boolean
-    fromUser?: boolean | UserDefaultArgs<ExtArgs>
-    toUser?: boolean | UserDefaultArgs<ExtArgs>
+    sender?: boolean | UserDefaultArgs<ExtArgs>
+    receiver?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["like"]>
 
   export type LikeSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    fromUserId?: boolean
-    toUserId?: boolean
+    senderId?: boolean
+    receiverId?: boolean
     createdAt?: boolean
-    fromUser?: boolean | UserDefaultArgs<ExtArgs>
-    toUser?: boolean | UserDefaultArgs<ExtArgs>
+    sender?: boolean | UserDefaultArgs<ExtArgs>
+    receiver?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["like"]>
 
   export type LikeSelectScalar = {
     id?: boolean
-    fromUserId?: boolean
-    toUserId?: boolean
+    senderId?: boolean
+    receiverId?: boolean
     createdAt?: boolean
   }
 
-  export type LikeOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "fromUserId" | "toUserId" | "createdAt", ExtArgs["result"]["like"]>
+  export type LikeOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "senderId" | "receiverId" | "createdAt", ExtArgs["result"]["like"]>
   export type LikeInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    fromUser?: boolean | UserDefaultArgs<ExtArgs>
-    toUser?: boolean | UserDefaultArgs<ExtArgs>
+    sender?: boolean | UserDefaultArgs<ExtArgs>
+    receiver?: boolean | UserDefaultArgs<ExtArgs>
   }
   export type LikeIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    fromUser?: boolean | UserDefaultArgs<ExtArgs>
-    toUser?: boolean | UserDefaultArgs<ExtArgs>
+    sender?: boolean | UserDefaultArgs<ExtArgs>
+    receiver?: boolean | UserDefaultArgs<ExtArgs>
   }
   export type LikeIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    fromUser?: boolean | UserDefaultArgs<ExtArgs>
-    toUser?: boolean | UserDefaultArgs<ExtArgs>
+    sender?: boolean | UserDefaultArgs<ExtArgs>
+    receiver?: boolean | UserDefaultArgs<ExtArgs>
   }
 
   export type $LikePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Like"
     objects: {
-      fromUser: Prisma.$UserPayload<ExtArgs>
-      toUser: Prisma.$UserPayload<ExtArgs>
+      sender: Prisma.$UserPayload<ExtArgs>
+      receiver: Prisma.$UserPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
-      fromUserId: number
-      toUserId: number
+      senderId: number
+      receiverId: number
       createdAt: Date
     }, ExtArgs["result"]["like"]>
     composites: {}
@@ -5661,8 +5483,8 @@ export namespace Prisma {
    */
   export interface Prisma__LikeClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    fromUser<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    toUser<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    sender<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    receiver<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -5693,8 +5515,8 @@ export namespace Prisma {
    */
   interface LikeFieldRefs {
     readonly id: FieldRef<"Like", 'Int'>
-    readonly fromUserId: FieldRef<"Like", 'Int'>
-    readonly toUserId: FieldRef<"Like", 'Int'>
+    readonly senderId: FieldRef<"Like", 'Int'>
+    readonly receiverId: FieldRef<"Like", 'Int'>
     readonly createdAt: FieldRef<"Like", 'DateTime'>
   }
     
@@ -6109,387 +5931,387 @@ export namespace Prisma {
 
 
   /**
-   * Model Block
+   * Model Match
    */
 
-  export type AggregateBlock = {
-    _count: BlockCountAggregateOutputType | null
-    _avg: BlockAvgAggregateOutputType | null
-    _sum: BlockSumAggregateOutputType | null
-    _min: BlockMinAggregateOutputType | null
-    _max: BlockMaxAggregateOutputType | null
+  export type AggregateMatch = {
+    _count: MatchCountAggregateOutputType | null
+    _avg: MatchAvgAggregateOutputType | null
+    _sum: MatchSumAggregateOutputType | null
+    _min: MatchMinAggregateOutputType | null
+    _max: MatchMaxAggregateOutputType | null
   }
 
-  export type BlockAvgAggregateOutputType = {
+  export type MatchAvgAggregateOutputType = {
     id: number | null
-    blockerId: number | null
-    blockedId: number | null
+    user1Id: number | null
+    user2Id: number | null
   }
 
-  export type BlockSumAggregateOutputType = {
+  export type MatchSumAggregateOutputType = {
     id: number | null
-    blockerId: number | null
-    blockedId: number | null
+    user1Id: number | null
+    user2Id: number | null
   }
 
-  export type BlockMinAggregateOutputType = {
+  export type MatchMinAggregateOutputType = {
     id: number | null
-    blockerId: number | null
-    blockedId: number | null
+    user1Id: number | null
+    user2Id: number | null
     createdAt: Date | null
   }
 
-  export type BlockMaxAggregateOutputType = {
+  export type MatchMaxAggregateOutputType = {
     id: number | null
-    blockerId: number | null
-    blockedId: number | null
+    user1Id: number | null
+    user2Id: number | null
     createdAt: Date | null
   }
 
-  export type BlockCountAggregateOutputType = {
+  export type MatchCountAggregateOutputType = {
     id: number
-    blockerId: number
-    blockedId: number
+    user1Id: number
+    user2Id: number
     createdAt: number
     _all: number
   }
 
 
-  export type BlockAvgAggregateInputType = {
+  export type MatchAvgAggregateInputType = {
     id?: true
-    blockerId?: true
-    blockedId?: true
+    user1Id?: true
+    user2Id?: true
   }
 
-  export type BlockSumAggregateInputType = {
+  export type MatchSumAggregateInputType = {
     id?: true
-    blockerId?: true
-    blockedId?: true
+    user1Id?: true
+    user2Id?: true
   }
 
-  export type BlockMinAggregateInputType = {
+  export type MatchMinAggregateInputType = {
     id?: true
-    blockerId?: true
-    blockedId?: true
+    user1Id?: true
+    user2Id?: true
     createdAt?: true
   }
 
-  export type BlockMaxAggregateInputType = {
+  export type MatchMaxAggregateInputType = {
     id?: true
-    blockerId?: true
-    blockedId?: true
+    user1Id?: true
+    user2Id?: true
     createdAt?: true
   }
 
-  export type BlockCountAggregateInputType = {
+  export type MatchCountAggregateInputType = {
     id?: true
-    blockerId?: true
-    blockedId?: true
+    user1Id?: true
+    user2Id?: true
     createdAt?: true
     _all?: true
   }
 
-  export type BlockAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type MatchAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which Block to aggregate.
+     * Filter which Match to aggregate.
      */
-    where?: BlockWhereInput
+    where?: MatchWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Blocks to fetch.
+     * Determine the order of Matches to fetch.
      */
-    orderBy?: BlockOrderByWithRelationInput | BlockOrderByWithRelationInput[]
+    orderBy?: MatchOrderByWithRelationInput | MatchOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: BlockWhereUniqueInput
+    cursor?: MatchWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Blocks from the position of the cursor.
+     * Take `±n` Matches from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Blocks.
+     * Skip the first `n` Matches.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned Blocks
+     * Count returned Matches
     **/
-    _count?: true | BlockCountAggregateInputType
+    _count?: true | MatchCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to average
     **/
-    _avg?: BlockAvgAggregateInputType
+    _avg?: MatchAvgAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to sum
     **/
-    _sum?: BlockSumAggregateInputType
+    _sum?: MatchSumAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: BlockMinAggregateInputType
+    _min?: MatchMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: BlockMaxAggregateInputType
+    _max?: MatchMaxAggregateInputType
   }
 
-  export type GetBlockAggregateType<T extends BlockAggregateArgs> = {
-        [P in keyof T & keyof AggregateBlock]: P extends '_count' | 'count'
+  export type GetMatchAggregateType<T extends MatchAggregateArgs> = {
+        [P in keyof T & keyof AggregateMatch]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregateBlock[P]>
-      : GetScalarType<T[P], AggregateBlock[P]>
+        : GetScalarType<T[P], AggregateMatch[P]>
+      : GetScalarType<T[P], AggregateMatch[P]>
   }
 
 
 
 
-  export type BlockGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: BlockWhereInput
-    orderBy?: BlockOrderByWithAggregationInput | BlockOrderByWithAggregationInput[]
-    by: BlockScalarFieldEnum[] | BlockScalarFieldEnum
-    having?: BlockScalarWhereWithAggregatesInput
+  export type MatchGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: MatchWhereInput
+    orderBy?: MatchOrderByWithAggregationInput | MatchOrderByWithAggregationInput[]
+    by: MatchScalarFieldEnum[] | MatchScalarFieldEnum
+    having?: MatchScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: BlockCountAggregateInputType | true
-    _avg?: BlockAvgAggregateInputType
-    _sum?: BlockSumAggregateInputType
-    _min?: BlockMinAggregateInputType
-    _max?: BlockMaxAggregateInputType
+    _count?: MatchCountAggregateInputType | true
+    _avg?: MatchAvgAggregateInputType
+    _sum?: MatchSumAggregateInputType
+    _min?: MatchMinAggregateInputType
+    _max?: MatchMaxAggregateInputType
   }
 
-  export type BlockGroupByOutputType = {
+  export type MatchGroupByOutputType = {
     id: number
-    blockerId: number
-    blockedId: number
+    user1Id: number
+    user2Id: number
     createdAt: Date
-    _count: BlockCountAggregateOutputType | null
-    _avg: BlockAvgAggregateOutputType | null
-    _sum: BlockSumAggregateOutputType | null
-    _min: BlockMinAggregateOutputType | null
-    _max: BlockMaxAggregateOutputType | null
+    _count: MatchCountAggregateOutputType | null
+    _avg: MatchAvgAggregateOutputType | null
+    _sum: MatchSumAggregateOutputType | null
+    _min: MatchMinAggregateOutputType | null
+    _max: MatchMaxAggregateOutputType | null
   }
 
-  type GetBlockGroupByPayload<T extends BlockGroupByArgs> = Prisma.PrismaPromise<
+  type GetMatchGroupByPayload<T extends MatchGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<BlockGroupByOutputType, T['by']> &
+      PickEnumerable<MatchGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof BlockGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof MatchGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], BlockGroupByOutputType[P]>
-            : GetScalarType<T[P], BlockGroupByOutputType[P]>
+              : GetScalarType<T[P], MatchGroupByOutputType[P]>
+            : GetScalarType<T[P], MatchGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type BlockSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type MatchSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    blockerId?: boolean
-    blockedId?: boolean
+    user1Id?: boolean
+    user2Id?: boolean
     createdAt?: boolean
-    blocker?: boolean | UserDefaultArgs<ExtArgs>
-    blocked?: boolean | UserDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["block"]>
+    user1?: boolean | UserDefaultArgs<ExtArgs>
+    user2?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["match"]>
 
-  export type BlockSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type MatchSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    blockerId?: boolean
-    blockedId?: boolean
+    user1Id?: boolean
+    user2Id?: boolean
     createdAt?: boolean
-    blocker?: boolean | UserDefaultArgs<ExtArgs>
-    blocked?: boolean | UserDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["block"]>
+    user1?: boolean | UserDefaultArgs<ExtArgs>
+    user2?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["match"]>
 
-  export type BlockSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type MatchSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    blockerId?: boolean
-    blockedId?: boolean
+    user1Id?: boolean
+    user2Id?: boolean
     createdAt?: boolean
-    blocker?: boolean | UserDefaultArgs<ExtArgs>
-    blocked?: boolean | UserDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["block"]>
+    user1?: boolean | UserDefaultArgs<ExtArgs>
+    user2?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["match"]>
 
-  export type BlockSelectScalar = {
+  export type MatchSelectScalar = {
     id?: boolean
-    blockerId?: boolean
-    blockedId?: boolean
+    user1Id?: boolean
+    user2Id?: boolean
     createdAt?: boolean
   }
 
-  export type BlockOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "blockerId" | "blockedId" | "createdAt", ExtArgs["result"]["block"]>
-  export type BlockInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    blocker?: boolean | UserDefaultArgs<ExtArgs>
-    blocked?: boolean | UserDefaultArgs<ExtArgs>
+  export type MatchOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "user1Id" | "user2Id" | "createdAt", ExtArgs["result"]["match"]>
+  export type MatchInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user1?: boolean | UserDefaultArgs<ExtArgs>
+    user2?: boolean | UserDefaultArgs<ExtArgs>
   }
-  export type BlockIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    blocker?: boolean | UserDefaultArgs<ExtArgs>
-    blocked?: boolean | UserDefaultArgs<ExtArgs>
+  export type MatchIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user1?: boolean | UserDefaultArgs<ExtArgs>
+    user2?: boolean | UserDefaultArgs<ExtArgs>
   }
-  export type BlockIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    blocker?: boolean | UserDefaultArgs<ExtArgs>
-    blocked?: boolean | UserDefaultArgs<ExtArgs>
+  export type MatchIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user1?: boolean | UserDefaultArgs<ExtArgs>
+    user2?: boolean | UserDefaultArgs<ExtArgs>
   }
 
-  export type $BlockPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "Block"
+  export type $MatchPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Match"
     objects: {
-      blocker: Prisma.$UserPayload<ExtArgs>
-      blocked: Prisma.$UserPayload<ExtArgs>
+      user1: Prisma.$UserPayload<ExtArgs>
+      user2: Prisma.$UserPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
-      blockerId: number
-      blockedId: number
+      user1Id: number
+      user2Id: number
       createdAt: Date
-    }, ExtArgs["result"]["block"]>
+    }, ExtArgs["result"]["match"]>
     composites: {}
   }
 
-  type BlockGetPayload<S extends boolean | null | undefined | BlockDefaultArgs> = $Result.GetResult<Prisma.$BlockPayload, S>
+  type MatchGetPayload<S extends boolean | null | undefined | MatchDefaultArgs> = $Result.GetResult<Prisma.$MatchPayload, S>
 
-  type BlockCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<BlockFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: BlockCountAggregateInputType | true
+  type MatchCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<MatchFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: MatchCountAggregateInputType | true
     }
 
-  export interface BlockDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Block'], meta: { name: 'Block' } }
+  export interface MatchDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Match'], meta: { name: 'Match' } }
     /**
-     * Find zero or one Block that matches the filter.
-     * @param {BlockFindUniqueArgs} args - Arguments to find a Block
+     * Find zero or one Match that matches the filter.
+     * @param {MatchFindUniqueArgs} args - Arguments to find a Match
      * @example
-     * // Get one Block
-     * const block = await prisma.block.findUnique({
+     * // Get one Match
+     * const match = await prisma.match.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUnique<T extends BlockFindUniqueArgs>(args: SelectSubset<T, BlockFindUniqueArgs<ExtArgs>>): Prisma__BlockClient<$Result.GetResult<Prisma.$BlockPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findUnique<T extends MatchFindUniqueArgs>(args: SelectSubset<T, MatchFindUniqueArgs<ExtArgs>>): Prisma__MatchClient<$Result.GetResult<Prisma.$MatchPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find one Block that matches the filter or throw an error with `error.code='P2025'`
+     * Find one Match that matches the filter or throw an error with `error.code='P2025'`
      * if no matches were found.
-     * @param {BlockFindUniqueOrThrowArgs} args - Arguments to find a Block
+     * @param {MatchFindUniqueOrThrowArgs} args - Arguments to find a Match
      * @example
-     * // Get one Block
-     * const block = await prisma.block.findUniqueOrThrow({
+     * // Get one Match
+     * const match = await prisma.match.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUniqueOrThrow<T extends BlockFindUniqueOrThrowArgs>(args: SelectSubset<T, BlockFindUniqueOrThrowArgs<ExtArgs>>): Prisma__BlockClient<$Result.GetResult<Prisma.$BlockPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findUniqueOrThrow<T extends MatchFindUniqueOrThrowArgs>(args: SelectSubset<T, MatchFindUniqueOrThrowArgs<ExtArgs>>): Prisma__MatchClient<$Result.GetResult<Prisma.$MatchPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first Block that matches the filter.
+     * Find the first Match that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {BlockFindFirstArgs} args - Arguments to find a Block
+     * @param {MatchFindFirstArgs} args - Arguments to find a Match
      * @example
-     * // Get one Block
-     * const block = await prisma.block.findFirst({
+     * // Get one Match
+     * const match = await prisma.match.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirst<T extends BlockFindFirstArgs>(args?: SelectSubset<T, BlockFindFirstArgs<ExtArgs>>): Prisma__BlockClient<$Result.GetResult<Prisma.$BlockPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findFirst<T extends MatchFindFirstArgs>(args?: SelectSubset<T, MatchFindFirstArgs<ExtArgs>>): Prisma__MatchClient<$Result.GetResult<Prisma.$MatchPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first Block that matches the filter or
+     * Find the first Match that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {BlockFindFirstOrThrowArgs} args - Arguments to find a Block
+     * @param {MatchFindFirstOrThrowArgs} args - Arguments to find a Match
      * @example
-     * // Get one Block
-     * const block = await prisma.block.findFirstOrThrow({
+     * // Get one Match
+     * const match = await prisma.match.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirstOrThrow<T extends BlockFindFirstOrThrowArgs>(args?: SelectSubset<T, BlockFindFirstOrThrowArgs<ExtArgs>>): Prisma__BlockClient<$Result.GetResult<Prisma.$BlockPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findFirstOrThrow<T extends MatchFindFirstOrThrowArgs>(args?: SelectSubset<T, MatchFindFirstOrThrowArgs<ExtArgs>>): Prisma__MatchClient<$Result.GetResult<Prisma.$MatchPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find zero or more Blocks that matches the filter.
+     * Find zero or more Matches that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {BlockFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {MatchFindManyArgs} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all Blocks
-     * const blocks = await prisma.block.findMany()
+     * // Get all Matches
+     * const matches = await prisma.match.findMany()
      * 
-     * // Get first 10 Blocks
-     * const blocks = await prisma.block.findMany({ take: 10 })
+     * // Get first 10 Matches
+     * const matches = await prisma.match.findMany({ take: 10 })
      * 
      * // Only select the `id`
-     * const blockWithIdOnly = await prisma.block.findMany({ select: { id: true } })
+     * const matchWithIdOnly = await prisma.match.findMany({ select: { id: true } })
      * 
      */
-    findMany<T extends BlockFindManyArgs>(args?: SelectSubset<T, BlockFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BlockPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+    findMany<T extends MatchFindManyArgs>(args?: SelectSubset<T, MatchFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MatchPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
     /**
-     * Create a Block.
-     * @param {BlockCreateArgs} args - Arguments to create a Block.
+     * Create a Match.
+     * @param {MatchCreateArgs} args - Arguments to create a Match.
      * @example
-     * // Create one Block
-     * const Block = await prisma.block.create({
+     * // Create one Match
+     * const Match = await prisma.match.create({
      *   data: {
-     *     // ... data to create a Block
+     *     // ... data to create a Match
      *   }
      * })
      * 
      */
-    create<T extends BlockCreateArgs>(args: SelectSubset<T, BlockCreateArgs<ExtArgs>>): Prisma__BlockClient<$Result.GetResult<Prisma.$BlockPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    create<T extends MatchCreateArgs>(args: SelectSubset<T, MatchCreateArgs<ExtArgs>>): Prisma__MatchClient<$Result.GetResult<Prisma.$MatchPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Create many Blocks.
-     * @param {BlockCreateManyArgs} args - Arguments to create many Blocks.
+     * Create many Matches.
+     * @param {MatchCreateManyArgs} args - Arguments to create many Matches.
      * @example
-     * // Create many Blocks
-     * const block = await prisma.block.createMany({
+     * // Create many Matches
+     * const match = await prisma.match.createMany({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      *     
      */
-    createMany<T extends BlockCreateManyArgs>(args?: SelectSubset<T, BlockCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    createMany<T extends MatchCreateManyArgs>(args?: SelectSubset<T, MatchCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create many Blocks and returns the data saved in the database.
-     * @param {BlockCreateManyAndReturnArgs} args - Arguments to create many Blocks.
+     * Create many Matches and returns the data saved in the database.
+     * @param {MatchCreateManyAndReturnArgs} args - Arguments to create many Matches.
      * @example
-     * // Create many Blocks
-     * const block = await prisma.block.createManyAndReturn({
+     * // Create many Matches
+     * const match = await prisma.match.createManyAndReturn({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      * 
-     * // Create many Blocks and only return the `id`
-     * const blockWithIdOnly = await prisma.block.createManyAndReturn({
+     * // Create many Matches and only return the `id`
+     * const matchWithIdOnly = await prisma.match.createManyAndReturn({
      *   select: { id: true },
      *   data: [
      *     // ... provide data here
@@ -6499,28 +6321,28 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    createManyAndReturn<T extends BlockCreateManyAndReturnArgs>(args?: SelectSubset<T, BlockCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BlockPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+    createManyAndReturn<T extends MatchCreateManyAndReturnArgs>(args?: SelectSubset<T, MatchCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MatchPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Delete a Block.
-     * @param {BlockDeleteArgs} args - Arguments to delete one Block.
+     * Delete a Match.
+     * @param {MatchDeleteArgs} args - Arguments to delete one Match.
      * @example
-     * // Delete one Block
-     * const Block = await prisma.block.delete({
+     * // Delete one Match
+     * const Match = await prisma.match.delete({
      *   where: {
-     *     // ... filter to delete one Block
+     *     // ... filter to delete one Match
      *   }
      * })
      * 
      */
-    delete<T extends BlockDeleteArgs>(args: SelectSubset<T, BlockDeleteArgs<ExtArgs>>): Prisma__BlockClient<$Result.GetResult<Prisma.$BlockPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    delete<T extends MatchDeleteArgs>(args: SelectSubset<T, MatchDeleteArgs<ExtArgs>>): Prisma__MatchClient<$Result.GetResult<Prisma.$MatchPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Update one Block.
-     * @param {BlockUpdateArgs} args - Arguments to update one Block.
+     * Update one Match.
+     * @param {MatchUpdateArgs} args - Arguments to update one Match.
      * @example
-     * // Update one Block
-     * const block = await prisma.block.update({
+     * // Update one Match
+     * const match = await prisma.match.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -6530,30 +6352,30 @@ export namespace Prisma {
      * })
      * 
      */
-    update<T extends BlockUpdateArgs>(args: SelectSubset<T, BlockUpdateArgs<ExtArgs>>): Prisma__BlockClient<$Result.GetResult<Prisma.$BlockPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    update<T extends MatchUpdateArgs>(args: SelectSubset<T, MatchUpdateArgs<ExtArgs>>): Prisma__MatchClient<$Result.GetResult<Prisma.$MatchPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Delete zero or more Blocks.
-     * @param {BlockDeleteManyArgs} args - Arguments to filter Blocks to delete.
+     * Delete zero or more Matches.
+     * @param {MatchDeleteManyArgs} args - Arguments to filter Matches to delete.
      * @example
-     * // Delete a few Blocks
-     * const { count } = await prisma.block.deleteMany({
+     * // Delete a few Matches
+     * const { count } = await prisma.match.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
      */
-    deleteMany<T extends BlockDeleteManyArgs>(args?: SelectSubset<T, BlockDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    deleteMany<T extends MatchDeleteManyArgs>(args?: SelectSubset<T, MatchDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Blocks.
+     * Update zero or more Matches.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {BlockUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {MatchUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many Blocks
-     * const block = await prisma.block.updateMany({
+     * // Update many Matches
+     * const match = await prisma.match.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -6563,14 +6385,14 @@ export namespace Prisma {
      * })
      * 
      */
-    updateMany<T extends BlockUpdateManyArgs>(args: SelectSubset<T, BlockUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    updateMany<T extends MatchUpdateManyArgs>(args: SelectSubset<T, MatchUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Blocks and returns the data updated in the database.
-     * @param {BlockUpdateManyAndReturnArgs} args - Arguments to update many Blocks.
+     * Update zero or more Matches and returns the data updated in the database.
+     * @param {MatchUpdateManyAndReturnArgs} args - Arguments to update many Matches.
      * @example
-     * // Update many Blocks
-     * const block = await prisma.block.updateManyAndReturn({
+     * // Update many Matches
+     * const match = await prisma.match.updateManyAndReturn({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -6579,8 +6401,8 @@ export namespace Prisma {
      *   ]
      * })
      * 
-     * // Update zero or more Blocks and only return the `id`
-     * const blockWithIdOnly = await prisma.block.updateManyAndReturn({
+     * // Update zero or more Matches and only return the `id`
+     * const matchWithIdOnly = await prisma.match.updateManyAndReturn({
      *   select: { id: true },
      *   where: {
      *     // ... provide filter here
@@ -6593,56 +6415,56 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    updateManyAndReturn<T extends BlockUpdateManyAndReturnArgs>(args: SelectSubset<T, BlockUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BlockPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+    updateManyAndReturn<T extends MatchUpdateManyAndReturnArgs>(args: SelectSubset<T, MatchUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MatchPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Create or update one Block.
-     * @param {BlockUpsertArgs} args - Arguments to update or create a Block.
+     * Create or update one Match.
+     * @param {MatchUpsertArgs} args - Arguments to update or create a Match.
      * @example
-     * // Update or create a Block
-     * const block = await prisma.block.upsert({
+     * // Update or create a Match
+     * const match = await prisma.match.upsert({
      *   create: {
-     *     // ... data to create a Block
+     *     // ... data to create a Match
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the Block we want to update
+     *     // ... the filter for the Match we want to update
      *   }
      * })
      */
-    upsert<T extends BlockUpsertArgs>(args: SelectSubset<T, BlockUpsertArgs<ExtArgs>>): Prisma__BlockClient<$Result.GetResult<Prisma.$BlockPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    upsert<T extends MatchUpsertArgs>(args: SelectSubset<T, MatchUpsertArgs<ExtArgs>>): Prisma__MatchClient<$Result.GetResult<Prisma.$MatchPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
 
     /**
-     * Count the number of Blocks.
+     * Count the number of Matches.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {BlockCountArgs} args - Arguments to filter Blocks to count.
+     * @param {MatchCountArgs} args - Arguments to filter Matches to count.
      * @example
-     * // Count the number of Blocks
-     * const count = await prisma.block.count({
+     * // Count the number of Matches
+     * const count = await prisma.match.count({
      *   where: {
-     *     // ... the filter for the Blocks we want to count
+     *     // ... the filter for the Matches we want to count
      *   }
      * })
     **/
-    count<T extends BlockCountArgs>(
-      args?: Subset<T, BlockCountArgs>,
+    count<T extends MatchCountArgs>(
+      args?: Subset<T, MatchCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], BlockCountAggregateOutputType>
+          : GetScalarType<T['select'], MatchCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a Block.
+     * Allows you to perform aggregations operations on a Match.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {BlockAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {MatchAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -6662,13 +6484,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends BlockAggregateArgs>(args: Subset<T, BlockAggregateArgs>): Prisma.PrismaPromise<GetBlockAggregateType<T>>
+    aggregate<T extends MatchAggregateArgs>(args: Subset<T, MatchAggregateArgs>): Prisma.PrismaPromise<GetMatchAggregateType<T>>
 
     /**
-     * Group by Block.
+     * Group by Match.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {BlockGroupByArgs} args - Group by arguments.
+     * @param {MatchGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -6683,14 +6505,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends BlockGroupByArgs,
+      T extends MatchGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: BlockGroupByArgs['orderBy'] }
-        : { orderBy?: BlockGroupByArgs['orderBy'] },
+        ? { orderBy: MatchGroupByArgs['orderBy'] }
+        : { orderBy?: MatchGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -6739,23 +6561,23 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, BlockGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetBlockGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, MatchGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetMatchGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the Block model
+   * Fields of the Match model
    */
-  readonly fields: BlockFieldRefs;
+  readonly fields: MatchFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for Block.
+   * The delegate class that acts as a "Promise-like" for Match.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__BlockClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__MatchClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    blocker<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    blocked<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    user1<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    user2<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -6782,1528 +6604,422 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the Block model
+   * Fields of the Match model
    */
-  interface BlockFieldRefs {
-    readonly id: FieldRef<"Block", 'Int'>
-    readonly blockerId: FieldRef<"Block", 'Int'>
-    readonly blockedId: FieldRef<"Block", 'Int'>
-    readonly createdAt: FieldRef<"Block", 'DateTime'>
+  interface MatchFieldRefs {
+    readonly id: FieldRef<"Match", 'Int'>
+    readonly user1Id: FieldRef<"Match", 'Int'>
+    readonly user2Id: FieldRef<"Match", 'Int'>
+    readonly createdAt: FieldRef<"Match", 'DateTime'>
   }
     
 
   // Custom InputTypes
   /**
-   * Block findUnique
+   * Match findUnique
    */
-  export type BlockFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type MatchFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Block
+     * Select specific fields to fetch from the Match
      */
-    select?: BlockSelect<ExtArgs> | null
+    select?: MatchSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Block
+     * Omit specific fields from the Match
      */
-    omit?: BlockOmit<ExtArgs> | null
+    omit?: MatchOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: BlockInclude<ExtArgs> | null
+    include?: MatchInclude<ExtArgs> | null
     /**
-     * Filter, which Block to fetch.
+     * Filter, which Match to fetch.
      */
-    where: BlockWhereUniqueInput
+    where: MatchWhereUniqueInput
   }
 
   /**
-   * Block findUniqueOrThrow
+   * Match findUniqueOrThrow
    */
-  export type BlockFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type MatchFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Block
+     * Select specific fields to fetch from the Match
      */
-    select?: BlockSelect<ExtArgs> | null
+    select?: MatchSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Block
+     * Omit specific fields from the Match
      */
-    omit?: BlockOmit<ExtArgs> | null
+    omit?: MatchOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: BlockInclude<ExtArgs> | null
+    include?: MatchInclude<ExtArgs> | null
     /**
-     * Filter, which Block to fetch.
+     * Filter, which Match to fetch.
      */
-    where: BlockWhereUniqueInput
+    where: MatchWhereUniqueInput
   }
 
   /**
-   * Block findFirst
+   * Match findFirst
    */
-  export type BlockFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type MatchFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Block
+     * Select specific fields to fetch from the Match
      */
-    select?: BlockSelect<ExtArgs> | null
+    select?: MatchSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Block
+     * Omit specific fields from the Match
      */
-    omit?: BlockOmit<ExtArgs> | null
+    omit?: MatchOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: BlockInclude<ExtArgs> | null
+    include?: MatchInclude<ExtArgs> | null
     /**
-     * Filter, which Block to fetch.
+     * Filter, which Match to fetch.
      */
-    where?: BlockWhereInput
+    where?: MatchWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Blocks to fetch.
+     * Determine the order of Matches to fetch.
      */
-    orderBy?: BlockOrderByWithRelationInput | BlockOrderByWithRelationInput[]
+    orderBy?: MatchOrderByWithRelationInput | MatchOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for Blocks.
+     * Sets the position for searching for Matches.
      */
-    cursor?: BlockWhereUniqueInput
+    cursor?: MatchWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Blocks from the position of the cursor.
+     * Take `±n` Matches from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Blocks.
+     * Skip the first `n` Matches.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of Blocks.
+     * Filter by unique combinations of Matches.
      */
-    distinct?: BlockScalarFieldEnum | BlockScalarFieldEnum[]
+    distinct?: MatchScalarFieldEnum | MatchScalarFieldEnum[]
   }
 
   /**
-   * Block findFirstOrThrow
+   * Match findFirstOrThrow
    */
-  export type BlockFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type MatchFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Block
+     * Select specific fields to fetch from the Match
      */
-    select?: BlockSelect<ExtArgs> | null
+    select?: MatchSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Block
+     * Omit specific fields from the Match
      */
-    omit?: BlockOmit<ExtArgs> | null
+    omit?: MatchOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: BlockInclude<ExtArgs> | null
+    include?: MatchInclude<ExtArgs> | null
     /**
-     * Filter, which Block to fetch.
+     * Filter, which Match to fetch.
      */
-    where?: BlockWhereInput
+    where?: MatchWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Blocks to fetch.
+     * Determine the order of Matches to fetch.
      */
-    orderBy?: BlockOrderByWithRelationInput | BlockOrderByWithRelationInput[]
+    orderBy?: MatchOrderByWithRelationInput | MatchOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for Blocks.
+     * Sets the position for searching for Matches.
      */
-    cursor?: BlockWhereUniqueInput
+    cursor?: MatchWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Blocks from the position of the cursor.
+     * Take `±n` Matches from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Blocks.
+     * Skip the first `n` Matches.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of Blocks.
+     * Filter by unique combinations of Matches.
      */
-    distinct?: BlockScalarFieldEnum | BlockScalarFieldEnum[]
+    distinct?: MatchScalarFieldEnum | MatchScalarFieldEnum[]
   }
 
   /**
-   * Block findMany
+   * Match findMany
    */
-  export type BlockFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type MatchFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Block
+     * Select specific fields to fetch from the Match
      */
-    select?: BlockSelect<ExtArgs> | null
+    select?: MatchSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Block
+     * Omit specific fields from the Match
      */
-    omit?: BlockOmit<ExtArgs> | null
+    omit?: MatchOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: BlockInclude<ExtArgs> | null
+    include?: MatchInclude<ExtArgs> | null
     /**
-     * Filter, which Blocks to fetch.
+     * Filter, which Matches to fetch.
      */
-    where?: BlockWhereInput
+    where?: MatchWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Blocks to fetch.
+     * Determine the order of Matches to fetch.
      */
-    orderBy?: BlockOrderByWithRelationInput | BlockOrderByWithRelationInput[]
+    orderBy?: MatchOrderByWithRelationInput | MatchOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing Blocks.
+     * Sets the position for listing Matches.
      */
-    cursor?: BlockWhereUniqueInput
+    cursor?: MatchWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Blocks from the position of the cursor.
+     * Take `±n` Matches from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Blocks.
+     * Skip the first `n` Matches.
      */
     skip?: number
-    distinct?: BlockScalarFieldEnum | BlockScalarFieldEnum[]
+    distinct?: MatchScalarFieldEnum | MatchScalarFieldEnum[]
   }
 
   /**
-   * Block create
+   * Match create
    */
-  export type BlockCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type MatchCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Block
+     * Select specific fields to fetch from the Match
      */
-    select?: BlockSelect<ExtArgs> | null
+    select?: MatchSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Block
+     * Omit specific fields from the Match
      */
-    omit?: BlockOmit<ExtArgs> | null
+    omit?: MatchOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: BlockInclude<ExtArgs> | null
+    include?: MatchInclude<ExtArgs> | null
     /**
-     * The data needed to create a Block.
+     * The data needed to create a Match.
      */
-    data: XOR<BlockCreateInput, BlockUncheckedCreateInput>
+    data: XOR<MatchCreateInput, MatchUncheckedCreateInput>
   }
 
   /**
-   * Block createMany
+   * Match createMany
    */
-  export type BlockCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type MatchCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many Blocks.
+     * The data used to create many Matches.
      */
-    data: BlockCreateManyInput | BlockCreateManyInput[]
+    data: MatchCreateManyInput | MatchCreateManyInput[]
   }
 
   /**
-   * Block createManyAndReturn
+   * Match createManyAndReturn
    */
-  export type BlockCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type MatchCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Block
+     * Select specific fields to fetch from the Match
      */
-    select?: BlockSelectCreateManyAndReturn<ExtArgs> | null
+    select?: MatchSelectCreateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the Block
+     * Omit specific fields from the Match
      */
-    omit?: BlockOmit<ExtArgs> | null
+    omit?: MatchOmit<ExtArgs> | null
     /**
-     * The data used to create many Blocks.
+     * The data used to create many Matches.
      */
-    data: BlockCreateManyInput | BlockCreateManyInput[]
+    data: MatchCreateManyInput | MatchCreateManyInput[]
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: BlockIncludeCreateManyAndReturn<ExtArgs> | null
+    include?: MatchIncludeCreateManyAndReturn<ExtArgs> | null
   }
 
   /**
-   * Block update
+   * Match update
    */
-  export type BlockUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type MatchUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Block
+     * Select specific fields to fetch from the Match
      */
-    select?: BlockSelect<ExtArgs> | null
+    select?: MatchSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Block
+     * Omit specific fields from the Match
      */
-    omit?: BlockOmit<ExtArgs> | null
+    omit?: MatchOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: BlockInclude<ExtArgs> | null
+    include?: MatchInclude<ExtArgs> | null
     /**
-     * The data needed to update a Block.
+     * The data needed to update a Match.
      */
-    data: XOR<BlockUpdateInput, BlockUncheckedUpdateInput>
+    data: XOR<MatchUpdateInput, MatchUncheckedUpdateInput>
     /**
-     * Choose, which Block to update.
+     * Choose, which Match to update.
      */
-    where: BlockWhereUniqueInput
+    where: MatchWhereUniqueInput
   }
 
   /**
-   * Block updateMany
+   * Match updateMany
    */
-  export type BlockUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type MatchUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update Blocks.
+     * The data used to update Matches.
      */
-    data: XOR<BlockUpdateManyMutationInput, BlockUncheckedUpdateManyInput>
+    data: XOR<MatchUpdateManyMutationInput, MatchUncheckedUpdateManyInput>
     /**
-     * Filter which Blocks to update
+     * Filter which Matches to update
      */
-    where?: BlockWhereInput
+    where?: MatchWhereInput
     /**
-     * Limit how many Blocks to update.
+     * Limit how many Matches to update.
      */
     limit?: number
   }
 
   /**
-   * Block updateManyAndReturn
+   * Match updateManyAndReturn
    */
-  export type BlockUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type MatchUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Block
+     * Select specific fields to fetch from the Match
      */
-    select?: BlockSelectUpdateManyAndReturn<ExtArgs> | null
+    select?: MatchSelectUpdateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the Block
+     * Omit specific fields from the Match
      */
-    omit?: BlockOmit<ExtArgs> | null
+    omit?: MatchOmit<ExtArgs> | null
     /**
-     * The data used to update Blocks.
+     * The data used to update Matches.
      */
-    data: XOR<BlockUpdateManyMutationInput, BlockUncheckedUpdateManyInput>
+    data: XOR<MatchUpdateManyMutationInput, MatchUncheckedUpdateManyInput>
     /**
-     * Filter which Blocks to update
+     * Filter which Matches to update
      */
-    where?: BlockWhereInput
+    where?: MatchWhereInput
     /**
-     * Limit how many Blocks to update.
+     * Limit how many Matches to update.
      */
     limit?: number
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: BlockIncludeUpdateManyAndReturn<ExtArgs> | null
+    include?: MatchIncludeUpdateManyAndReturn<ExtArgs> | null
   }
 
   /**
-   * Block upsert
+   * Match upsert
    */
-  export type BlockUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type MatchUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Block
+     * Select specific fields to fetch from the Match
      */
-    select?: BlockSelect<ExtArgs> | null
+    select?: MatchSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Block
+     * Omit specific fields from the Match
      */
-    omit?: BlockOmit<ExtArgs> | null
+    omit?: MatchOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: BlockInclude<ExtArgs> | null
+    include?: MatchInclude<ExtArgs> | null
     /**
-     * The filter to search for the Block to update in case it exists.
+     * The filter to search for the Match to update in case it exists.
      */
-    where: BlockWhereUniqueInput
+    where: MatchWhereUniqueInput
     /**
-     * In case the Block found by the `where` argument doesn't exist, create a new Block with this data.
+     * In case the Match found by the `where` argument doesn't exist, create a new Match with this data.
      */
-    create: XOR<BlockCreateInput, BlockUncheckedCreateInput>
+    create: XOR<MatchCreateInput, MatchUncheckedCreateInput>
     /**
-     * In case the Block was found with the provided `where` argument, update it with this data.
+     * In case the Match was found with the provided `where` argument, update it with this data.
      */
-    update: XOR<BlockUpdateInput, BlockUncheckedUpdateInput>
+    update: XOR<MatchUpdateInput, MatchUncheckedUpdateInput>
   }
 
   /**
-   * Block delete
+   * Match delete
    */
-  export type BlockDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type MatchDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Block
+     * Select specific fields to fetch from the Match
      */
-    select?: BlockSelect<ExtArgs> | null
+    select?: MatchSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Block
+     * Omit specific fields from the Match
      */
-    omit?: BlockOmit<ExtArgs> | null
+    omit?: MatchOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: BlockInclude<ExtArgs> | null
+    include?: MatchInclude<ExtArgs> | null
     /**
-     * Filter which Block to delete.
+     * Filter which Match to delete.
      */
-    where: BlockWhereUniqueInput
+    where: MatchWhereUniqueInput
   }
 
   /**
-   * Block deleteMany
+   * Match deleteMany
    */
-  export type BlockDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type MatchDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which Blocks to delete
+     * Filter which Matches to delete
      */
-    where?: BlockWhereInput
+    where?: MatchWhereInput
     /**
-     * Limit how many Blocks to delete.
+     * Limit how many Matches to delete.
      */
     limit?: number
   }
 
   /**
-   * Block without action
+   * Match without action
    */
-  export type BlockDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type MatchDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Block
+     * Select specific fields to fetch from the Match
      */
-    select?: BlockSelect<ExtArgs> | null
+    select?: MatchSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Block
+     * Omit specific fields from the Match
      */
-    omit?: BlockOmit<ExtArgs> | null
+    omit?: MatchOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: BlockInclude<ExtArgs> | null
-  }
-
-
-  /**
-   * Model Message
-   */
-
-  export type AggregateMessage = {
-    _count: MessageCountAggregateOutputType | null
-    _avg: MessageAvgAggregateOutputType | null
-    _sum: MessageSumAggregateOutputType | null
-    _min: MessageMinAggregateOutputType | null
-    _max: MessageMaxAggregateOutputType | null
-  }
-
-  export type MessageAvgAggregateOutputType = {
-    id: number | null
-    senderId: number | null
-    receiverId: number | null
-  }
-
-  export type MessageSumAggregateOutputType = {
-    id: number | null
-    senderId: number | null
-    receiverId: number | null
-  }
-
-  export type MessageMinAggregateOutputType = {
-    id: number | null
-    senderId: number | null
-    receiverId: number | null
-    content: string | null
-    createdAt: Date | null
-  }
-
-  export type MessageMaxAggregateOutputType = {
-    id: number | null
-    senderId: number | null
-    receiverId: number | null
-    content: string | null
-    createdAt: Date | null
-  }
-
-  export type MessageCountAggregateOutputType = {
-    id: number
-    senderId: number
-    receiverId: number
-    content: number
-    createdAt: number
-    _all: number
-  }
-
-
-  export type MessageAvgAggregateInputType = {
-    id?: true
-    senderId?: true
-    receiverId?: true
-  }
-
-  export type MessageSumAggregateInputType = {
-    id?: true
-    senderId?: true
-    receiverId?: true
-  }
-
-  export type MessageMinAggregateInputType = {
-    id?: true
-    senderId?: true
-    receiverId?: true
-    content?: true
-    createdAt?: true
-  }
-
-  export type MessageMaxAggregateInputType = {
-    id?: true
-    senderId?: true
-    receiverId?: true
-    content?: true
-    createdAt?: true
-  }
-
-  export type MessageCountAggregateInputType = {
-    id?: true
-    senderId?: true
-    receiverId?: true
-    content?: true
-    createdAt?: true
-    _all?: true
-  }
-
-  export type MessageAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which Message to aggregate.
-     */
-    where?: MessageWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Messages to fetch.
-     */
-    orderBy?: MessageOrderByWithRelationInput | MessageOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the start position
-     */
-    cursor?: MessageWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Messages from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Messages.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Count returned Messages
-    **/
-    _count?: true | MessageCountAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to average
-    **/
-    _avg?: MessageAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: MessageSumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the minimum value
-    **/
-    _min?: MessageMinAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the maximum value
-    **/
-    _max?: MessageMaxAggregateInputType
-  }
-
-  export type GetMessageAggregateType<T extends MessageAggregateArgs> = {
-        [P in keyof T & keyof AggregateMessage]: P extends '_count' | 'count'
-      ? T[P] extends true
-        ? number
-        : GetScalarType<T[P], AggregateMessage[P]>
-      : GetScalarType<T[P], AggregateMessage[P]>
-  }
-
-
-
-
-  export type MessageGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: MessageWhereInput
-    orderBy?: MessageOrderByWithAggregationInput | MessageOrderByWithAggregationInput[]
-    by: MessageScalarFieldEnum[] | MessageScalarFieldEnum
-    having?: MessageScalarWhereWithAggregatesInput
-    take?: number
-    skip?: number
-    _count?: MessageCountAggregateInputType | true
-    _avg?: MessageAvgAggregateInputType
-    _sum?: MessageSumAggregateInputType
-    _min?: MessageMinAggregateInputType
-    _max?: MessageMaxAggregateInputType
-  }
-
-  export type MessageGroupByOutputType = {
-    id: number
-    senderId: number
-    receiverId: number
-    content: string
-    createdAt: Date
-    _count: MessageCountAggregateOutputType | null
-    _avg: MessageAvgAggregateOutputType | null
-    _sum: MessageSumAggregateOutputType | null
-    _min: MessageMinAggregateOutputType | null
-    _max: MessageMaxAggregateOutputType | null
-  }
-
-  type GetMessageGroupByPayload<T extends MessageGroupByArgs> = Prisma.PrismaPromise<
-    Array<
-      PickEnumerable<MessageGroupByOutputType, T['by']> &
-        {
-          [P in ((keyof T) & (keyof MessageGroupByOutputType))]: P extends '_count'
-            ? T[P] extends boolean
-              ? number
-              : GetScalarType<T[P], MessageGroupByOutputType[P]>
-            : GetScalarType<T[P], MessageGroupByOutputType[P]>
-        }
-      >
-    >
-
-
-  export type MessageSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    senderId?: boolean
-    receiverId?: boolean
-    content?: boolean
-    createdAt?: boolean
-    sender?: boolean | UserDefaultArgs<ExtArgs>
-    receiver?: boolean | UserDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["message"]>
-
-  export type MessageSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    senderId?: boolean
-    receiverId?: boolean
-    content?: boolean
-    createdAt?: boolean
-    sender?: boolean | UserDefaultArgs<ExtArgs>
-    receiver?: boolean | UserDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["message"]>
-
-  export type MessageSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    senderId?: boolean
-    receiverId?: boolean
-    content?: boolean
-    createdAt?: boolean
-    sender?: boolean | UserDefaultArgs<ExtArgs>
-    receiver?: boolean | UserDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["message"]>
-
-  export type MessageSelectScalar = {
-    id?: boolean
-    senderId?: boolean
-    receiverId?: boolean
-    content?: boolean
-    createdAt?: boolean
-  }
-
-  export type MessageOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "senderId" | "receiverId" | "content" | "createdAt", ExtArgs["result"]["message"]>
-  export type MessageInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    sender?: boolean | UserDefaultArgs<ExtArgs>
-    receiver?: boolean | UserDefaultArgs<ExtArgs>
-  }
-  export type MessageIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    sender?: boolean | UserDefaultArgs<ExtArgs>
-    receiver?: boolean | UserDefaultArgs<ExtArgs>
-  }
-  export type MessageIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    sender?: boolean | UserDefaultArgs<ExtArgs>
-    receiver?: boolean | UserDefaultArgs<ExtArgs>
-  }
-
-  export type $MessagePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "Message"
-    objects: {
-      sender: Prisma.$UserPayload<ExtArgs>
-      receiver: Prisma.$UserPayload<ExtArgs>
-    }
-    scalars: $Extensions.GetPayloadResult<{
-      id: number
-      senderId: number
-      receiverId: number
-      content: string
-      createdAt: Date
-    }, ExtArgs["result"]["message"]>
-    composites: {}
-  }
-
-  type MessageGetPayload<S extends boolean | null | undefined | MessageDefaultArgs> = $Result.GetResult<Prisma.$MessagePayload, S>
-
-  type MessageCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<MessageFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: MessageCountAggregateInputType | true
-    }
-
-  export interface MessageDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Message'], meta: { name: 'Message' } }
-    /**
-     * Find zero or one Message that matches the filter.
-     * @param {MessageFindUniqueArgs} args - Arguments to find a Message
-     * @example
-     * // Get one Message
-     * const message = await prisma.message.findUnique({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUnique<T extends MessageFindUniqueArgs>(args: SelectSubset<T, MessageFindUniqueArgs<ExtArgs>>): Prisma__MessageClient<$Result.GetResult<Prisma.$MessagePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find one Message that matches the filter or throw an error with `error.code='P2025'`
-     * if no matches were found.
-     * @param {MessageFindUniqueOrThrowArgs} args - Arguments to find a Message
-     * @example
-     * // Get one Message
-     * const message = await prisma.message.findUniqueOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUniqueOrThrow<T extends MessageFindUniqueOrThrowArgs>(args: SelectSubset<T, MessageFindUniqueOrThrowArgs<ExtArgs>>): Prisma__MessageClient<$Result.GetResult<Prisma.$MessagePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find the first Message that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {MessageFindFirstArgs} args - Arguments to find a Message
-     * @example
-     * // Get one Message
-     * const message = await prisma.message.findFirst({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirst<T extends MessageFindFirstArgs>(args?: SelectSubset<T, MessageFindFirstArgs<ExtArgs>>): Prisma__MessageClient<$Result.GetResult<Prisma.$MessagePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find the first Message that matches the filter or
-     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {MessageFindFirstOrThrowArgs} args - Arguments to find a Message
-     * @example
-     * // Get one Message
-     * const message = await prisma.message.findFirstOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirstOrThrow<T extends MessageFindFirstOrThrowArgs>(args?: SelectSubset<T, MessageFindFirstOrThrowArgs<ExtArgs>>): Prisma__MessageClient<$Result.GetResult<Prisma.$MessagePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find zero or more Messages that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {MessageFindManyArgs} args - Arguments to filter and select certain fields only.
-     * @example
-     * // Get all Messages
-     * const messages = await prisma.message.findMany()
-     * 
-     * // Get first 10 Messages
-     * const messages = await prisma.message.findMany({ take: 10 })
-     * 
-     * // Only select the `id`
-     * const messageWithIdOnly = await prisma.message.findMany({ select: { id: true } })
-     * 
-     */
-    findMany<T extends MessageFindManyArgs>(args?: SelectSubset<T, MessageFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MessagePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
-
-    /**
-     * Create a Message.
-     * @param {MessageCreateArgs} args - Arguments to create a Message.
-     * @example
-     * // Create one Message
-     * const Message = await prisma.message.create({
-     *   data: {
-     *     // ... data to create a Message
-     *   }
-     * })
-     * 
-     */
-    create<T extends MessageCreateArgs>(args: SelectSubset<T, MessageCreateArgs<ExtArgs>>): Prisma__MessageClient<$Result.GetResult<Prisma.$MessagePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Create many Messages.
-     * @param {MessageCreateManyArgs} args - Arguments to create many Messages.
-     * @example
-     * // Create many Messages
-     * const message = await prisma.message.createMany({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     *     
-     */
-    createMany<T extends MessageCreateManyArgs>(args?: SelectSubset<T, MessageCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create many Messages and returns the data saved in the database.
-     * @param {MessageCreateManyAndReturnArgs} args - Arguments to create many Messages.
-     * @example
-     * // Create many Messages
-     * const message = await prisma.message.createManyAndReturn({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Create many Messages and only return the `id`
-     * const messageWithIdOnly = await prisma.message.createManyAndReturn({
-     *   select: { id: true },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    createManyAndReturn<T extends MessageCreateManyAndReturnArgs>(args?: SelectSubset<T, MessageCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MessagePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
-
-    /**
-     * Delete a Message.
-     * @param {MessageDeleteArgs} args - Arguments to delete one Message.
-     * @example
-     * // Delete one Message
-     * const Message = await prisma.message.delete({
-     *   where: {
-     *     // ... filter to delete one Message
-     *   }
-     * })
-     * 
-     */
-    delete<T extends MessageDeleteArgs>(args: SelectSubset<T, MessageDeleteArgs<ExtArgs>>): Prisma__MessageClient<$Result.GetResult<Prisma.$MessagePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Update one Message.
-     * @param {MessageUpdateArgs} args - Arguments to update one Message.
-     * @example
-     * // Update one Message
-     * const message = await prisma.message.update({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    update<T extends MessageUpdateArgs>(args: SelectSubset<T, MessageUpdateArgs<ExtArgs>>): Prisma__MessageClient<$Result.GetResult<Prisma.$MessagePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Delete zero or more Messages.
-     * @param {MessageDeleteManyArgs} args - Arguments to filter Messages to delete.
-     * @example
-     * // Delete a few Messages
-     * const { count } = await prisma.message.deleteMany({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     * 
-     */
-    deleteMany<T extends MessageDeleteManyArgs>(args?: SelectSubset<T, MessageDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more Messages.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {MessageUpdateManyArgs} args - Arguments to update one or more rows.
-     * @example
-     * // Update many Messages
-     * const message = await prisma.message.updateMany({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    updateMany<T extends MessageUpdateManyArgs>(args: SelectSubset<T, MessageUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more Messages and returns the data updated in the database.
-     * @param {MessageUpdateManyAndReturnArgs} args - Arguments to update many Messages.
-     * @example
-     * // Update many Messages
-     * const message = await prisma.message.updateManyAndReturn({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Update zero or more Messages and only return the `id`
-     * const messageWithIdOnly = await prisma.message.updateManyAndReturn({
-     *   select: { id: true },
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    updateManyAndReturn<T extends MessageUpdateManyAndReturnArgs>(args: SelectSubset<T, MessageUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MessagePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
-
-    /**
-     * Create or update one Message.
-     * @param {MessageUpsertArgs} args - Arguments to update or create a Message.
-     * @example
-     * // Update or create a Message
-     * const message = await prisma.message.upsert({
-     *   create: {
-     *     // ... data to create a Message
-     *   },
-     *   update: {
-     *     // ... in case it already exists, update
-     *   },
-     *   where: {
-     *     // ... the filter for the Message we want to update
-     *   }
-     * })
-     */
-    upsert<T extends MessageUpsertArgs>(args: SelectSubset<T, MessageUpsertArgs<ExtArgs>>): Prisma__MessageClient<$Result.GetResult<Prisma.$MessagePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-
-    /**
-     * Count the number of Messages.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {MessageCountArgs} args - Arguments to filter Messages to count.
-     * @example
-     * // Count the number of Messages
-     * const count = await prisma.message.count({
-     *   where: {
-     *     // ... the filter for the Messages we want to count
-     *   }
-     * })
-    **/
-    count<T extends MessageCountArgs>(
-      args?: Subset<T, MessageCountArgs>,
-    ): Prisma.PrismaPromise<
-      T extends $Utils.Record<'select', any>
-        ? T['select'] extends true
-          ? number
-          : GetScalarType<T['select'], MessageCountAggregateOutputType>
-        : number
-    >
-
-    /**
-     * Allows you to perform aggregations operations on a Message.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {MessageAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
-     * @example
-     * // Ordered by age ascending
-     * // Where email contains prisma.io
-     * // Limited to the 10 users
-     * const aggregations = await prisma.user.aggregate({
-     *   _avg: {
-     *     age: true,
-     *   },
-     *   where: {
-     *     email: {
-     *       contains: "prisma.io",
-     *     },
-     *   },
-     *   orderBy: {
-     *     age: "asc",
-     *   },
-     *   take: 10,
-     * })
-    **/
-    aggregate<T extends MessageAggregateArgs>(args: Subset<T, MessageAggregateArgs>): Prisma.PrismaPromise<GetMessageAggregateType<T>>
-
-    /**
-     * Group by Message.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {MessageGroupByArgs} args - Group by arguments.
-     * @example
-     * // Group by city, order by createdAt, get count
-     * const result = await prisma.user.groupBy({
-     *   by: ['city', 'createdAt'],
-     *   orderBy: {
-     *     createdAt: true
-     *   },
-     *   _count: {
-     *     _all: true
-     *   },
-     * })
-     * 
-    **/
-    groupBy<
-      T extends MessageGroupByArgs,
-      HasSelectOrTake extends Or<
-        Extends<'skip', Keys<T>>,
-        Extends<'take', Keys<T>>
-      >,
-      OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: MessageGroupByArgs['orderBy'] }
-        : { orderBy?: MessageGroupByArgs['orderBy'] },
-      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
-      ByFields extends MaybeTupleToUnion<T['by']>,
-      ByValid extends Has<ByFields, OrderFields>,
-      HavingFields extends GetHavingFields<T['having']>,
-      HavingValid extends Has<ByFields, HavingFields>,
-      ByEmpty extends T['by'] extends never[] ? True : False,
-      InputErrors extends ByEmpty extends True
-      ? `Error: "by" must not be empty.`
-      : HavingValid extends False
-      ? {
-          [P in HavingFields]: P extends ByFields
-            ? never
-            : P extends string
-            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
-            : [
-                Error,
-                'Field ',
-                P,
-                ` in "having" needs to be provided in "by"`,
-              ]
-        }[HavingFields]
-      : 'take' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "take", you also need to provide "orderBy"'
-      : 'skip' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "skip", you also need to provide "orderBy"'
-      : ByValid extends True
-      ? {}
-      : {
-          [P in OrderFields]: P extends ByFields
-            ? never
-            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-        }[OrderFields]
-    >(args: SubsetIntersection<T, MessageGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetMessageGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
-  /**
-   * Fields of the Message model
-   */
-  readonly fields: MessageFieldRefs;
-  }
-
-  /**
-   * The delegate class that acts as a "Promise-like" for Message.
-   * Why is this prefixed with `Prisma__`?
-   * Because we want to prevent naming conflicts as mentioned in
-   * https://github.com/prisma/prisma-client-js/issues/707
-   */
-  export interface Prisma__MessageClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
-    readonly [Symbol.toStringTag]: "PrismaPromise"
-    sender<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    receiver<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    /**
-     * Attaches callbacks for the resolution and/or rejection of the Promise.
-     * @param onfulfilled The callback to execute when the Promise is resolved.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of which ever callback is executed.
-     */
-    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
-    /**
-     * Attaches a callback for only the rejection of the Promise.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of the callback.
-     */
-    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
-    /**
-     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
-     * resolved value cannot be modified from the callback.
-     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
-     * @returns A Promise for the completion of the callback.
-     */
-    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
-  }
-
-
-
-
-  /**
-   * Fields of the Message model
-   */
-  interface MessageFieldRefs {
-    readonly id: FieldRef<"Message", 'Int'>
-    readonly senderId: FieldRef<"Message", 'Int'>
-    readonly receiverId: FieldRef<"Message", 'Int'>
-    readonly content: FieldRef<"Message", 'String'>
-    readonly createdAt: FieldRef<"Message", 'DateTime'>
-  }
-    
-
-  // Custom InputTypes
-  /**
-   * Message findUnique
-   */
-  export type MessageFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Message
-     */
-    select?: MessageSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Message
-     */
-    omit?: MessageOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: MessageInclude<ExtArgs> | null
-    /**
-     * Filter, which Message to fetch.
-     */
-    where: MessageWhereUniqueInput
-  }
-
-  /**
-   * Message findUniqueOrThrow
-   */
-  export type MessageFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Message
-     */
-    select?: MessageSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Message
-     */
-    omit?: MessageOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: MessageInclude<ExtArgs> | null
-    /**
-     * Filter, which Message to fetch.
-     */
-    where: MessageWhereUniqueInput
-  }
-
-  /**
-   * Message findFirst
-   */
-  export type MessageFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Message
-     */
-    select?: MessageSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Message
-     */
-    omit?: MessageOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: MessageInclude<ExtArgs> | null
-    /**
-     * Filter, which Message to fetch.
-     */
-    where?: MessageWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Messages to fetch.
-     */
-    orderBy?: MessageOrderByWithRelationInput | MessageOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for Messages.
-     */
-    cursor?: MessageWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Messages from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Messages.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of Messages.
-     */
-    distinct?: MessageScalarFieldEnum | MessageScalarFieldEnum[]
-  }
-
-  /**
-   * Message findFirstOrThrow
-   */
-  export type MessageFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Message
-     */
-    select?: MessageSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Message
-     */
-    omit?: MessageOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: MessageInclude<ExtArgs> | null
-    /**
-     * Filter, which Message to fetch.
-     */
-    where?: MessageWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Messages to fetch.
-     */
-    orderBy?: MessageOrderByWithRelationInput | MessageOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for Messages.
-     */
-    cursor?: MessageWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Messages from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Messages.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of Messages.
-     */
-    distinct?: MessageScalarFieldEnum | MessageScalarFieldEnum[]
-  }
-
-  /**
-   * Message findMany
-   */
-  export type MessageFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Message
-     */
-    select?: MessageSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Message
-     */
-    omit?: MessageOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: MessageInclude<ExtArgs> | null
-    /**
-     * Filter, which Messages to fetch.
-     */
-    where?: MessageWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Messages to fetch.
-     */
-    orderBy?: MessageOrderByWithRelationInput | MessageOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for listing Messages.
-     */
-    cursor?: MessageWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Messages from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Messages.
-     */
-    skip?: number
-    distinct?: MessageScalarFieldEnum | MessageScalarFieldEnum[]
-  }
-
-  /**
-   * Message create
-   */
-  export type MessageCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Message
-     */
-    select?: MessageSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Message
-     */
-    omit?: MessageOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: MessageInclude<ExtArgs> | null
-    /**
-     * The data needed to create a Message.
-     */
-    data: XOR<MessageCreateInput, MessageUncheckedCreateInput>
-  }
-
-  /**
-   * Message createMany
-   */
-  export type MessageCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to create many Messages.
-     */
-    data: MessageCreateManyInput | MessageCreateManyInput[]
-  }
-
-  /**
-   * Message createManyAndReturn
-   */
-  export type MessageCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Message
-     */
-    select?: MessageSelectCreateManyAndReturn<ExtArgs> | null
-    /**
-     * Omit specific fields from the Message
-     */
-    omit?: MessageOmit<ExtArgs> | null
-    /**
-     * The data used to create many Messages.
-     */
-    data: MessageCreateManyInput | MessageCreateManyInput[]
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: MessageIncludeCreateManyAndReturn<ExtArgs> | null
-  }
-
-  /**
-   * Message update
-   */
-  export type MessageUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Message
-     */
-    select?: MessageSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Message
-     */
-    omit?: MessageOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: MessageInclude<ExtArgs> | null
-    /**
-     * The data needed to update a Message.
-     */
-    data: XOR<MessageUpdateInput, MessageUncheckedUpdateInput>
-    /**
-     * Choose, which Message to update.
-     */
-    where: MessageWhereUniqueInput
-  }
-
-  /**
-   * Message updateMany
-   */
-  export type MessageUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to update Messages.
-     */
-    data: XOR<MessageUpdateManyMutationInput, MessageUncheckedUpdateManyInput>
-    /**
-     * Filter which Messages to update
-     */
-    where?: MessageWhereInput
-    /**
-     * Limit how many Messages to update.
-     */
-    limit?: number
-  }
-
-  /**
-   * Message updateManyAndReturn
-   */
-  export type MessageUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Message
-     */
-    select?: MessageSelectUpdateManyAndReturn<ExtArgs> | null
-    /**
-     * Omit specific fields from the Message
-     */
-    omit?: MessageOmit<ExtArgs> | null
-    /**
-     * The data used to update Messages.
-     */
-    data: XOR<MessageUpdateManyMutationInput, MessageUncheckedUpdateManyInput>
-    /**
-     * Filter which Messages to update
-     */
-    where?: MessageWhereInput
-    /**
-     * Limit how many Messages to update.
-     */
-    limit?: number
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: MessageIncludeUpdateManyAndReturn<ExtArgs> | null
-  }
-
-  /**
-   * Message upsert
-   */
-  export type MessageUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Message
-     */
-    select?: MessageSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Message
-     */
-    omit?: MessageOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: MessageInclude<ExtArgs> | null
-    /**
-     * The filter to search for the Message to update in case it exists.
-     */
-    where: MessageWhereUniqueInput
-    /**
-     * In case the Message found by the `where` argument doesn't exist, create a new Message with this data.
-     */
-    create: XOR<MessageCreateInput, MessageUncheckedCreateInput>
-    /**
-     * In case the Message was found with the provided `where` argument, update it with this data.
-     */
-    update: XOR<MessageUpdateInput, MessageUncheckedUpdateInput>
-  }
-
-  /**
-   * Message delete
-   */
-  export type MessageDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Message
-     */
-    select?: MessageSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Message
-     */
-    omit?: MessageOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: MessageInclude<ExtArgs> | null
-    /**
-     * Filter which Message to delete.
-     */
-    where: MessageWhereUniqueInput
-  }
-
-  /**
-   * Message deleteMany
-   */
-  export type MessageDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which Messages to delete
-     */
-    where?: MessageWhereInput
-    /**
-     * Limit how many Messages to delete.
-     */
-    limit?: number
-  }
-
-  /**
-   * Message without action
-   */
-  export type MessageDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Message
-     */
-    select?: MessageSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Message
-     */
-    omit?: MessageOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: MessageInclude<ExtArgs> | null
+    include?: MatchInclude<ExtArgs> | null
   }
 
 
@@ -8329,7 +7045,6 @@ export namespace Prisma {
     gender: 'gender',
     bio: 'bio',
     avatar: 'avatar',
-    sexualOrientation: 'sexualOrientation',
     latitude: 'latitude',
     longitude: 'longitude',
     createdAt: 'createdAt',
@@ -8358,33 +7073,22 @@ export namespace Prisma {
 
   export const LikeScalarFieldEnum: {
     id: 'id',
-    fromUserId: 'fromUserId',
-    toUserId: 'toUserId',
+    senderId: 'senderId',
+    receiverId: 'receiverId',
     createdAt: 'createdAt'
   };
 
   export type LikeScalarFieldEnum = (typeof LikeScalarFieldEnum)[keyof typeof LikeScalarFieldEnum]
 
 
-  export const BlockScalarFieldEnum: {
+  export const MatchScalarFieldEnum: {
     id: 'id',
-    blockerId: 'blockerId',
-    blockedId: 'blockedId',
+    user1Id: 'user1Id',
+    user2Id: 'user2Id',
     createdAt: 'createdAt'
   };
 
-  export type BlockScalarFieldEnum = (typeof BlockScalarFieldEnum)[keyof typeof BlockScalarFieldEnum]
-
-
-  export const MessageScalarFieldEnum: {
-    id: 'id',
-    senderId: 'senderId',
-    receiverId: 'receiverId',
-    content: 'content',
-    createdAt: 'createdAt'
-  };
-
-  export type MessageScalarFieldEnum = (typeof MessageScalarFieldEnum)[keyof typeof MessageScalarFieldEnum]
+  export type MatchScalarFieldEnum = (typeof MatchScalarFieldEnum)[keyof typeof MatchScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -8453,19 +7157,16 @@ export namespace Prisma {
     gender?: StringFilter<"User"> | string
     bio?: StringNullableFilter<"User"> | string | null
     avatar?: StringNullableFilter<"User"> | string | null
-    sexualOrientation?: StringNullableFilter<"User"> | string | null
     latitude?: FloatNullableFilter<"User"> | number | null
     longitude?: FloatNullableFilter<"User"> | number | null
     createdAt?: DateTimeFilter<"User"> | Date | string
     updatedAt?: DateTimeFilter<"User"> | Date | string
     photos?: PhotoListRelationFilter
-    likesSent?: LikeListRelationFilter
-    likesReceived?: LikeListRelationFilter
-    blocksSent?: BlockListRelationFilter
-    blocksReceived?: BlockListRelationFilter
-    messagesSent?: MessageListRelationFilter
-    messagesReceived?: MessageListRelationFilter
     interests?: InterestListRelationFilter
+    sentLikes?: LikeListRelationFilter
+    receivedLikes?: LikeListRelationFilter
+    matchesAsUser1?: MatchListRelationFilter
+    matchesAsUser2?: MatchListRelationFilter
   }
 
   export type UserOrderByWithRelationInput = {
@@ -8479,19 +7180,16 @@ export namespace Prisma {
     gender?: SortOrder
     bio?: SortOrderInput | SortOrder
     avatar?: SortOrderInput | SortOrder
-    sexualOrientation?: SortOrderInput | SortOrder
     latitude?: SortOrderInput | SortOrder
     longitude?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     photos?: PhotoOrderByRelationAggregateInput
-    likesSent?: LikeOrderByRelationAggregateInput
-    likesReceived?: LikeOrderByRelationAggregateInput
-    blocksSent?: BlockOrderByRelationAggregateInput
-    blocksReceived?: BlockOrderByRelationAggregateInput
-    messagesSent?: MessageOrderByRelationAggregateInput
-    messagesReceived?: MessageOrderByRelationAggregateInput
     interests?: InterestOrderByRelationAggregateInput
+    sentLikes?: LikeOrderByRelationAggregateInput
+    receivedLikes?: LikeOrderByRelationAggregateInput
+    matchesAsUser1?: MatchOrderByRelationAggregateInput
+    matchesAsUser2?: MatchOrderByRelationAggregateInput
   }
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -8508,19 +7206,16 @@ export namespace Prisma {
     gender?: StringFilter<"User"> | string
     bio?: StringNullableFilter<"User"> | string | null
     avatar?: StringNullableFilter<"User"> | string | null
-    sexualOrientation?: StringNullableFilter<"User"> | string | null
     latitude?: FloatNullableFilter<"User"> | number | null
     longitude?: FloatNullableFilter<"User"> | number | null
     createdAt?: DateTimeFilter<"User"> | Date | string
     updatedAt?: DateTimeFilter<"User"> | Date | string
     photos?: PhotoListRelationFilter
-    likesSent?: LikeListRelationFilter
-    likesReceived?: LikeListRelationFilter
-    blocksSent?: BlockListRelationFilter
-    blocksReceived?: BlockListRelationFilter
-    messagesSent?: MessageListRelationFilter
-    messagesReceived?: MessageListRelationFilter
     interests?: InterestListRelationFilter
+    sentLikes?: LikeListRelationFilter
+    receivedLikes?: LikeListRelationFilter
+    matchesAsUser1?: MatchListRelationFilter
+    matchesAsUser2?: MatchListRelationFilter
   }, "id" | "email" | "username">
 
   export type UserOrderByWithAggregationInput = {
@@ -8534,7 +7229,6 @@ export namespace Prisma {
     gender?: SortOrder
     bio?: SortOrderInput | SortOrder
     avatar?: SortOrderInput | SortOrder
-    sexualOrientation?: SortOrderInput | SortOrder
     latitude?: SortOrderInput | SortOrder
     longitude?: SortOrderInput | SortOrder
     createdAt?: SortOrder
@@ -8560,7 +7254,6 @@ export namespace Prisma {
     gender?: StringWithAggregatesFilter<"User"> | string
     bio?: StringNullableWithAggregatesFilter<"User"> | string | null
     avatar?: StringNullableWithAggregatesFilter<"User"> | string | null
-    sexualOrientation?: StringNullableWithAggregatesFilter<"User"> | string | null
     latitude?: FloatNullableWithAggregatesFilter<"User"> | number | null
     longitude?: FloatNullableWithAggregatesFilter<"User"> | number | null
     createdAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
@@ -8661,39 +7354,39 @@ export namespace Prisma {
     OR?: LikeWhereInput[]
     NOT?: LikeWhereInput | LikeWhereInput[]
     id?: IntFilter<"Like"> | number
-    fromUserId?: IntFilter<"Like"> | number
-    toUserId?: IntFilter<"Like"> | number
+    senderId?: IntFilter<"Like"> | number
+    receiverId?: IntFilter<"Like"> | number
     createdAt?: DateTimeFilter<"Like"> | Date | string
-    fromUser?: XOR<UserScalarRelationFilter, UserWhereInput>
-    toUser?: XOR<UserScalarRelationFilter, UserWhereInput>
+    sender?: XOR<UserScalarRelationFilter, UserWhereInput>
+    receiver?: XOR<UserScalarRelationFilter, UserWhereInput>
   }
 
   export type LikeOrderByWithRelationInput = {
     id?: SortOrder
-    fromUserId?: SortOrder
-    toUserId?: SortOrder
+    senderId?: SortOrder
+    receiverId?: SortOrder
     createdAt?: SortOrder
-    fromUser?: UserOrderByWithRelationInput
-    toUser?: UserOrderByWithRelationInput
+    sender?: UserOrderByWithRelationInput
+    receiver?: UserOrderByWithRelationInput
   }
 
   export type LikeWhereUniqueInput = Prisma.AtLeast<{
     id?: number
-    fromUserId_toUserId?: LikeFromUserIdToUserIdCompoundUniqueInput
+    senderId_receiverId?: LikeSenderIdReceiverIdCompoundUniqueInput
     AND?: LikeWhereInput | LikeWhereInput[]
     OR?: LikeWhereInput[]
     NOT?: LikeWhereInput | LikeWhereInput[]
-    fromUserId?: IntFilter<"Like"> | number
-    toUserId?: IntFilter<"Like"> | number
+    senderId?: IntFilter<"Like"> | number
+    receiverId?: IntFilter<"Like"> | number
     createdAt?: DateTimeFilter<"Like"> | Date | string
-    fromUser?: XOR<UserScalarRelationFilter, UserWhereInput>
-    toUser?: XOR<UserScalarRelationFilter, UserWhereInput>
-  }, "id" | "fromUserId_toUserId">
+    sender?: XOR<UserScalarRelationFilter, UserWhereInput>
+    receiver?: XOR<UserScalarRelationFilter, UserWhereInput>
+  }, "id" | "senderId_receiverId">
 
   export type LikeOrderByWithAggregationInput = {
     id?: SortOrder
-    fromUserId?: SortOrder
-    toUserId?: SortOrder
+    senderId?: SortOrder
+    receiverId?: SortOrder
     createdAt?: SortOrder
     _count?: LikeCountOrderByAggregateInput
     _avg?: LikeAvgOrderByAggregateInput
@@ -8707,125 +7400,65 @@ export namespace Prisma {
     OR?: LikeScalarWhereWithAggregatesInput[]
     NOT?: LikeScalarWhereWithAggregatesInput | LikeScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"Like"> | number
-    fromUserId?: IntWithAggregatesFilter<"Like"> | number
-    toUserId?: IntWithAggregatesFilter<"Like"> | number
+    senderId?: IntWithAggregatesFilter<"Like"> | number
+    receiverId?: IntWithAggregatesFilter<"Like"> | number
     createdAt?: DateTimeWithAggregatesFilter<"Like"> | Date | string
   }
 
-  export type BlockWhereInput = {
-    AND?: BlockWhereInput | BlockWhereInput[]
-    OR?: BlockWhereInput[]
-    NOT?: BlockWhereInput | BlockWhereInput[]
-    id?: IntFilter<"Block"> | number
-    blockerId?: IntFilter<"Block"> | number
-    blockedId?: IntFilter<"Block"> | number
-    createdAt?: DateTimeFilter<"Block"> | Date | string
-    blocker?: XOR<UserScalarRelationFilter, UserWhereInput>
-    blocked?: XOR<UserScalarRelationFilter, UserWhereInput>
+  export type MatchWhereInput = {
+    AND?: MatchWhereInput | MatchWhereInput[]
+    OR?: MatchWhereInput[]
+    NOT?: MatchWhereInput | MatchWhereInput[]
+    id?: IntFilter<"Match"> | number
+    user1Id?: IntFilter<"Match"> | number
+    user2Id?: IntFilter<"Match"> | number
+    createdAt?: DateTimeFilter<"Match"> | Date | string
+    user1?: XOR<UserScalarRelationFilter, UserWhereInput>
+    user2?: XOR<UserScalarRelationFilter, UserWhereInput>
   }
 
-  export type BlockOrderByWithRelationInput = {
+  export type MatchOrderByWithRelationInput = {
     id?: SortOrder
-    blockerId?: SortOrder
-    blockedId?: SortOrder
+    user1Id?: SortOrder
+    user2Id?: SortOrder
     createdAt?: SortOrder
-    blocker?: UserOrderByWithRelationInput
-    blocked?: UserOrderByWithRelationInput
+    user1?: UserOrderByWithRelationInput
+    user2?: UserOrderByWithRelationInput
   }
 
-  export type BlockWhereUniqueInput = Prisma.AtLeast<{
+  export type MatchWhereUniqueInput = Prisma.AtLeast<{
     id?: number
-    blockerId_blockedId?: BlockBlockerIdBlockedIdCompoundUniqueInput
-    AND?: BlockWhereInput | BlockWhereInput[]
-    OR?: BlockWhereInput[]
-    NOT?: BlockWhereInput | BlockWhereInput[]
-    blockerId?: IntFilter<"Block"> | number
-    blockedId?: IntFilter<"Block"> | number
-    createdAt?: DateTimeFilter<"Block"> | Date | string
-    blocker?: XOR<UserScalarRelationFilter, UserWhereInput>
-    blocked?: XOR<UserScalarRelationFilter, UserWhereInput>
-  }, "id" | "blockerId_blockedId">
+    user1Id_user2Id?: MatchUser1IdUser2IdCompoundUniqueInput
+    AND?: MatchWhereInput | MatchWhereInput[]
+    OR?: MatchWhereInput[]
+    NOT?: MatchWhereInput | MatchWhereInput[]
+    user1Id?: IntFilter<"Match"> | number
+    user2Id?: IntFilter<"Match"> | number
+    createdAt?: DateTimeFilter<"Match"> | Date | string
+    user1?: XOR<UserScalarRelationFilter, UserWhereInput>
+    user2?: XOR<UserScalarRelationFilter, UserWhereInput>
+  }, "id" | "user1Id_user2Id">
 
-  export type BlockOrderByWithAggregationInput = {
+  export type MatchOrderByWithAggregationInput = {
     id?: SortOrder
-    blockerId?: SortOrder
-    blockedId?: SortOrder
+    user1Id?: SortOrder
+    user2Id?: SortOrder
     createdAt?: SortOrder
-    _count?: BlockCountOrderByAggregateInput
-    _avg?: BlockAvgOrderByAggregateInput
-    _max?: BlockMaxOrderByAggregateInput
-    _min?: BlockMinOrderByAggregateInput
-    _sum?: BlockSumOrderByAggregateInput
+    _count?: MatchCountOrderByAggregateInput
+    _avg?: MatchAvgOrderByAggregateInput
+    _max?: MatchMaxOrderByAggregateInput
+    _min?: MatchMinOrderByAggregateInput
+    _sum?: MatchSumOrderByAggregateInput
   }
 
-  export type BlockScalarWhereWithAggregatesInput = {
-    AND?: BlockScalarWhereWithAggregatesInput | BlockScalarWhereWithAggregatesInput[]
-    OR?: BlockScalarWhereWithAggregatesInput[]
-    NOT?: BlockScalarWhereWithAggregatesInput | BlockScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"Block"> | number
-    blockerId?: IntWithAggregatesFilter<"Block"> | number
-    blockedId?: IntWithAggregatesFilter<"Block"> | number
-    createdAt?: DateTimeWithAggregatesFilter<"Block"> | Date | string
-  }
-
-  export type MessageWhereInput = {
-    AND?: MessageWhereInput | MessageWhereInput[]
-    OR?: MessageWhereInput[]
-    NOT?: MessageWhereInput | MessageWhereInput[]
-    id?: IntFilter<"Message"> | number
-    senderId?: IntFilter<"Message"> | number
-    receiverId?: IntFilter<"Message"> | number
-    content?: StringFilter<"Message"> | string
-    createdAt?: DateTimeFilter<"Message"> | Date | string
-    sender?: XOR<UserScalarRelationFilter, UserWhereInput>
-    receiver?: XOR<UserScalarRelationFilter, UserWhereInput>
-  }
-
-  export type MessageOrderByWithRelationInput = {
-    id?: SortOrder
-    senderId?: SortOrder
-    receiverId?: SortOrder
-    content?: SortOrder
-    createdAt?: SortOrder
-    sender?: UserOrderByWithRelationInput
-    receiver?: UserOrderByWithRelationInput
-  }
-
-  export type MessageWhereUniqueInput = Prisma.AtLeast<{
-    id?: number
-    AND?: MessageWhereInput | MessageWhereInput[]
-    OR?: MessageWhereInput[]
-    NOT?: MessageWhereInput | MessageWhereInput[]
-    senderId?: IntFilter<"Message"> | number
-    receiverId?: IntFilter<"Message"> | number
-    content?: StringFilter<"Message"> | string
-    createdAt?: DateTimeFilter<"Message"> | Date | string
-    sender?: XOR<UserScalarRelationFilter, UserWhereInput>
-    receiver?: XOR<UserScalarRelationFilter, UserWhereInput>
-  }, "id">
-
-  export type MessageOrderByWithAggregationInput = {
-    id?: SortOrder
-    senderId?: SortOrder
-    receiverId?: SortOrder
-    content?: SortOrder
-    createdAt?: SortOrder
-    _count?: MessageCountOrderByAggregateInput
-    _avg?: MessageAvgOrderByAggregateInput
-    _max?: MessageMaxOrderByAggregateInput
-    _min?: MessageMinOrderByAggregateInput
-    _sum?: MessageSumOrderByAggregateInput
-  }
-
-  export type MessageScalarWhereWithAggregatesInput = {
-    AND?: MessageScalarWhereWithAggregatesInput | MessageScalarWhereWithAggregatesInput[]
-    OR?: MessageScalarWhereWithAggregatesInput[]
-    NOT?: MessageScalarWhereWithAggregatesInput | MessageScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"Message"> | number
-    senderId?: IntWithAggregatesFilter<"Message"> | number
-    receiverId?: IntWithAggregatesFilter<"Message"> | number
-    content?: StringWithAggregatesFilter<"Message"> | string
-    createdAt?: DateTimeWithAggregatesFilter<"Message"> | Date | string
+  export type MatchScalarWhereWithAggregatesInput = {
+    AND?: MatchScalarWhereWithAggregatesInput | MatchScalarWhereWithAggregatesInput[]
+    OR?: MatchScalarWhereWithAggregatesInput[]
+    NOT?: MatchScalarWhereWithAggregatesInput | MatchScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"Match"> | number
+    user1Id?: IntWithAggregatesFilter<"Match"> | number
+    user2Id?: IntWithAggregatesFilter<"Match"> | number
+    createdAt?: DateTimeWithAggregatesFilter<"Match"> | Date | string
   }
 
   export type UserCreateInput = {
@@ -8838,19 +7471,16 @@ export namespace Prisma {
     gender: string
     bio?: string | null
     avatar?: string | null
-    sexualOrientation?: string | null
     latitude?: number | null
     longitude?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string
     photos?: PhotoCreateNestedManyWithoutUserInput
-    likesSent?: LikeCreateNestedManyWithoutFromUserInput
-    likesReceived?: LikeCreateNestedManyWithoutToUserInput
-    blocksSent?: BlockCreateNestedManyWithoutBlockerInput
-    blocksReceived?: BlockCreateNestedManyWithoutBlockedInput
-    messagesSent?: MessageCreateNestedManyWithoutSenderInput
-    messagesReceived?: MessageCreateNestedManyWithoutReceiverInput
     interests?: InterestCreateNestedManyWithoutUsersInput
+    sentLikes?: LikeCreateNestedManyWithoutSenderInput
+    receivedLikes?: LikeCreateNestedManyWithoutReceiverInput
+    matchesAsUser1?: MatchCreateNestedManyWithoutUser1Input
+    matchesAsUser2?: MatchCreateNestedManyWithoutUser2Input
   }
 
   export type UserUncheckedCreateInput = {
@@ -8864,19 +7494,16 @@ export namespace Prisma {
     gender: string
     bio?: string | null
     avatar?: string | null
-    sexualOrientation?: string | null
     latitude?: number | null
     longitude?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string
     photos?: PhotoUncheckedCreateNestedManyWithoutUserInput
-    likesSent?: LikeUncheckedCreateNestedManyWithoutFromUserInput
-    likesReceived?: LikeUncheckedCreateNestedManyWithoutToUserInput
-    blocksSent?: BlockUncheckedCreateNestedManyWithoutBlockerInput
-    blocksReceived?: BlockUncheckedCreateNestedManyWithoutBlockedInput
-    messagesSent?: MessageUncheckedCreateNestedManyWithoutSenderInput
-    messagesReceived?: MessageUncheckedCreateNestedManyWithoutReceiverInput
     interests?: InterestUncheckedCreateNestedManyWithoutUsersInput
+    sentLikes?: LikeUncheckedCreateNestedManyWithoutSenderInput
+    receivedLikes?: LikeUncheckedCreateNestedManyWithoutReceiverInput
+    matchesAsUser1?: MatchUncheckedCreateNestedManyWithoutUser1Input
+    matchesAsUser2?: MatchUncheckedCreateNestedManyWithoutUser2Input
   }
 
   export type UserUpdateInput = {
@@ -8889,19 +7516,16 @@ export namespace Prisma {
     gender?: StringFieldUpdateOperationsInput | string
     bio?: NullableStringFieldUpdateOperationsInput | string | null
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
-    sexualOrientation?: NullableStringFieldUpdateOperationsInput | string | null
     latitude?: NullableFloatFieldUpdateOperationsInput | number | null
     longitude?: NullableFloatFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     photos?: PhotoUpdateManyWithoutUserNestedInput
-    likesSent?: LikeUpdateManyWithoutFromUserNestedInput
-    likesReceived?: LikeUpdateManyWithoutToUserNestedInput
-    blocksSent?: BlockUpdateManyWithoutBlockerNestedInput
-    blocksReceived?: BlockUpdateManyWithoutBlockedNestedInput
-    messagesSent?: MessageUpdateManyWithoutSenderNestedInput
-    messagesReceived?: MessageUpdateManyWithoutReceiverNestedInput
     interests?: InterestUpdateManyWithoutUsersNestedInput
+    sentLikes?: LikeUpdateManyWithoutSenderNestedInput
+    receivedLikes?: LikeUpdateManyWithoutReceiverNestedInput
+    matchesAsUser1?: MatchUpdateManyWithoutUser1NestedInput
+    matchesAsUser2?: MatchUpdateManyWithoutUser2NestedInput
   }
 
   export type UserUncheckedUpdateInput = {
@@ -8915,19 +7539,16 @@ export namespace Prisma {
     gender?: StringFieldUpdateOperationsInput | string
     bio?: NullableStringFieldUpdateOperationsInput | string | null
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
-    sexualOrientation?: NullableStringFieldUpdateOperationsInput | string | null
     latitude?: NullableFloatFieldUpdateOperationsInput | number | null
     longitude?: NullableFloatFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     photos?: PhotoUncheckedUpdateManyWithoutUserNestedInput
-    likesSent?: LikeUncheckedUpdateManyWithoutFromUserNestedInput
-    likesReceived?: LikeUncheckedUpdateManyWithoutToUserNestedInput
-    blocksSent?: BlockUncheckedUpdateManyWithoutBlockerNestedInput
-    blocksReceived?: BlockUncheckedUpdateManyWithoutBlockedNestedInput
-    messagesSent?: MessageUncheckedUpdateManyWithoutSenderNestedInput
-    messagesReceived?: MessageUncheckedUpdateManyWithoutReceiverNestedInput
     interests?: InterestUncheckedUpdateManyWithoutUsersNestedInput
+    sentLikes?: LikeUncheckedUpdateManyWithoutSenderNestedInput
+    receivedLikes?: LikeUncheckedUpdateManyWithoutReceiverNestedInput
+    matchesAsUser1?: MatchUncheckedUpdateManyWithoutUser1NestedInput
+    matchesAsUser2?: MatchUncheckedUpdateManyWithoutUser2NestedInput
   }
 
   export type UserCreateManyInput = {
@@ -8941,7 +7562,6 @@ export namespace Prisma {
     gender: string
     bio?: string | null
     avatar?: string | null
-    sexualOrientation?: string | null
     latitude?: number | null
     longitude?: number | null
     createdAt?: Date | string
@@ -8958,7 +7578,6 @@ export namespace Prisma {
     gender?: StringFieldUpdateOperationsInput | string
     bio?: NullableStringFieldUpdateOperationsInput | string | null
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
-    sexualOrientation?: NullableStringFieldUpdateOperationsInput | string | null
     latitude?: NullableFloatFieldUpdateOperationsInput | number | null
     longitude?: NullableFloatFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -8976,7 +7595,6 @@ export namespace Prisma {
     gender?: StringFieldUpdateOperationsInput | string
     bio?: NullableStringFieldUpdateOperationsInput | string | null
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
-    sexualOrientation?: NullableStringFieldUpdateOperationsInput | string | null
     latitude?: NullableFloatFieldUpdateOperationsInput | number | null
     longitude?: NullableFloatFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -9059,34 +7677,34 @@ export namespace Prisma {
 
   export type LikeCreateInput = {
     createdAt?: Date | string
-    fromUser: UserCreateNestedOneWithoutLikesSentInput
-    toUser: UserCreateNestedOneWithoutLikesReceivedInput
+    sender: UserCreateNestedOneWithoutSentLikesInput
+    receiver: UserCreateNestedOneWithoutReceivedLikesInput
   }
 
   export type LikeUncheckedCreateInput = {
     id?: number
-    fromUserId: number
-    toUserId: number
+    senderId: number
+    receiverId: number
     createdAt?: Date | string
   }
 
   export type LikeUpdateInput = {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    fromUser?: UserUpdateOneRequiredWithoutLikesSentNestedInput
-    toUser?: UserUpdateOneRequiredWithoutLikesReceivedNestedInput
+    sender?: UserUpdateOneRequiredWithoutSentLikesNestedInput
+    receiver?: UserUpdateOneRequiredWithoutReceivedLikesNestedInput
   }
 
   export type LikeUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
-    fromUserId?: IntFieldUpdateOperationsInput | number
-    toUserId?: IntFieldUpdateOperationsInput | number
+    senderId?: IntFieldUpdateOperationsInput | number
+    receiverId?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type LikeCreateManyInput = {
     id?: number
-    fromUserId: number
-    toUserId: number
+    senderId: number
+    receiverId: number
     createdAt?: Date | string
   }
 
@@ -9096,103 +7714,52 @@ export namespace Prisma {
 
   export type LikeUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
-    fromUserId?: IntFieldUpdateOperationsInput | number
-    toUserId?: IntFieldUpdateOperationsInput | number
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type BlockCreateInput = {
-    createdAt?: Date | string
-    blocker: UserCreateNestedOneWithoutBlocksSentInput
-    blocked: UserCreateNestedOneWithoutBlocksReceivedInput
-  }
-
-  export type BlockUncheckedCreateInput = {
-    id?: number
-    blockerId: number
-    blockedId: number
-    createdAt?: Date | string
-  }
-
-  export type BlockUpdateInput = {
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    blocker?: UserUpdateOneRequiredWithoutBlocksSentNestedInput
-    blocked?: UserUpdateOneRequiredWithoutBlocksReceivedNestedInput
-  }
-
-  export type BlockUncheckedUpdateInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    blockerId?: IntFieldUpdateOperationsInput | number
-    blockedId?: IntFieldUpdateOperationsInput | number
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type BlockCreateManyInput = {
-    id?: number
-    blockerId: number
-    blockedId: number
-    createdAt?: Date | string
-  }
-
-  export type BlockUpdateManyMutationInput = {
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type BlockUncheckedUpdateManyInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    blockerId?: IntFieldUpdateOperationsInput | number
-    blockedId?: IntFieldUpdateOperationsInput | number
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type MessageCreateInput = {
-    content: string
-    createdAt?: Date | string
-    sender: UserCreateNestedOneWithoutMessagesSentInput
-    receiver: UserCreateNestedOneWithoutMessagesReceivedInput
-  }
-
-  export type MessageUncheckedCreateInput = {
-    id?: number
-    senderId: number
-    receiverId: number
-    content: string
-    createdAt?: Date | string
-  }
-
-  export type MessageUpdateInput = {
-    content?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    sender?: UserUpdateOneRequiredWithoutMessagesSentNestedInput
-    receiver?: UserUpdateOneRequiredWithoutMessagesReceivedNestedInput
-  }
-
-  export type MessageUncheckedUpdateInput = {
-    id?: IntFieldUpdateOperationsInput | number
     senderId?: IntFieldUpdateOperationsInput | number
     receiverId?: IntFieldUpdateOperationsInput | number
-    content?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type MessageCreateManyInput = {
+  export type MatchCreateInput = {
+    createdAt?: Date | string
+    user1: UserCreateNestedOneWithoutMatchesAsUser1Input
+    user2: UserCreateNestedOneWithoutMatchesAsUser2Input
+  }
+
+  export type MatchUncheckedCreateInput = {
     id?: number
-    senderId: number
-    receiverId: number
-    content: string
+    user1Id: number
+    user2Id: number
     createdAt?: Date | string
   }
 
-  export type MessageUpdateManyMutationInput = {
-    content?: StringFieldUpdateOperationsInput | string
+  export type MatchUpdateInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user1?: UserUpdateOneRequiredWithoutMatchesAsUser1NestedInput
+    user2?: UserUpdateOneRequiredWithoutMatchesAsUser2NestedInput
+  }
+
+  export type MatchUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    user1Id?: IntFieldUpdateOperationsInput | number
+    user2Id?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type MessageUncheckedUpdateManyInput = {
+  export type MatchCreateManyInput = {
+    id?: number
+    user1Id: number
+    user2Id: number
+    createdAt?: Date | string
+  }
+
+  export type MatchUpdateManyMutationInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type MatchUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
-    senderId?: IntFieldUpdateOperationsInput | number
-    receiverId?: IntFieldUpdateOperationsInput | number
-    content?: StringFieldUpdateOperationsInput | string
+    user1Id?: IntFieldUpdateOperationsInput | number
+    user2Id?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -9263,28 +7830,22 @@ export namespace Prisma {
     none?: PhotoWhereInput
   }
 
+  export type InterestListRelationFilter = {
+    every?: InterestWhereInput
+    some?: InterestWhereInput
+    none?: InterestWhereInput
+  }
+
   export type LikeListRelationFilter = {
     every?: LikeWhereInput
     some?: LikeWhereInput
     none?: LikeWhereInput
   }
 
-  export type BlockListRelationFilter = {
-    every?: BlockWhereInput
-    some?: BlockWhereInput
-    none?: BlockWhereInput
-  }
-
-  export type MessageListRelationFilter = {
-    every?: MessageWhereInput
-    some?: MessageWhereInput
-    none?: MessageWhereInput
-  }
-
-  export type InterestListRelationFilter = {
-    every?: InterestWhereInput
-    some?: InterestWhereInput
-    none?: InterestWhereInput
+  export type MatchListRelationFilter = {
+    every?: MatchWhereInput
+    some?: MatchWhereInput
+    none?: MatchWhereInput
   }
 
   export type SortOrderInput = {
@@ -9296,19 +7857,15 @@ export namespace Prisma {
     _count?: SortOrder
   }
 
+  export type InterestOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
   export type LikeOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
-  export type BlockOrderByRelationAggregateInput = {
-    _count?: SortOrder
-  }
-
-  export type MessageOrderByRelationAggregateInput = {
-    _count?: SortOrder
-  }
-
-  export type InterestOrderByRelationAggregateInput = {
+  export type MatchOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -9323,7 +7880,6 @@ export namespace Prisma {
     gender?: SortOrder
     bio?: SortOrder
     avatar?: SortOrder
-    sexualOrientation?: SortOrder
     latitude?: SortOrder
     longitude?: SortOrder
     createdAt?: SortOrder
@@ -9347,7 +7903,6 @@ export namespace Prisma {
     gender?: SortOrder
     bio?: SortOrder
     avatar?: SortOrder
-    sexualOrientation?: SortOrder
     latitude?: SortOrder
     longitude?: SortOrder
     createdAt?: SortOrder
@@ -9365,7 +7920,6 @@ export namespace Prisma {
     gender?: SortOrder
     bio?: SortOrder
     avatar?: SortOrder
-    sexualOrientation?: SortOrder
     latitude?: SortOrder
     longitude?: SortOrder
     createdAt?: SortOrder
@@ -9524,116 +8078,80 @@ export namespace Prisma {
     id?: SortOrder
   }
 
-  export type LikeFromUserIdToUserIdCompoundUniqueInput = {
-    fromUserId: number
-    toUserId: number
+  export type LikeSenderIdReceiverIdCompoundUniqueInput = {
+    senderId: number
+    receiverId: number
   }
 
   export type LikeCountOrderByAggregateInput = {
     id?: SortOrder
-    fromUserId?: SortOrder
-    toUserId?: SortOrder
+    senderId?: SortOrder
+    receiverId?: SortOrder
     createdAt?: SortOrder
   }
 
   export type LikeAvgOrderByAggregateInput = {
     id?: SortOrder
-    fromUserId?: SortOrder
-    toUserId?: SortOrder
+    senderId?: SortOrder
+    receiverId?: SortOrder
   }
 
   export type LikeMaxOrderByAggregateInput = {
     id?: SortOrder
-    fromUserId?: SortOrder
-    toUserId?: SortOrder
+    senderId?: SortOrder
+    receiverId?: SortOrder
     createdAt?: SortOrder
   }
 
   export type LikeMinOrderByAggregateInput = {
     id?: SortOrder
-    fromUserId?: SortOrder
-    toUserId?: SortOrder
+    senderId?: SortOrder
+    receiverId?: SortOrder
     createdAt?: SortOrder
   }
 
   export type LikeSumOrderByAggregateInput = {
     id?: SortOrder
-    fromUserId?: SortOrder
-    toUserId?: SortOrder
-  }
-
-  export type BlockBlockerIdBlockedIdCompoundUniqueInput = {
-    blockerId: number
-    blockedId: number
-  }
-
-  export type BlockCountOrderByAggregateInput = {
-    id?: SortOrder
-    blockerId?: SortOrder
-    blockedId?: SortOrder
-    createdAt?: SortOrder
-  }
-
-  export type BlockAvgOrderByAggregateInput = {
-    id?: SortOrder
-    blockerId?: SortOrder
-    blockedId?: SortOrder
-  }
-
-  export type BlockMaxOrderByAggregateInput = {
-    id?: SortOrder
-    blockerId?: SortOrder
-    blockedId?: SortOrder
-    createdAt?: SortOrder
-  }
-
-  export type BlockMinOrderByAggregateInput = {
-    id?: SortOrder
-    blockerId?: SortOrder
-    blockedId?: SortOrder
-    createdAt?: SortOrder
-  }
-
-  export type BlockSumOrderByAggregateInput = {
-    id?: SortOrder
-    blockerId?: SortOrder
-    blockedId?: SortOrder
-  }
-
-  export type MessageCountOrderByAggregateInput = {
-    id?: SortOrder
-    senderId?: SortOrder
-    receiverId?: SortOrder
-    content?: SortOrder
-    createdAt?: SortOrder
-  }
-
-  export type MessageAvgOrderByAggregateInput = {
-    id?: SortOrder
     senderId?: SortOrder
     receiverId?: SortOrder
   }
 
-  export type MessageMaxOrderByAggregateInput = {
+  export type MatchUser1IdUser2IdCompoundUniqueInput = {
+    user1Id: number
+    user2Id: number
+  }
+
+  export type MatchCountOrderByAggregateInput = {
     id?: SortOrder
-    senderId?: SortOrder
-    receiverId?: SortOrder
-    content?: SortOrder
+    user1Id?: SortOrder
+    user2Id?: SortOrder
     createdAt?: SortOrder
   }
 
-  export type MessageMinOrderByAggregateInput = {
+  export type MatchAvgOrderByAggregateInput = {
     id?: SortOrder
-    senderId?: SortOrder
-    receiverId?: SortOrder
-    content?: SortOrder
+    user1Id?: SortOrder
+    user2Id?: SortOrder
+  }
+
+  export type MatchMaxOrderByAggregateInput = {
+    id?: SortOrder
+    user1Id?: SortOrder
+    user2Id?: SortOrder
     createdAt?: SortOrder
   }
 
-  export type MessageSumOrderByAggregateInput = {
+  export type MatchMinOrderByAggregateInput = {
     id?: SortOrder
-    senderId?: SortOrder
-    receiverId?: SortOrder
+    user1Id?: SortOrder
+    user2Id?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type MatchSumOrderByAggregateInput = {
+    id?: SortOrder
+    user1Id?: SortOrder
+    user2Id?: SortOrder
   }
 
   export type PhotoCreateNestedManyWithoutUserInput = {
@@ -9643,52 +8161,38 @@ export namespace Prisma {
     connect?: PhotoWhereUniqueInput | PhotoWhereUniqueInput[]
   }
 
-  export type LikeCreateNestedManyWithoutFromUserInput = {
-    create?: XOR<LikeCreateWithoutFromUserInput, LikeUncheckedCreateWithoutFromUserInput> | LikeCreateWithoutFromUserInput[] | LikeUncheckedCreateWithoutFromUserInput[]
-    connectOrCreate?: LikeCreateOrConnectWithoutFromUserInput | LikeCreateOrConnectWithoutFromUserInput[]
-    createMany?: LikeCreateManyFromUserInputEnvelope
-    connect?: LikeWhereUniqueInput | LikeWhereUniqueInput[]
-  }
-
-  export type LikeCreateNestedManyWithoutToUserInput = {
-    create?: XOR<LikeCreateWithoutToUserInput, LikeUncheckedCreateWithoutToUserInput> | LikeCreateWithoutToUserInput[] | LikeUncheckedCreateWithoutToUserInput[]
-    connectOrCreate?: LikeCreateOrConnectWithoutToUserInput | LikeCreateOrConnectWithoutToUserInput[]
-    createMany?: LikeCreateManyToUserInputEnvelope
-    connect?: LikeWhereUniqueInput | LikeWhereUniqueInput[]
-  }
-
-  export type BlockCreateNestedManyWithoutBlockerInput = {
-    create?: XOR<BlockCreateWithoutBlockerInput, BlockUncheckedCreateWithoutBlockerInput> | BlockCreateWithoutBlockerInput[] | BlockUncheckedCreateWithoutBlockerInput[]
-    connectOrCreate?: BlockCreateOrConnectWithoutBlockerInput | BlockCreateOrConnectWithoutBlockerInput[]
-    createMany?: BlockCreateManyBlockerInputEnvelope
-    connect?: BlockWhereUniqueInput | BlockWhereUniqueInput[]
-  }
-
-  export type BlockCreateNestedManyWithoutBlockedInput = {
-    create?: XOR<BlockCreateWithoutBlockedInput, BlockUncheckedCreateWithoutBlockedInput> | BlockCreateWithoutBlockedInput[] | BlockUncheckedCreateWithoutBlockedInput[]
-    connectOrCreate?: BlockCreateOrConnectWithoutBlockedInput | BlockCreateOrConnectWithoutBlockedInput[]
-    createMany?: BlockCreateManyBlockedInputEnvelope
-    connect?: BlockWhereUniqueInput | BlockWhereUniqueInput[]
-  }
-
-  export type MessageCreateNestedManyWithoutSenderInput = {
-    create?: XOR<MessageCreateWithoutSenderInput, MessageUncheckedCreateWithoutSenderInput> | MessageCreateWithoutSenderInput[] | MessageUncheckedCreateWithoutSenderInput[]
-    connectOrCreate?: MessageCreateOrConnectWithoutSenderInput | MessageCreateOrConnectWithoutSenderInput[]
-    createMany?: MessageCreateManySenderInputEnvelope
-    connect?: MessageWhereUniqueInput | MessageWhereUniqueInput[]
-  }
-
-  export type MessageCreateNestedManyWithoutReceiverInput = {
-    create?: XOR<MessageCreateWithoutReceiverInput, MessageUncheckedCreateWithoutReceiverInput> | MessageCreateWithoutReceiverInput[] | MessageUncheckedCreateWithoutReceiverInput[]
-    connectOrCreate?: MessageCreateOrConnectWithoutReceiverInput | MessageCreateOrConnectWithoutReceiverInput[]
-    createMany?: MessageCreateManyReceiverInputEnvelope
-    connect?: MessageWhereUniqueInput | MessageWhereUniqueInput[]
-  }
-
   export type InterestCreateNestedManyWithoutUsersInput = {
     create?: XOR<InterestCreateWithoutUsersInput, InterestUncheckedCreateWithoutUsersInput> | InterestCreateWithoutUsersInput[] | InterestUncheckedCreateWithoutUsersInput[]
     connectOrCreate?: InterestCreateOrConnectWithoutUsersInput | InterestCreateOrConnectWithoutUsersInput[]
     connect?: InterestWhereUniqueInput | InterestWhereUniqueInput[]
+  }
+
+  export type LikeCreateNestedManyWithoutSenderInput = {
+    create?: XOR<LikeCreateWithoutSenderInput, LikeUncheckedCreateWithoutSenderInput> | LikeCreateWithoutSenderInput[] | LikeUncheckedCreateWithoutSenderInput[]
+    connectOrCreate?: LikeCreateOrConnectWithoutSenderInput | LikeCreateOrConnectWithoutSenderInput[]
+    createMany?: LikeCreateManySenderInputEnvelope
+    connect?: LikeWhereUniqueInput | LikeWhereUniqueInput[]
+  }
+
+  export type LikeCreateNestedManyWithoutReceiverInput = {
+    create?: XOR<LikeCreateWithoutReceiverInput, LikeUncheckedCreateWithoutReceiverInput> | LikeCreateWithoutReceiverInput[] | LikeUncheckedCreateWithoutReceiverInput[]
+    connectOrCreate?: LikeCreateOrConnectWithoutReceiverInput | LikeCreateOrConnectWithoutReceiverInput[]
+    createMany?: LikeCreateManyReceiverInputEnvelope
+    connect?: LikeWhereUniqueInput | LikeWhereUniqueInput[]
+  }
+
+  export type MatchCreateNestedManyWithoutUser1Input = {
+    create?: XOR<MatchCreateWithoutUser1Input, MatchUncheckedCreateWithoutUser1Input> | MatchCreateWithoutUser1Input[] | MatchUncheckedCreateWithoutUser1Input[]
+    connectOrCreate?: MatchCreateOrConnectWithoutUser1Input | MatchCreateOrConnectWithoutUser1Input[]
+    createMany?: MatchCreateManyUser1InputEnvelope
+    connect?: MatchWhereUniqueInput | MatchWhereUniqueInput[]
+  }
+
+  export type MatchCreateNestedManyWithoutUser2Input = {
+    create?: XOR<MatchCreateWithoutUser2Input, MatchUncheckedCreateWithoutUser2Input> | MatchCreateWithoutUser2Input[] | MatchUncheckedCreateWithoutUser2Input[]
+    connectOrCreate?: MatchCreateOrConnectWithoutUser2Input | MatchCreateOrConnectWithoutUser2Input[]
+    createMany?: MatchCreateManyUser2InputEnvelope
+    connect?: MatchWhereUniqueInput | MatchWhereUniqueInput[]
   }
 
   export type PhotoUncheckedCreateNestedManyWithoutUserInput = {
@@ -9698,52 +8202,38 @@ export namespace Prisma {
     connect?: PhotoWhereUniqueInput | PhotoWhereUniqueInput[]
   }
 
-  export type LikeUncheckedCreateNestedManyWithoutFromUserInput = {
-    create?: XOR<LikeCreateWithoutFromUserInput, LikeUncheckedCreateWithoutFromUserInput> | LikeCreateWithoutFromUserInput[] | LikeUncheckedCreateWithoutFromUserInput[]
-    connectOrCreate?: LikeCreateOrConnectWithoutFromUserInput | LikeCreateOrConnectWithoutFromUserInput[]
-    createMany?: LikeCreateManyFromUserInputEnvelope
-    connect?: LikeWhereUniqueInput | LikeWhereUniqueInput[]
-  }
-
-  export type LikeUncheckedCreateNestedManyWithoutToUserInput = {
-    create?: XOR<LikeCreateWithoutToUserInput, LikeUncheckedCreateWithoutToUserInput> | LikeCreateWithoutToUserInput[] | LikeUncheckedCreateWithoutToUserInput[]
-    connectOrCreate?: LikeCreateOrConnectWithoutToUserInput | LikeCreateOrConnectWithoutToUserInput[]
-    createMany?: LikeCreateManyToUserInputEnvelope
-    connect?: LikeWhereUniqueInput | LikeWhereUniqueInput[]
-  }
-
-  export type BlockUncheckedCreateNestedManyWithoutBlockerInput = {
-    create?: XOR<BlockCreateWithoutBlockerInput, BlockUncheckedCreateWithoutBlockerInput> | BlockCreateWithoutBlockerInput[] | BlockUncheckedCreateWithoutBlockerInput[]
-    connectOrCreate?: BlockCreateOrConnectWithoutBlockerInput | BlockCreateOrConnectWithoutBlockerInput[]
-    createMany?: BlockCreateManyBlockerInputEnvelope
-    connect?: BlockWhereUniqueInput | BlockWhereUniqueInput[]
-  }
-
-  export type BlockUncheckedCreateNestedManyWithoutBlockedInput = {
-    create?: XOR<BlockCreateWithoutBlockedInput, BlockUncheckedCreateWithoutBlockedInput> | BlockCreateWithoutBlockedInput[] | BlockUncheckedCreateWithoutBlockedInput[]
-    connectOrCreate?: BlockCreateOrConnectWithoutBlockedInput | BlockCreateOrConnectWithoutBlockedInput[]
-    createMany?: BlockCreateManyBlockedInputEnvelope
-    connect?: BlockWhereUniqueInput | BlockWhereUniqueInput[]
-  }
-
-  export type MessageUncheckedCreateNestedManyWithoutSenderInput = {
-    create?: XOR<MessageCreateWithoutSenderInput, MessageUncheckedCreateWithoutSenderInput> | MessageCreateWithoutSenderInput[] | MessageUncheckedCreateWithoutSenderInput[]
-    connectOrCreate?: MessageCreateOrConnectWithoutSenderInput | MessageCreateOrConnectWithoutSenderInput[]
-    createMany?: MessageCreateManySenderInputEnvelope
-    connect?: MessageWhereUniqueInput | MessageWhereUniqueInput[]
-  }
-
-  export type MessageUncheckedCreateNestedManyWithoutReceiverInput = {
-    create?: XOR<MessageCreateWithoutReceiverInput, MessageUncheckedCreateWithoutReceiverInput> | MessageCreateWithoutReceiverInput[] | MessageUncheckedCreateWithoutReceiverInput[]
-    connectOrCreate?: MessageCreateOrConnectWithoutReceiverInput | MessageCreateOrConnectWithoutReceiverInput[]
-    createMany?: MessageCreateManyReceiverInputEnvelope
-    connect?: MessageWhereUniqueInput | MessageWhereUniqueInput[]
-  }
-
   export type InterestUncheckedCreateNestedManyWithoutUsersInput = {
     create?: XOR<InterestCreateWithoutUsersInput, InterestUncheckedCreateWithoutUsersInput> | InterestCreateWithoutUsersInput[] | InterestUncheckedCreateWithoutUsersInput[]
     connectOrCreate?: InterestCreateOrConnectWithoutUsersInput | InterestCreateOrConnectWithoutUsersInput[]
     connect?: InterestWhereUniqueInput | InterestWhereUniqueInput[]
+  }
+
+  export type LikeUncheckedCreateNestedManyWithoutSenderInput = {
+    create?: XOR<LikeCreateWithoutSenderInput, LikeUncheckedCreateWithoutSenderInput> | LikeCreateWithoutSenderInput[] | LikeUncheckedCreateWithoutSenderInput[]
+    connectOrCreate?: LikeCreateOrConnectWithoutSenderInput | LikeCreateOrConnectWithoutSenderInput[]
+    createMany?: LikeCreateManySenderInputEnvelope
+    connect?: LikeWhereUniqueInput | LikeWhereUniqueInput[]
+  }
+
+  export type LikeUncheckedCreateNestedManyWithoutReceiverInput = {
+    create?: XOR<LikeCreateWithoutReceiverInput, LikeUncheckedCreateWithoutReceiverInput> | LikeCreateWithoutReceiverInput[] | LikeUncheckedCreateWithoutReceiverInput[]
+    connectOrCreate?: LikeCreateOrConnectWithoutReceiverInput | LikeCreateOrConnectWithoutReceiverInput[]
+    createMany?: LikeCreateManyReceiverInputEnvelope
+    connect?: LikeWhereUniqueInput | LikeWhereUniqueInput[]
+  }
+
+  export type MatchUncheckedCreateNestedManyWithoutUser1Input = {
+    create?: XOR<MatchCreateWithoutUser1Input, MatchUncheckedCreateWithoutUser1Input> | MatchCreateWithoutUser1Input[] | MatchUncheckedCreateWithoutUser1Input[]
+    connectOrCreate?: MatchCreateOrConnectWithoutUser1Input | MatchCreateOrConnectWithoutUser1Input[]
+    createMany?: MatchCreateManyUser1InputEnvelope
+    connect?: MatchWhereUniqueInput | MatchWhereUniqueInput[]
+  }
+
+  export type MatchUncheckedCreateNestedManyWithoutUser2Input = {
+    create?: XOR<MatchCreateWithoutUser2Input, MatchUncheckedCreateWithoutUser2Input> | MatchCreateWithoutUser2Input[] | MatchUncheckedCreateWithoutUser2Input[]
+    connectOrCreate?: MatchCreateOrConnectWithoutUser2Input | MatchCreateOrConnectWithoutUser2Input[]
+    createMany?: MatchCreateManyUser2InputEnvelope
+    connect?: MatchWhereUniqueInput | MatchWhereUniqueInput[]
   }
 
   export type StringFieldUpdateOperationsInput = {
@@ -9780,90 +8270,6 @@ export namespace Prisma {
     deleteMany?: PhotoScalarWhereInput | PhotoScalarWhereInput[]
   }
 
-  export type LikeUpdateManyWithoutFromUserNestedInput = {
-    create?: XOR<LikeCreateWithoutFromUserInput, LikeUncheckedCreateWithoutFromUserInput> | LikeCreateWithoutFromUserInput[] | LikeUncheckedCreateWithoutFromUserInput[]
-    connectOrCreate?: LikeCreateOrConnectWithoutFromUserInput | LikeCreateOrConnectWithoutFromUserInput[]
-    upsert?: LikeUpsertWithWhereUniqueWithoutFromUserInput | LikeUpsertWithWhereUniqueWithoutFromUserInput[]
-    createMany?: LikeCreateManyFromUserInputEnvelope
-    set?: LikeWhereUniqueInput | LikeWhereUniqueInput[]
-    disconnect?: LikeWhereUniqueInput | LikeWhereUniqueInput[]
-    delete?: LikeWhereUniqueInput | LikeWhereUniqueInput[]
-    connect?: LikeWhereUniqueInput | LikeWhereUniqueInput[]
-    update?: LikeUpdateWithWhereUniqueWithoutFromUserInput | LikeUpdateWithWhereUniqueWithoutFromUserInput[]
-    updateMany?: LikeUpdateManyWithWhereWithoutFromUserInput | LikeUpdateManyWithWhereWithoutFromUserInput[]
-    deleteMany?: LikeScalarWhereInput | LikeScalarWhereInput[]
-  }
-
-  export type LikeUpdateManyWithoutToUserNestedInput = {
-    create?: XOR<LikeCreateWithoutToUserInput, LikeUncheckedCreateWithoutToUserInput> | LikeCreateWithoutToUserInput[] | LikeUncheckedCreateWithoutToUserInput[]
-    connectOrCreate?: LikeCreateOrConnectWithoutToUserInput | LikeCreateOrConnectWithoutToUserInput[]
-    upsert?: LikeUpsertWithWhereUniqueWithoutToUserInput | LikeUpsertWithWhereUniqueWithoutToUserInput[]
-    createMany?: LikeCreateManyToUserInputEnvelope
-    set?: LikeWhereUniqueInput | LikeWhereUniqueInput[]
-    disconnect?: LikeWhereUniqueInput | LikeWhereUniqueInput[]
-    delete?: LikeWhereUniqueInput | LikeWhereUniqueInput[]
-    connect?: LikeWhereUniqueInput | LikeWhereUniqueInput[]
-    update?: LikeUpdateWithWhereUniqueWithoutToUserInput | LikeUpdateWithWhereUniqueWithoutToUserInput[]
-    updateMany?: LikeUpdateManyWithWhereWithoutToUserInput | LikeUpdateManyWithWhereWithoutToUserInput[]
-    deleteMany?: LikeScalarWhereInput | LikeScalarWhereInput[]
-  }
-
-  export type BlockUpdateManyWithoutBlockerNestedInput = {
-    create?: XOR<BlockCreateWithoutBlockerInput, BlockUncheckedCreateWithoutBlockerInput> | BlockCreateWithoutBlockerInput[] | BlockUncheckedCreateWithoutBlockerInput[]
-    connectOrCreate?: BlockCreateOrConnectWithoutBlockerInput | BlockCreateOrConnectWithoutBlockerInput[]
-    upsert?: BlockUpsertWithWhereUniqueWithoutBlockerInput | BlockUpsertWithWhereUniqueWithoutBlockerInput[]
-    createMany?: BlockCreateManyBlockerInputEnvelope
-    set?: BlockWhereUniqueInput | BlockWhereUniqueInput[]
-    disconnect?: BlockWhereUniqueInput | BlockWhereUniqueInput[]
-    delete?: BlockWhereUniqueInput | BlockWhereUniqueInput[]
-    connect?: BlockWhereUniqueInput | BlockWhereUniqueInput[]
-    update?: BlockUpdateWithWhereUniqueWithoutBlockerInput | BlockUpdateWithWhereUniqueWithoutBlockerInput[]
-    updateMany?: BlockUpdateManyWithWhereWithoutBlockerInput | BlockUpdateManyWithWhereWithoutBlockerInput[]
-    deleteMany?: BlockScalarWhereInput | BlockScalarWhereInput[]
-  }
-
-  export type BlockUpdateManyWithoutBlockedNestedInput = {
-    create?: XOR<BlockCreateWithoutBlockedInput, BlockUncheckedCreateWithoutBlockedInput> | BlockCreateWithoutBlockedInput[] | BlockUncheckedCreateWithoutBlockedInput[]
-    connectOrCreate?: BlockCreateOrConnectWithoutBlockedInput | BlockCreateOrConnectWithoutBlockedInput[]
-    upsert?: BlockUpsertWithWhereUniqueWithoutBlockedInput | BlockUpsertWithWhereUniqueWithoutBlockedInput[]
-    createMany?: BlockCreateManyBlockedInputEnvelope
-    set?: BlockWhereUniqueInput | BlockWhereUniqueInput[]
-    disconnect?: BlockWhereUniqueInput | BlockWhereUniqueInput[]
-    delete?: BlockWhereUniqueInput | BlockWhereUniqueInput[]
-    connect?: BlockWhereUniqueInput | BlockWhereUniqueInput[]
-    update?: BlockUpdateWithWhereUniqueWithoutBlockedInput | BlockUpdateWithWhereUniqueWithoutBlockedInput[]
-    updateMany?: BlockUpdateManyWithWhereWithoutBlockedInput | BlockUpdateManyWithWhereWithoutBlockedInput[]
-    deleteMany?: BlockScalarWhereInput | BlockScalarWhereInput[]
-  }
-
-  export type MessageUpdateManyWithoutSenderNestedInput = {
-    create?: XOR<MessageCreateWithoutSenderInput, MessageUncheckedCreateWithoutSenderInput> | MessageCreateWithoutSenderInput[] | MessageUncheckedCreateWithoutSenderInput[]
-    connectOrCreate?: MessageCreateOrConnectWithoutSenderInput | MessageCreateOrConnectWithoutSenderInput[]
-    upsert?: MessageUpsertWithWhereUniqueWithoutSenderInput | MessageUpsertWithWhereUniqueWithoutSenderInput[]
-    createMany?: MessageCreateManySenderInputEnvelope
-    set?: MessageWhereUniqueInput | MessageWhereUniqueInput[]
-    disconnect?: MessageWhereUniqueInput | MessageWhereUniqueInput[]
-    delete?: MessageWhereUniqueInput | MessageWhereUniqueInput[]
-    connect?: MessageWhereUniqueInput | MessageWhereUniqueInput[]
-    update?: MessageUpdateWithWhereUniqueWithoutSenderInput | MessageUpdateWithWhereUniqueWithoutSenderInput[]
-    updateMany?: MessageUpdateManyWithWhereWithoutSenderInput | MessageUpdateManyWithWhereWithoutSenderInput[]
-    deleteMany?: MessageScalarWhereInput | MessageScalarWhereInput[]
-  }
-
-  export type MessageUpdateManyWithoutReceiverNestedInput = {
-    create?: XOR<MessageCreateWithoutReceiverInput, MessageUncheckedCreateWithoutReceiverInput> | MessageCreateWithoutReceiverInput[] | MessageUncheckedCreateWithoutReceiverInput[]
-    connectOrCreate?: MessageCreateOrConnectWithoutReceiverInput | MessageCreateOrConnectWithoutReceiverInput[]
-    upsert?: MessageUpsertWithWhereUniqueWithoutReceiverInput | MessageUpsertWithWhereUniqueWithoutReceiverInput[]
-    createMany?: MessageCreateManyReceiverInputEnvelope
-    set?: MessageWhereUniqueInput | MessageWhereUniqueInput[]
-    disconnect?: MessageWhereUniqueInput | MessageWhereUniqueInput[]
-    delete?: MessageWhereUniqueInput | MessageWhereUniqueInput[]
-    connect?: MessageWhereUniqueInput | MessageWhereUniqueInput[]
-    update?: MessageUpdateWithWhereUniqueWithoutReceiverInput | MessageUpdateWithWhereUniqueWithoutReceiverInput[]
-    updateMany?: MessageUpdateManyWithWhereWithoutReceiverInput | MessageUpdateManyWithWhereWithoutReceiverInput[]
-    deleteMany?: MessageScalarWhereInput | MessageScalarWhereInput[]
-  }
-
   export type InterestUpdateManyWithoutUsersNestedInput = {
     create?: XOR<InterestCreateWithoutUsersInput, InterestUncheckedCreateWithoutUsersInput> | InterestCreateWithoutUsersInput[] | InterestUncheckedCreateWithoutUsersInput[]
     connectOrCreate?: InterestCreateOrConnectWithoutUsersInput | InterestCreateOrConnectWithoutUsersInput[]
@@ -9875,6 +8281,62 @@ export namespace Prisma {
     update?: InterestUpdateWithWhereUniqueWithoutUsersInput | InterestUpdateWithWhereUniqueWithoutUsersInput[]
     updateMany?: InterestUpdateManyWithWhereWithoutUsersInput | InterestUpdateManyWithWhereWithoutUsersInput[]
     deleteMany?: InterestScalarWhereInput | InterestScalarWhereInput[]
+  }
+
+  export type LikeUpdateManyWithoutSenderNestedInput = {
+    create?: XOR<LikeCreateWithoutSenderInput, LikeUncheckedCreateWithoutSenderInput> | LikeCreateWithoutSenderInput[] | LikeUncheckedCreateWithoutSenderInput[]
+    connectOrCreate?: LikeCreateOrConnectWithoutSenderInput | LikeCreateOrConnectWithoutSenderInput[]
+    upsert?: LikeUpsertWithWhereUniqueWithoutSenderInput | LikeUpsertWithWhereUniqueWithoutSenderInput[]
+    createMany?: LikeCreateManySenderInputEnvelope
+    set?: LikeWhereUniqueInput | LikeWhereUniqueInput[]
+    disconnect?: LikeWhereUniqueInput | LikeWhereUniqueInput[]
+    delete?: LikeWhereUniqueInput | LikeWhereUniqueInput[]
+    connect?: LikeWhereUniqueInput | LikeWhereUniqueInput[]
+    update?: LikeUpdateWithWhereUniqueWithoutSenderInput | LikeUpdateWithWhereUniqueWithoutSenderInput[]
+    updateMany?: LikeUpdateManyWithWhereWithoutSenderInput | LikeUpdateManyWithWhereWithoutSenderInput[]
+    deleteMany?: LikeScalarWhereInput | LikeScalarWhereInput[]
+  }
+
+  export type LikeUpdateManyWithoutReceiverNestedInput = {
+    create?: XOR<LikeCreateWithoutReceiverInput, LikeUncheckedCreateWithoutReceiverInput> | LikeCreateWithoutReceiverInput[] | LikeUncheckedCreateWithoutReceiverInput[]
+    connectOrCreate?: LikeCreateOrConnectWithoutReceiverInput | LikeCreateOrConnectWithoutReceiverInput[]
+    upsert?: LikeUpsertWithWhereUniqueWithoutReceiverInput | LikeUpsertWithWhereUniqueWithoutReceiverInput[]
+    createMany?: LikeCreateManyReceiverInputEnvelope
+    set?: LikeWhereUniqueInput | LikeWhereUniqueInput[]
+    disconnect?: LikeWhereUniqueInput | LikeWhereUniqueInput[]
+    delete?: LikeWhereUniqueInput | LikeWhereUniqueInput[]
+    connect?: LikeWhereUniqueInput | LikeWhereUniqueInput[]
+    update?: LikeUpdateWithWhereUniqueWithoutReceiverInput | LikeUpdateWithWhereUniqueWithoutReceiverInput[]
+    updateMany?: LikeUpdateManyWithWhereWithoutReceiverInput | LikeUpdateManyWithWhereWithoutReceiverInput[]
+    deleteMany?: LikeScalarWhereInput | LikeScalarWhereInput[]
+  }
+
+  export type MatchUpdateManyWithoutUser1NestedInput = {
+    create?: XOR<MatchCreateWithoutUser1Input, MatchUncheckedCreateWithoutUser1Input> | MatchCreateWithoutUser1Input[] | MatchUncheckedCreateWithoutUser1Input[]
+    connectOrCreate?: MatchCreateOrConnectWithoutUser1Input | MatchCreateOrConnectWithoutUser1Input[]
+    upsert?: MatchUpsertWithWhereUniqueWithoutUser1Input | MatchUpsertWithWhereUniqueWithoutUser1Input[]
+    createMany?: MatchCreateManyUser1InputEnvelope
+    set?: MatchWhereUniqueInput | MatchWhereUniqueInput[]
+    disconnect?: MatchWhereUniqueInput | MatchWhereUniqueInput[]
+    delete?: MatchWhereUniqueInput | MatchWhereUniqueInput[]
+    connect?: MatchWhereUniqueInput | MatchWhereUniqueInput[]
+    update?: MatchUpdateWithWhereUniqueWithoutUser1Input | MatchUpdateWithWhereUniqueWithoutUser1Input[]
+    updateMany?: MatchUpdateManyWithWhereWithoutUser1Input | MatchUpdateManyWithWhereWithoutUser1Input[]
+    deleteMany?: MatchScalarWhereInput | MatchScalarWhereInput[]
+  }
+
+  export type MatchUpdateManyWithoutUser2NestedInput = {
+    create?: XOR<MatchCreateWithoutUser2Input, MatchUncheckedCreateWithoutUser2Input> | MatchCreateWithoutUser2Input[] | MatchUncheckedCreateWithoutUser2Input[]
+    connectOrCreate?: MatchCreateOrConnectWithoutUser2Input | MatchCreateOrConnectWithoutUser2Input[]
+    upsert?: MatchUpsertWithWhereUniqueWithoutUser2Input | MatchUpsertWithWhereUniqueWithoutUser2Input[]
+    createMany?: MatchCreateManyUser2InputEnvelope
+    set?: MatchWhereUniqueInput | MatchWhereUniqueInput[]
+    disconnect?: MatchWhereUniqueInput | MatchWhereUniqueInput[]
+    delete?: MatchWhereUniqueInput | MatchWhereUniqueInput[]
+    connect?: MatchWhereUniqueInput | MatchWhereUniqueInput[]
+    update?: MatchUpdateWithWhereUniqueWithoutUser2Input | MatchUpdateWithWhereUniqueWithoutUser2Input[]
+    updateMany?: MatchUpdateManyWithWhereWithoutUser2Input | MatchUpdateManyWithWhereWithoutUser2Input[]
+    deleteMany?: MatchScalarWhereInput | MatchScalarWhereInput[]
   }
 
   export type IntFieldUpdateOperationsInput = {
@@ -9899,90 +8361,6 @@ export namespace Prisma {
     deleteMany?: PhotoScalarWhereInput | PhotoScalarWhereInput[]
   }
 
-  export type LikeUncheckedUpdateManyWithoutFromUserNestedInput = {
-    create?: XOR<LikeCreateWithoutFromUserInput, LikeUncheckedCreateWithoutFromUserInput> | LikeCreateWithoutFromUserInput[] | LikeUncheckedCreateWithoutFromUserInput[]
-    connectOrCreate?: LikeCreateOrConnectWithoutFromUserInput | LikeCreateOrConnectWithoutFromUserInput[]
-    upsert?: LikeUpsertWithWhereUniqueWithoutFromUserInput | LikeUpsertWithWhereUniqueWithoutFromUserInput[]
-    createMany?: LikeCreateManyFromUserInputEnvelope
-    set?: LikeWhereUniqueInput | LikeWhereUniqueInput[]
-    disconnect?: LikeWhereUniqueInput | LikeWhereUniqueInput[]
-    delete?: LikeWhereUniqueInput | LikeWhereUniqueInput[]
-    connect?: LikeWhereUniqueInput | LikeWhereUniqueInput[]
-    update?: LikeUpdateWithWhereUniqueWithoutFromUserInput | LikeUpdateWithWhereUniqueWithoutFromUserInput[]
-    updateMany?: LikeUpdateManyWithWhereWithoutFromUserInput | LikeUpdateManyWithWhereWithoutFromUserInput[]
-    deleteMany?: LikeScalarWhereInput | LikeScalarWhereInput[]
-  }
-
-  export type LikeUncheckedUpdateManyWithoutToUserNestedInput = {
-    create?: XOR<LikeCreateWithoutToUserInput, LikeUncheckedCreateWithoutToUserInput> | LikeCreateWithoutToUserInput[] | LikeUncheckedCreateWithoutToUserInput[]
-    connectOrCreate?: LikeCreateOrConnectWithoutToUserInput | LikeCreateOrConnectWithoutToUserInput[]
-    upsert?: LikeUpsertWithWhereUniqueWithoutToUserInput | LikeUpsertWithWhereUniqueWithoutToUserInput[]
-    createMany?: LikeCreateManyToUserInputEnvelope
-    set?: LikeWhereUniqueInput | LikeWhereUniqueInput[]
-    disconnect?: LikeWhereUniqueInput | LikeWhereUniqueInput[]
-    delete?: LikeWhereUniqueInput | LikeWhereUniqueInput[]
-    connect?: LikeWhereUniqueInput | LikeWhereUniqueInput[]
-    update?: LikeUpdateWithWhereUniqueWithoutToUserInput | LikeUpdateWithWhereUniqueWithoutToUserInput[]
-    updateMany?: LikeUpdateManyWithWhereWithoutToUserInput | LikeUpdateManyWithWhereWithoutToUserInput[]
-    deleteMany?: LikeScalarWhereInput | LikeScalarWhereInput[]
-  }
-
-  export type BlockUncheckedUpdateManyWithoutBlockerNestedInput = {
-    create?: XOR<BlockCreateWithoutBlockerInput, BlockUncheckedCreateWithoutBlockerInput> | BlockCreateWithoutBlockerInput[] | BlockUncheckedCreateWithoutBlockerInput[]
-    connectOrCreate?: BlockCreateOrConnectWithoutBlockerInput | BlockCreateOrConnectWithoutBlockerInput[]
-    upsert?: BlockUpsertWithWhereUniqueWithoutBlockerInput | BlockUpsertWithWhereUniqueWithoutBlockerInput[]
-    createMany?: BlockCreateManyBlockerInputEnvelope
-    set?: BlockWhereUniqueInput | BlockWhereUniqueInput[]
-    disconnect?: BlockWhereUniqueInput | BlockWhereUniqueInput[]
-    delete?: BlockWhereUniqueInput | BlockWhereUniqueInput[]
-    connect?: BlockWhereUniqueInput | BlockWhereUniqueInput[]
-    update?: BlockUpdateWithWhereUniqueWithoutBlockerInput | BlockUpdateWithWhereUniqueWithoutBlockerInput[]
-    updateMany?: BlockUpdateManyWithWhereWithoutBlockerInput | BlockUpdateManyWithWhereWithoutBlockerInput[]
-    deleteMany?: BlockScalarWhereInput | BlockScalarWhereInput[]
-  }
-
-  export type BlockUncheckedUpdateManyWithoutBlockedNestedInput = {
-    create?: XOR<BlockCreateWithoutBlockedInput, BlockUncheckedCreateWithoutBlockedInput> | BlockCreateWithoutBlockedInput[] | BlockUncheckedCreateWithoutBlockedInput[]
-    connectOrCreate?: BlockCreateOrConnectWithoutBlockedInput | BlockCreateOrConnectWithoutBlockedInput[]
-    upsert?: BlockUpsertWithWhereUniqueWithoutBlockedInput | BlockUpsertWithWhereUniqueWithoutBlockedInput[]
-    createMany?: BlockCreateManyBlockedInputEnvelope
-    set?: BlockWhereUniqueInput | BlockWhereUniqueInput[]
-    disconnect?: BlockWhereUniqueInput | BlockWhereUniqueInput[]
-    delete?: BlockWhereUniqueInput | BlockWhereUniqueInput[]
-    connect?: BlockWhereUniqueInput | BlockWhereUniqueInput[]
-    update?: BlockUpdateWithWhereUniqueWithoutBlockedInput | BlockUpdateWithWhereUniqueWithoutBlockedInput[]
-    updateMany?: BlockUpdateManyWithWhereWithoutBlockedInput | BlockUpdateManyWithWhereWithoutBlockedInput[]
-    deleteMany?: BlockScalarWhereInput | BlockScalarWhereInput[]
-  }
-
-  export type MessageUncheckedUpdateManyWithoutSenderNestedInput = {
-    create?: XOR<MessageCreateWithoutSenderInput, MessageUncheckedCreateWithoutSenderInput> | MessageCreateWithoutSenderInput[] | MessageUncheckedCreateWithoutSenderInput[]
-    connectOrCreate?: MessageCreateOrConnectWithoutSenderInput | MessageCreateOrConnectWithoutSenderInput[]
-    upsert?: MessageUpsertWithWhereUniqueWithoutSenderInput | MessageUpsertWithWhereUniqueWithoutSenderInput[]
-    createMany?: MessageCreateManySenderInputEnvelope
-    set?: MessageWhereUniqueInput | MessageWhereUniqueInput[]
-    disconnect?: MessageWhereUniqueInput | MessageWhereUniqueInput[]
-    delete?: MessageWhereUniqueInput | MessageWhereUniqueInput[]
-    connect?: MessageWhereUniqueInput | MessageWhereUniqueInput[]
-    update?: MessageUpdateWithWhereUniqueWithoutSenderInput | MessageUpdateWithWhereUniqueWithoutSenderInput[]
-    updateMany?: MessageUpdateManyWithWhereWithoutSenderInput | MessageUpdateManyWithWhereWithoutSenderInput[]
-    deleteMany?: MessageScalarWhereInput | MessageScalarWhereInput[]
-  }
-
-  export type MessageUncheckedUpdateManyWithoutReceiverNestedInput = {
-    create?: XOR<MessageCreateWithoutReceiverInput, MessageUncheckedCreateWithoutReceiverInput> | MessageCreateWithoutReceiverInput[] | MessageUncheckedCreateWithoutReceiverInput[]
-    connectOrCreate?: MessageCreateOrConnectWithoutReceiverInput | MessageCreateOrConnectWithoutReceiverInput[]
-    upsert?: MessageUpsertWithWhereUniqueWithoutReceiverInput | MessageUpsertWithWhereUniqueWithoutReceiverInput[]
-    createMany?: MessageCreateManyReceiverInputEnvelope
-    set?: MessageWhereUniqueInput | MessageWhereUniqueInput[]
-    disconnect?: MessageWhereUniqueInput | MessageWhereUniqueInput[]
-    delete?: MessageWhereUniqueInput | MessageWhereUniqueInput[]
-    connect?: MessageWhereUniqueInput | MessageWhereUniqueInput[]
-    update?: MessageUpdateWithWhereUniqueWithoutReceiverInput | MessageUpdateWithWhereUniqueWithoutReceiverInput[]
-    updateMany?: MessageUpdateManyWithWhereWithoutReceiverInput | MessageUpdateManyWithWhereWithoutReceiverInput[]
-    deleteMany?: MessageScalarWhereInput | MessageScalarWhereInput[]
-  }
-
   export type InterestUncheckedUpdateManyWithoutUsersNestedInput = {
     create?: XOR<InterestCreateWithoutUsersInput, InterestUncheckedCreateWithoutUsersInput> | InterestCreateWithoutUsersInput[] | InterestUncheckedCreateWithoutUsersInput[]
     connectOrCreate?: InterestCreateOrConnectWithoutUsersInput | InterestCreateOrConnectWithoutUsersInput[]
@@ -9994,6 +8372,62 @@ export namespace Prisma {
     update?: InterestUpdateWithWhereUniqueWithoutUsersInput | InterestUpdateWithWhereUniqueWithoutUsersInput[]
     updateMany?: InterestUpdateManyWithWhereWithoutUsersInput | InterestUpdateManyWithWhereWithoutUsersInput[]
     deleteMany?: InterestScalarWhereInput | InterestScalarWhereInput[]
+  }
+
+  export type LikeUncheckedUpdateManyWithoutSenderNestedInput = {
+    create?: XOR<LikeCreateWithoutSenderInput, LikeUncheckedCreateWithoutSenderInput> | LikeCreateWithoutSenderInput[] | LikeUncheckedCreateWithoutSenderInput[]
+    connectOrCreate?: LikeCreateOrConnectWithoutSenderInput | LikeCreateOrConnectWithoutSenderInput[]
+    upsert?: LikeUpsertWithWhereUniqueWithoutSenderInput | LikeUpsertWithWhereUniqueWithoutSenderInput[]
+    createMany?: LikeCreateManySenderInputEnvelope
+    set?: LikeWhereUniqueInput | LikeWhereUniqueInput[]
+    disconnect?: LikeWhereUniqueInput | LikeWhereUniqueInput[]
+    delete?: LikeWhereUniqueInput | LikeWhereUniqueInput[]
+    connect?: LikeWhereUniqueInput | LikeWhereUniqueInput[]
+    update?: LikeUpdateWithWhereUniqueWithoutSenderInput | LikeUpdateWithWhereUniqueWithoutSenderInput[]
+    updateMany?: LikeUpdateManyWithWhereWithoutSenderInput | LikeUpdateManyWithWhereWithoutSenderInput[]
+    deleteMany?: LikeScalarWhereInput | LikeScalarWhereInput[]
+  }
+
+  export type LikeUncheckedUpdateManyWithoutReceiverNestedInput = {
+    create?: XOR<LikeCreateWithoutReceiverInput, LikeUncheckedCreateWithoutReceiverInput> | LikeCreateWithoutReceiverInput[] | LikeUncheckedCreateWithoutReceiverInput[]
+    connectOrCreate?: LikeCreateOrConnectWithoutReceiverInput | LikeCreateOrConnectWithoutReceiverInput[]
+    upsert?: LikeUpsertWithWhereUniqueWithoutReceiverInput | LikeUpsertWithWhereUniqueWithoutReceiverInput[]
+    createMany?: LikeCreateManyReceiverInputEnvelope
+    set?: LikeWhereUniqueInput | LikeWhereUniqueInput[]
+    disconnect?: LikeWhereUniqueInput | LikeWhereUniqueInput[]
+    delete?: LikeWhereUniqueInput | LikeWhereUniqueInput[]
+    connect?: LikeWhereUniqueInput | LikeWhereUniqueInput[]
+    update?: LikeUpdateWithWhereUniqueWithoutReceiverInput | LikeUpdateWithWhereUniqueWithoutReceiverInput[]
+    updateMany?: LikeUpdateManyWithWhereWithoutReceiverInput | LikeUpdateManyWithWhereWithoutReceiverInput[]
+    deleteMany?: LikeScalarWhereInput | LikeScalarWhereInput[]
+  }
+
+  export type MatchUncheckedUpdateManyWithoutUser1NestedInput = {
+    create?: XOR<MatchCreateWithoutUser1Input, MatchUncheckedCreateWithoutUser1Input> | MatchCreateWithoutUser1Input[] | MatchUncheckedCreateWithoutUser1Input[]
+    connectOrCreate?: MatchCreateOrConnectWithoutUser1Input | MatchCreateOrConnectWithoutUser1Input[]
+    upsert?: MatchUpsertWithWhereUniqueWithoutUser1Input | MatchUpsertWithWhereUniqueWithoutUser1Input[]
+    createMany?: MatchCreateManyUser1InputEnvelope
+    set?: MatchWhereUniqueInput | MatchWhereUniqueInput[]
+    disconnect?: MatchWhereUniqueInput | MatchWhereUniqueInput[]
+    delete?: MatchWhereUniqueInput | MatchWhereUniqueInput[]
+    connect?: MatchWhereUniqueInput | MatchWhereUniqueInput[]
+    update?: MatchUpdateWithWhereUniqueWithoutUser1Input | MatchUpdateWithWhereUniqueWithoutUser1Input[]
+    updateMany?: MatchUpdateManyWithWhereWithoutUser1Input | MatchUpdateManyWithWhereWithoutUser1Input[]
+    deleteMany?: MatchScalarWhereInput | MatchScalarWhereInput[]
+  }
+
+  export type MatchUncheckedUpdateManyWithoutUser2NestedInput = {
+    create?: XOR<MatchCreateWithoutUser2Input, MatchUncheckedCreateWithoutUser2Input> | MatchCreateWithoutUser2Input[] | MatchUncheckedCreateWithoutUser2Input[]
+    connectOrCreate?: MatchCreateOrConnectWithoutUser2Input | MatchCreateOrConnectWithoutUser2Input[]
+    upsert?: MatchUpsertWithWhereUniqueWithoutUser2Input | MatchUpsertWithWhereUniqueWithoutUser2Input[]
+    createMany?: MatchCreateManyUser2InputEnvelope
+    set?: MatchWhereUniqueInput | MatchWhereUniqueInput[]
+    disconnect?: MatchWhereUniqueInput | MatchWhereUniqueInput[]
+    delete?: MatchWhereUniqueInput | MatchWhereUniqueInput[]
+    connect?: MatchWhereUniqueInput | MatchWhereUniqueInput[]
+    update?: MatchUpdateWithWhereUniqueWithoutUser2Input | MatchUpdateWithWhereUniqueWithoutUser2Input[]
+    updateMany?: MatchUpdateManyWithWhereWithoutUser2Input | MatchUpdateManyWithWhereWithoutUser2Input[]
+    deleteMany?: MatchScalarWhereInput | MatchScalarWhereInput[]
   }
 
   export type UserCreateNestedOneWithoutPhotosInput = {
@@ -10048,88 +8482,60 @@ export namespace Prisma {
     deleteMany?: UserScalarWhereInput | UserScalarWhereInput[]
   }
 
-  export type UserCreateNestedOneWithoutLikesSentInput = {
-    create?: XOR<UserCreateWithoutLikesSentInput, UserUncheckedCreateWithoutLikesSentInput>
-    connectOrCreate?: UserCreateOrConnectWithoutLikesSentInput
+  export type UserCreateNestedOneWithoutSentLikesInput = {
+    create?: XOR<UserCreateWithoutSentLikesInput, UserUncheckedCreateWithoutSentLikesInput>
+    connectOrCreate?: UserCreateOrConnectWithoutSentLikesInput
     connect?: UserWhereUniqueInput
   }
 
-  export type UserCreateNestedOneWithoutLikesReceivedInput = {
-    create?: XOR<UserCreateWithoutLikesReceivedInput, UserUncheckedCreateWithoutLikesReceivedInput>
-    connectOrCreate?: UserCreateOrConnectWithoutLikesReceivedInput
+  export type UserCreateNestedOneWithoutReceivedLikesInput = {
+    create?: XOR<UserCreateWithoutReceivedLikesInput, UserUncheckedCreateWithoutReceivedLikesInput>
+    connectOrCreate?: UserCreateOrConnectWithoutReceivedLikesInput
     connect?: UserWhereUniqueInput
   }
 
-  export type UserUpdateOneRequiredWithoutLikesSentNestedInput = {
-    create?: XOR<UserCreateWithoutLikesSentInput, UserUncheckedCreateWithoutLikesSentInput>
-    connectOrCreate?: UserCreateOrConnectWithoutLikesSentInput
-    upsert?: UserUpsertWithoutLikesSentInput
+  export type UserUpdateOneRequiredWithoutSentLikesNestedInput = {
+    create?: XOR<UserCreateWithoutSentLikesInput, UserUncheckedCreateWithoutSentLikesInput>
+    connectOrCreate?: UserCreateOrConnectWithoutSentLikesInput
+    upsert?: UserUpsertWithoutSentLikesInput
     connect?: UserWhereUniqueInput
-    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutLikesSentInput, UserUpdateWithoutLikesSentInput>, UserUncheckedUpdateWithoutLikesSentInput>
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutSentLikesInput, UserUpdateWithoutSentLikesInput>, UserUncheckedUpdateWithoutSentLikesInput>
   }
 
-  export type UserUpdateOneRequiredWithoutLikesReceivedNestedInput = {
-    create?: XOR<UserCreateWithoutLikesReceivedInput, UserUncheckedCreateWithoutLikesReceivedInput>
-    connectOrCreate?: UserCreateOrConnectWithoutLikesReceivedInput
-    upsert?: UserUpsertWithoutLikesReceivedInput
+  export type UserUpdateOneRequiredWithoutReceivedLikesNestedInput = {
+    create?: XOR<UserCreateWithoutReceivedLikesInput, UserUncheckedCreateWithoutReceivedLikesInput>
+    connectOrCreate?: UserCreateOrConnectWithoutReceivedLikesInput
+    upsert?: UserUpsertWithoutReceivedLikesInput
     connect?: UserWhereUniqueInput
-    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutLikesReceivedInput, UserUpdateWithoutLikesReceivedInput>, UserUncheckedUpdateWithoutLikesReceivedInput>
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutReceivedLikesInput, UserUpdateWithoutReceivedLikesInput>, UserUncheckedUpdateWithoutReceivedLikesInput>
   }
 
-  export type UserCreateNestedOneWithoutBlocksSentInput = {
-    create?: XOR<UserCreateWithoutBlocksSentInput, UserUncheckedCreateWithoutBlocksSentInput>
-    connectOrCreate?: UserCreateOrConnectWithoutBlocksSentInput
-    connect?: UserWhereUniqueInput
-  }
-
-  export type UserCreateNestedOneWithoutBlocksReceivedInput = {
-    create?: XOR<UserCreateWithoutBlocksReceivedInput, UserUncheckedCreateWithoutBlocksReceivedInput>
-    connectOrCreate?: UserCreateOrConnectWithoutBlocksReceivedInput
+  export type UserCreateNestedOneWithoutMatchesAsUser1Input = {
+    create?: XOR<UserCreateWithoutMatchesAsUser1Input, UserUncheckedCreateWithoutMatchesAsUser1Input>
+    connectOrCreate?: UserCreateOrConnectWithoutMatchesAsUser1Input
     connect?: UserWhereUniqueInput
   }
 
-  export type UserUpdateOneRequiredWithoutBlocksSentNestedInput = {
-    create?: XOR<UserCreateWithoutBlocksSentInput, UserUncheckedCreateWithoutBlocksSentInput>
-    connectOrCreate?: UserCreateOrConnectWithoutBlocksSentInput
-    upsert?: UserUpsertWithoutBlocksSentInput
-    connect?: UserWhereUniqueInput
-    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutBlocksSentInput, UserUpdateWithoutBlocksSentInput>, UserUncheckedUpdateWithoutBlocksSentInput>
-  }
-
-  export type UserUpdateOneRequiredWithoutBlocksReceivedNestedInput = {
-    create?: XOR<UserCreateWithoutBlocksReceivedInput, UserUncheckedCreateWithoutBlocksReceivedInput>
-    connectOrCreate?: UserCreateOrConnectWithoutBlocksReceivedInput
-    upsert?: UserUpsertWithoutBlocksReceivedInput
-    connect?: UserWhereUniqueInput
-    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutBlocksReceivedInput, UserUpdateWithoutBlocksReceivedInput>, UserUncheckedUpdateWithoutBlocksReceivedInput>
-  }
-
-  export type UserCreateNestedOneWithoutMessagesSentInput = {
-    create?: XOR<UserCreateWithoutMessagesSentInput, UserUncheckedCreateWithoutMessagesSentInput>
-    connectOrCreate?: UserCreateOrConnectWithoutMessagesSentInput
+  export type UserCreateNestedOneWithoutMatchesAsUser2Input = {
+    create?: XOR<UserCreateWithoutMatchesAsUser2Input, UserUncheckedCreateWithoutMatchesAsUser2Input>
+    connectOrCreate?: UserCreateOrConnectWithoutMatchesAsUser2Input
     connect?: UserWhereUniqueInput
   }
 
-  export type UserCreateNestedOneWithoutMessagesReceivedInput = {
-    create?: XOR<UserCreateWithoutMessagesReceivedInput, UserUncheckedCreateWithoutMessagesReceivedInput>
-    connectOrCreate?: UserCreateOrConnectWithoutMessagesReceivedInput
+  export type UserUpdateOneRequiredWithoutMatchesAsUser1NestedInput = {
+    create?: XOR<UserCreateWithoutMatchesAsUser1Input, UserUncheckedCreateWithoutMatchesAsUser1Input>
+    connectOrCreate?: UserCreateOrConnectWithoutMatchesAsUser1Input
+    upsert?: UserUpsertWithoutMatchesAsUser1Input
     connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutMatchesAsUser1Input, UserUpdateWithoutMatchesAsUser1Input>, UserUncheckedUpdateWithoutMatchesAsUser1Input>
   }
 
-  export type UserUpdateOneRequiredWithoutMessagesSentNestedInput = {
-    create?: XOR<UserCreateWithoutMessagesSentInput, UserUncheckedCreateWithoutMessagesSentInput>
-    connectOrCreate?: UserCreateOrConnectWithoutMessagesSentInput
-    upsert?: UserUpsertWithoutMessagesSentInput
+  export type UserUpdateOneRequiredWithoutMatchesAsUser2NestedInput = {
+    create?: XOR<UserCreateWithoutMatchesAsUser2Input, UserUncheckedCreateWithoutMatchesAsUser2Input>
+    connectOrCreate?: UserCreateOrConnectWithoutMatchesAsUser2Input
+    upsert?: UserUpsertWithoutMatchesAsUser2Input
     connect?: UserWhereUniqueInput
-    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutMessagesSentInput, UserUpdateWithoutMessagesSentInput>, UserUncheckedUpdateWithoutMessagesSentInput>
-  }
-
-  export type UserUpdateOneRequiredWithoutMessagesReceivedNestedInput = {
-    create?: XOR<UserCreateWithoutMessagesReceivedInput, UserUncheckedCreateWithoutMessagesReceivedInput>
-    connectOrCreate?: UserCreateOrConnectWithoutMessagesReceivedInput
-    upsert?: UserUpsertWithoutMessagesReceivedInput
-    connect?: UserWhereUniqueInput
-    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutMessagesReceivedInput, UserUpdateWithoutMessagesReceivedInput>, UserUncheckedUpdateWithoutMessagesReceivedInput>
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutMatchesAsUser2Input, UserUpdateWithoutMatchesAsUser2Input>, UserUncheckedUpdateWithoutMatchesAsUser2Input>
   }
 
   export type NestedIntFilter<$PrismaModel = never> = {
@@ -10313,130 +8719,6 @@ export namespace Prisma {
     data: PhotoCreateManyUserInput | PhotoCreateManyUserInput[]
   }
 
-  export type LikeCreateWithoutFromUserInput = {
-    createdAt?: Date | string
-    toUser: UserCreateNestedOneWithoutLikesReceivedInput
-  }
-
-  export type LikeUncheckedCreateWithoutFromUserInput = {
-    id?: number
-    toUserId: number
-    createdAt?: Date | string
-  }
-
-  export type LikeCreateOrConnectWithoutFromUserInput = {
-    where: LikeWhereUniqueInput
-    create: XOR<LikeCreateWithoutFromUserInput, LikeUncheckedCreateWithoutFromUserInput>
-  }
-
-  export type LikeCreateManyFromUserInputEnvelope = {
-    data: LikeCreateManyFromUserInput | LikeCreateManyFromUserInput[]
-  }
-
-  export type LikeCreateWithoutToUserInput = {
-    createdAt?: Date | string
-    fromUser: UserCreateNestedOneWithoutLikesSentInput
-  }
-
-  export type LikeUncheckedCreateWithoutToUserInput = {
-    id?: number
-    fromUserId: number
-    createdAt?: Date | string
-  }
-
-  export type LikeCreateOrConnectWithoutToUserInput = {
-    where: LikeWhereUniqueInput
-    create: XOR<LikeCreateWithoutToUserInput, LikeUncheckedCreateWithoutToUserInput>
-  }
-
-  export type LikeCreateManyToUserInputEnvelope = {
-    data: LikeCreateManyToUserInput | LikeCreateManyToUserInput[]
-  }
-
-  export type BlockCreateWithoutBlockerInput = {
-    createdAt?: Date | string
-    blocked: UserCreateNestedOneWithoutBlocksReceivedInput
-  }
-
-  export type BlockUncheckedCreateWithoutBlockerInput = {
-    id?: number
-    blockedId: number
-    createdAt?: Date | string
-  }
-
-  export type BlockCreateOrConnectWithoutBlockerInput = {
-    where: BlockWhereUniqueInput
-    create: XOR<BlockCreateWithoutBlockerInput, BlockUncheckedCreateWithoutBlockerInput>
-  }
-
-  export type BlockCreateManyBlockerInputEnvelope = {
-    data: BlockCreateManyBlockerInput | BlockCreateManyBlockerInput[]
-  }
-
-  export type BlockCreateWithoutBlockedInput = {
-    createdAt?: Date | string
-    blocker: UserCreateNestedOneWithoutBlocksSentInput
-  }
-
-  export type BlockUncheckedCreateWithoutBlockedInput = {
-    id?: number
-    blockerId: number
-    createdAt?: Date | string
-  }
-
-  export type BlockCreateOrConnectWithoutBlockedInput = {
-    where: BlockWhereUniqueInput
-    create: XOR<BlockCreateWithoutBlockedInput, BlockUncheckedCreateWithoutBlockedInput>
-  }
-
-  export type BlockCreateManyBlockedInputEnvelope = {
-    data: BlockCreateManyBlockedInput | BlockCreateManyBlockedInput[]
-  }
-
-  export type MessageCreateWithoutSenderInput = {
-    content: string
-    createdAt?: Date | string
-    receiver: UserCreateNestedOneWithoutMessagesReceivedInput
-  }
-
-  export type MessageUncheckedCreateWithoutSenderInput = {
-    id?: number
-    receiverId: number
-    content: string
-    createdAt?: Date | string
-  }
-
-  export type MessageCreateOrConnectWithoutSenderInput = {
-    where: MessageWhereUniqueInput
-    create: XOR<MessageCreateWithoutSenderInput, MessageUncheckedCreateWithoutSenderInput>
-  }
-
-  export type MessageCreateManySenderInputEnvelope = {
-    data: MessageCreateManySenderInput | MessageCreateManySenderInput[]
-  }
-
-  export type MessageCreateWithoutReceiverInput = {
-    content: string
-    createdAt?: Date | string
-    sender: UserCreateNestedOneWithoutMessagesSentInput
-  }
-
-  export type MessageUncheckedCreateWithoutReceiverInput = {
-    id?: number
-    senderId: number
-    content: string
-    createdAt?: Date | string
-  }
-
-  export type MessageCreateOrConnectWithoutReceiverInput = {
-    where: MessageWhereUniqueInput
-    create: XOR<MessageCreateWithoutReceiverInput, MessageUncheckedCreateWithoutReceiverInput>
-  }
-
-  export type MessageCreateManyReceiverInputEnvelope = {
-    data: MessageCreateManyReceiverInput | MessageCreateManyReceiverInput[]
-  }
-
   export type InterestCreateWithoutUsersInput = {
     name: string
   }
@@ -10449,6 +8731,86 @@ export namespace Prisma {
   export type InterestCreateOrConnectWithoutUsersInput = {
     where: InterestWhereUniqueInput
     create: XOR<InterestCreateWithoutUsersInput, InterestUncheckedCreateWithoutUsersInput>
+  }
+
+  export type LikeCreateWithoutSenderInput = {
+    createdAt?: Date | string
+    receiver: UserCreateNestedOneWithoutReceivedLikesInput
+  }
+
+  export type LikeUncheckedCreateWithoutSenderInput = {
+    id?: number
+    receiverId: number
+    createdAt?: Date | string
+  }
+
+  export type LikeCreateOrConnectWithoutSenderInput = {
+    where: LikeWhereUniqueInput
+    create: XOR<LikeCreateWithoutSenderInput, LikeUncheckedCreateWithoutSenderInput>
+  }
+
+  export type LikeCreateManySenderInputEnvelope = {
+    data: LikeCreateManySenderInput | LikeCreateManySenderInput[]
+  }
+
+  export type LikeCreateWithoutReceiverInput = {
+    createdAt?: Date | string
+    sender: UserCreateNestedOneWithoutSentLikesInput
+  }
+
+  export type LikeUncheckedCreateWithoutReceiverInput = {
+    id?: number
+    senderId: number
+    createdAt?: Date | string
+  }
+
+  export type LikeCreateOrConnectWithoutReceiverInput = {
+    where: LikeWhereUniqueInput
+    create: XOR<LikeCreateWithoutReceiverInput, LikeUncheckedCreateWithoutReceiverInput>
+  }
+
+  export type LikeCreateManyReceiverInputEnvelope = {
+    data: LikeCreateManyReceiverInput | LikeCreateManyReceiverInput[]
+  }
+
+  export type MatchCreateWithoutUser1Input = {
+    createdAt?: Date | string
+    user2: UserCreateNestedOneWithoutMatchesAsUser2Input
+  }
+
+  export type MatchUncheckedCreateWithoutUser1Input = {
+    id?: number
+    user2Id: number
+    createdAt?: Date | string
+  }
+
+  export type MatchCreateOrConnectWithoutUser1Input = {
+    where: MatchWhereUniqueInput
+    create: XOR<MatchCreateWithoutUser1Input, MatchUncheckedCreateWithoutUser1Input>
+  }
+
+  export type MatchCreateManyUser1InputEnvelope = {
+    data: MatchCreateManyUser1Input | MatchCreateManyUser1Input[]
+  }
+
+  export type MatchCreateWithoutUser2Input = {
+    createdAt?: Date | string
+    user1: UserCreateNestedOneWithoutMatchesAsUser1Input
+  }
+
+  export type MatchUncheckedCreateWithoutUser2Input = {
+    id?: number
+    user1Id: number
+    createdAt?: Date | string
+  }
+
+  export type MatchCreateOrConnectWithoutUser2Input = {
+    where: MatchWhereUniqueInput
+    create: XOR<MatchCreateWithoutUser2Input, MatchUncheckedCreateWithoutUser2Input>
+  }
+
+  export type MatchCreateManyUser2InputEnvelope = {
+    data: MatchCreateManyUser2Input | MatchCreateManyUser2Input[]
   }
 
   export type PhotoUpsertWithWhereUniqueWithoutUserInput = {
@@ -10476,133 +8838,6 @@ export namespace Prisma {
     userId?: IntFilter<"Photo"> | number
   }
 
-  export type LikeUpsertWithWhereUniqueWithoutFromUserInput = {
-    where: LikeWhereUniqueInput
-    update: XOR<LikeUpdateWithoutFromUserInput, LikeUncheckedUpdateWithoutFromUserInput>
-    create: XOR<LikeCreateWithoutFromUserInput, LikeUncheckedCreateWithoutFromUserInput>
-  }
-
-  export type LikeUpdateWithWhereUniqueWithoutFromUserInput = {
-    where: LikeWhereUniqueInput
-    data: XOR<LikeUpdateWithoutFromUserInput, LikeUncheckedUpdateWithoutFromUserInput>
-  }
-
-  export type LikeUpdateManyWithWhereWithoutFromUserInput = {
-    where: LikeScalarWhereInput
-    data: XOR<LikeUpdateManyMutationInput, LikeUncheckedUpdateManyWithoutFromUserInput>
-  }
-
-  export type LikeScalarWhereInput = {
-    AND?: LikeScalarWhereInput | LikeScalarWhereInput[]
-    OR?: LikeScalarWhereInput[]
-    NOT?: LikeScalarWhereInput | LikeScalarWhereInput[]
-    id?: IntFilter<"Like"> | number
-    fromUserId?: IntFilter<"Like"> | number
-    toUserId?: IntFilter<"Like"> | number
-    createdAt?: DateTimeFilter<"Like"> | Date | string
-  }
-
-  export type LikeUpsertWithWhereUniqueWithoutToUserInput = {
-    where: LikeWhereUniqueInput
-    update: XOR<LikeUpdateWithoutToUserInput, LikeUncheckedUpdateWithoutToUserInput>
-    create: XOR<LikeCreateWithoutToUserInput, LikeUncheckedCreateWithoutToUserInput>
-  }
-
-  export type LikeUpdateWithWhereUniqueWithoutToUserInput = {
-    where: LikeWhereUniqueInput
-    data: XOR<LikeUpdateWithoutToUserInput, LikeUncheckedUpdateWithoutToUserInput>
-  }
-
-  export type LikeUpdateManyWithWhereWithoutToUserInput = {
-    where: LikeScalarWhereInput
-    data: XOR<LikeUpdateManyMutationInput, LikeUncheckedUpdateManyWithoutToUserInput>
-  }
-
-  export type BlockUpsertWithWhereUniqueWithoutBlockerInput = {
-    where: BlockWhereUniqueInput
-    update: XOR<BlockUpdateWithoutBlockerInput, BlockUncheckedUpdateWithoutBlockerInput>
-    create: XOR<BlockCreateWithoutBlockerInput, BlockUncheckedCreateWithoutBlockerInput>
-  }
-
-  export type BlockUpdateWithWhereUniqueWithoutBlockerInput = {
-    where: BlockWhereUniqueInput
-    data: XOR<BlockUpdateWithoutBlockerInput, BlockUncheckedUpdateWithoutBlockerInput>
-  }
-
-  export type BlockUpdateManyWithWhereWithoutBlockerInput = {
-    where: BlockScalarWhereInput
-    data: XOR<BlockUpdateManyMutationInput, BlockUncheckedUpdateManyWithoutBlockerInput>
-  }
-
-  export type BlockScalarWhereInput = {
-    AND?: BlockScalarWhereInput | BlockScalarWhereInput[]
-    OR?: BlockScalarWhereInput[]
-    NOT?: BlockScalarWhereInput | BlockScalarWhereInput[]
-    id?: IntFilter<"Block"> | number
-    blockerId?: IntFilter<"Block"> | number
-    blockedId?: IntFilter<"Block"> | number
-    createdAt?: DateTimeFilter<"Block"> | Date | string
-  }
-
-  export type BlockUpsertWithWhereUniqueWithoutBlockedInput = {
-    where: BlockWhereUniqueInput
-    update: XOR<BlockUpdateWithoutBlockedInput, BlockUncheckedUpdateWithoutBlockedInput>
-    create: XOR<BlockCreateWithoutBlockedInput, BlockUncheckedCreateWithoutBlockedInput>
-  }
-
-  export type BlockUpdateWithWhereUniqueWithoutBlockedInput = {
-    where: BlockWhereUniqueInput
-    data: XOR<BlockUpdateWithoutBlockedInput, BlockUncheckedUpdateWithoutBlockedInput>
-  }
-
-  export type BlockUpdateManyWithWhereWithoutBlockedInput = {
-    where: BlockScalarWhereInput
-    data: XOR<BlockUpdateManyMutationInput, BlockUncheckedUpdateManyWithoutBlockedInput>
-  }
-
-  export type MessageUpsertWithWhereUniqueWithoutSenderInput = {
-    where: MessageWhereUniqueInput
-    update: XOR<MessageUpdateWithoutSenderInput, MessageUncheckedUpdateWithoutSenderInput>
-    create: XOR<MessageCreateWithoutSenderInput, MessageUncheckedCreateWithoutSenderInput>
-  }
-
-  export type MessageUpdateWithWhereUniqueWithoutSenderInput = {
-    where: MessageWhereUniqueInput
-    data: XOR<MessageUpdateWithoutSenderInput, MessageUncheckedUpdateWithoutSenderInput>
-  }
-
-  export type MessageUpdateManyWithWhereWithoutSenderInput = {
-    where: MessageScalarWhereInput
-    data: XOR<MessageUpdateManyMutationInput, MessageUncheckedUpdateManyWithoutSenderInput>
-  }
-
-  export type MessageScalarWhereInput = {
-    AND?: MessageScalarWhereInput | MessageScalarWhereInput[]
-    OR?: MessageScalarWhereInput[]
-    NOT?: MessageScalarWhereInput | MessageScalarWhereInput[]
-    id?: IntFilter<"Message"> | number
-    senderId?: IntFilter<"Message"> | number
-    receiverId?: IntFilter<"Message"> | number
-    content?: StringFilter<"Message"> | string
-    createdAt?: DateTimeFilter<"Message"> | Date | string
-  }
-
-  export type MessageUpsertWithWhereUniqueWithoutReceiverInput = {
-    where: MessageWhereUniqueInput
-    update: XOR<MessageUpdateWithoutReceiverInput, MessageUncheckedUpdateWithoutReceiverInput>
-    create: XOR<MessageCreateWithoutReceiverInput, MessageUncheckedCreateWithoutReceiverInput>
-  }
-
-  export type MessageUpdateWithWhereUniqueWithoutReceiverInput = {
-    where: MessageWhereUniqueInput
-    data: XOR<MessageUpdateWithoutReceiverInput, MessageUncheckedUpdateWithoutReceiverInput>
-  }
-
-  export type MessageUpdateManyWithWhereWithoutReceiverInput = {
-    where: MessageScalarWhereInput
-    data: XOR<MessageUpdateManyMutationInput, MessageUncheckedUpdateManyWithoutReceiverInput>
-  }
-
   export type InterestUpsertWithWhereUniqueWithoutUsersInput = {
     where: InterestWhereUniqueInput
     update: XOR<InterestUpdateWithoutUsersInput, InterestUncheckedUpdateWithoutUsersInput>
@@ -10627,6 +8862,90 @@ export namespace Prisma {
     name?: StringFilter<"Interest"> | string
   }
 
+  export type LikeUpsertWithWhereUniqueWithoutSenderInput = {
+    where: LikeWhereUniqueInput
+    update: XOR<LikeUpdateWithoutSenderInput, LikeUncheckedUpdateWithoutSenderInput>
+    create: XOR<LikeCreateWithoutSenderInput, LikeUncheckedCreateWithoutSenderInput>
+  }
+
+  export type LikeUpdateWithWhereUniqueWithoutSenderInput = {
+    where: LikeWhereUniqueInput
+    data: XOR<LikeUpdateWithoutSenderInput, LikeUncheckedUpdateWithoutSenderInput>
+  }
+
+  export type LikeUpdateManyWithWhereWithoutSenderInput = {
+    where: LikeScalarWhereInput
+    data: XOR<LikeUpdateManyMutationInput, LikeUncheckedUpdateManyWithoutSenderInput>
+  }
+
+  export type LikeScalarWhereInput = {
+    AND?: LikeScalarWhereInput | LikeScalarWhereInput[]
+    OR?: LikeScalarWhereInput[]
+    NOT?: LikeScalarWhereInput | LikeScalarWhereInput[]
+    id?: IntFilter<"Like"> | number
+    senderId?: IntFilter<"Like"> | number
+    receiverId?: IntFilter<"Like"> | number
+    createdAt?: DateTimeFilter<"Like"> | Date | string
+  }
+
+  export type LikeUpsertWithWhereUniqueWithoutReceiverInput = {
+    where: LikeWhereUniqueInput
+    update: XOR<LikeUpdateWithoutReceiverInput, LikeUncheckedUpdateWithoutReceiverInput>
+    create: XOR<LikeCreateWithoutReceiverInput, LikeUncheckedCreateWithoutReceiverInput>
+  }
+
+  export type LikeUpdateWithWhereUniqueWithoutReceiverInput = {
+    where: LikeWhereUniqueInput
+    data: XOR<LikeUpdateWithoutReceiverInput, LikeUncheckedUpdateWithoutReceiverInput>
+  }
+
+  export type LikeUpdateManyWithWhereWithoutReceiverInput = {
+    where: LikeScalarWhereInput
+    data: XOR<LikeUpdateManyMutationInput, LikeUncheckedUpdateManyWithoutReceiverInput>
+  }
+
+  export type MatchUpsertWithWhereUniqueWithoutUser1Input = {
+    where: MatchWhereUniqueInput
+    update: XOR<MatchUpdateWithoutUser1Input, MatchUncheckedUpdateWithoutUser1Input>
+    create: XOR<MatchCreateWithoutUser1Input, MatchUncheckedCreateWithoutUser1Input>
+  }
+
+  export type MatchUpdateWithWhereUniqueWithoutUser1Input = {
+    where: MatchWhereUniqueInput
+    data: XOR<MatchUpdateWithoutUser1Input, MatchUncheckedUpdateWithoutUser1Input>
+  }
+
+  export type MatchUpdateManyWithWhereWithoutUser1Input = {
+    where: MatchScalarWhereInput
+    data: XOR<MatchUpdateManyMutationInput, MatchUncheckedUpdateManyWithoutUser1Input>
+  }
+
+  export type MatchScalarWhereInput = {
+    AND?: MatchScalarWhereInput | MatchScalarWhereInput[]
+    OR?: MatchScalarWhereInput[]
+    NOT?: MatchScalarWhereInput | MatchScalarWhereInput[]
+    id?: IntFilter<"Match"> | number
+    user1Id?: IntFilter<"Match"> | number
+    user2Id?: IntFilter<"Match"> | number
+    createdAt?: DateTimeFilter<"Match"> | Date | string
+  }
+
+  export type MatchUpsertWithWhereUniqueWithoutUser2Input = {
+    where: MatchWhereUniqueInput
+    update: XOR<MatchUpdateWithoutUser2Input, MatchUncheckedUpdateWithoutUser2Input>
+    create: XOR<MatchCreateWithoutUser2Input, MatchUncheckedCreateWithoutUser2Input>
+  }
+
+  export type MatchUpdateWithWhereUniqueWithoutUser2Input = {
+    where: MatchWhereUniqueInput
+    data: XOR<MatchUpdateWithoutUser2Input, MatchUncheckedUpdateWithoutUser2Input>
+  }
+
+  export type MatchUpdateManyWithWhereWithoutUser2Input = {
+    where: MatchScalarWhereInput
+    data: XOR<MatchUpdateManyMutationInput, MatchUncheckedUpdateManyWithoutUser2Input>
+  }
+
   export type UserCreateWithoutPhotosInput = {
     email: string
     password: string
@@ -10637,18 +8956,15 @@ export namespace Prisma {
     gender: string
     bio?: string | null
     avatar?: string | null
-    sexualOrientation?: string | null
     latitude?: number | null
     longitude?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string
-    likesSent?: LikeCreateNestedManyWithoutFromUserInput
-    likesReceived?: LikeCreateNestedManyWithoutToUserInput
-    blocksSent?: BlockCreateNestedManyWithoutBlockerInput
-    blocksReceived?: BlockCreateNestedManyWithoutBlockedInput
-    messagesSent?: MessageCreateNestedManyWithoutSenderInput
-    messagesReceived?: MessageCreateNestedManyWithoutReceiverInput
     interests?: InterestCreateNestedManyWithoutUsersInput
+    sentLikes?: LikeCreateNestedManyWithoutSenderInput
+    receivedLikes?: LikeCreateNestedManyWithoutReceiverInput
+    matchesAsUser1?: MatchCreateNestedManyWithoutUser1Input
+    matchesAsUser2?: MatchCreateNestedManyWithoutUser2Input
   }
 
   export type UserUncheckedCreateWithoutPhotosInput = {
@@ -10662,18 +8978,15 @@ export namespace Prisma {
     gender: string
     bio?: string | null
     avatar?: string | null
-    sexualOrientation?: string | null
     latitude?: number | null
     longitude?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string
-    likesSent?: LikeUncheckedCreateNestedManyWithoutFromUserInput
-    likesReceived?: LikeUncheckedCreateNestedManyWithoutToUserInput
-    blocksSent?: BlockUncheckedCreateNestedManyWithoutBlockerInput
-    blocksReceived?: BlockUncheckedCreateNestedManyWithoutBlockedInput
-    messagesSent?: MessageUncheckedCreateNestedManyWithoutSenderInput
-    messagesReceived?: MessageUncheckedCreateNestedManyWithoutReceiverInput
     interests?: InterestUncheckedCreateNestedManyWithoutUsersInput
+    sentLikes?: LikeUncheckedCreateNestedManyWithoutSenderInput
+    receivedLikes?: LikeUncheckedCreateNestedManyWithoutReceiverInput
+    matchesAsUser1?: MatchUncheckedCreateNestedManyWithoutUser1Input
+    matchesAsUser2?: MatchUncheckedCreateNestedManyWithoutUser2Input
   }
 
   export type UserCreateOrConnectWithoutPhotosInput = {
@@ -10702,18 +9015,15 @@ export namespace Prisma {
     gender?: StringFieldUpdateOperationsInput | string
     bio?: NullableStringFieldUpdateOperationsInput | string | null
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
-    sexualOrientation?: NullableStringFieldUpdateOperationsInput | string | null
     latitude?: NullableFloatFieldUpdateOperationsInput | number | null
     longitude?: NullableFloatFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    likesSent?: LikeUpdateManyWithoutFromUserNestedInput
-    likesReceived?: LikeUpdateManyWithoutToUserNestedInput
-    blocksSent?: BlockUpdateManyWithoutBlockerNestedInput
-    blocksReceived?: BlockUpdateManyWithoutBlockedNestedInput
-    messagesSent?: MessageUpdateManyWithoutSenderNestedInput
-    messagesReceived?: MessageUpdateManyWithoutReceiverNestedInput
     interests?: InterestUpdateManyWithoutUsersNestedInput
+    sentLikes?: LikeUpdateManyWithoutSenderNestedInput
+    receivedLikes?: LikeUpdateManyWithoutReceiverNestedInput
+    matchesAsUser1?: MatchUpdateManyWithoutUser1NestedInput
+    matchesAsUser2?: MatchUpdateManyWithoutUser2NestedInput
   }
 
   export type UserUncheckedUpdateWithoutPhotosInput = {
@@ -10727,18 +9037,15 @@ export namespace Prisma {
     gender?: StringFieldUpdateOperationsInput | string
     bio?: NullableStringFieldUpdateOperationsInput | string | null
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
-    sexualOrientation?: NullableStringFieldUpdateOperationsInput | string | null
     latitude?: NullableFloatFieldUpdateOperationsInput | number | null
     longitude?: NullableFloatFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    likesSent?: LikeUncheckedUpdateManyWithoutFromUserNestedInput
-    likesReceived?: LikeUncheckedUpdateManyWithoutToUserNestedInput
-    blocksSent?: BlockUncheckedUpdateManyWithoutBlockerNestedInput
-    blocksReceived?: BlockUncheckedUpdateManyWithoutBlockedNestedInput
-    messagesSent?: MessageUncheckedUpdateManyWithoutSenderNestedInput
-    messagesReceived?: MessageUncheckedUpdateManyWithoutReceiverNestedInput
     interests?: InterestUncheckedUpdateManyWithoutUsersNestedInput
+    sentLikes?: LikeUncheckedUpdateManyWithoutSenderNestedInput
+    receivedLikes?: LikeUncheckedUpdateManyWithoutReceiverNestedInput
+    matchesAsUser1?: MatchUncheckedUpdateManyWithoutUser1NestedInput
+    matchesAsUser2?: MatchUncheckedUpdateManyWithoutUser2NestedInput
   }
 
   export type UserCreateWithoutInterestsInput = {
@@ -10751,18 +9058,15 @@ export namespace Prisma {
     gender: string
     bio?: string | null
     avatar?: string | null
-    sexualOrientation?: string | null
     latitude?: number | null
     longitude?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string
     photos?: PhotoCreateNestedManyWithoutUserInput
-    likesSent?: LikeCreateNestedManyWithoutFromUserInput
-    likesReceived?: LikeCreateNestedManyWithoutToUserInput
-    blocksSent?: BlockCreateNestedManyWithoutBlockerInput
-    blocksReceived?: BlockCreateNestedManyWithoutBlockedInput
-    messagesSent?: MessageCreateNestedManyWithoutSenderInput
-    messagesReceived?: MessageCreateNestedManyWithoutReceiverInput
+    sentLikes?: LikeCreateNestedManyWithoutSenderInput
+    receivedLikes?: LikeCreateNestedManyWithoutReceiverInput
+    matchesAsUser1?: MatchCreateNestedManyWithoutUser1Input
+    matchesAsUser2?: MatchCreateNestedManyWithoutUser2Input
   }
 
   export type UserUncheckedCreateWithoutInterestsInput = {
@@ -10776,18 +9080,15 @@ export namespace Prisma {
     gender: string
     bio?: string | null
     avatar?: string | null
-    sexualOrientation?: string | null
     latitude?: number | null
     longitude?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string
     photos?: PhotoUncheckedCreateNestedManyWithoutUserInput
-    likesSent?: LikeUncheckedCreateNestedManyWithoutFromUserInput
-    likesReceived?: LikeUncheckedCreateNestedManyWithoutToUserInput
-    blocksSent?: BlockUncheckedCreateNestedManyWithoutBlockerInput
-    blocksReceived?: BlockUncheckedCreateNestedManyWithoutBlockedInput
-    messagesSent?: MessageUncheckedCreateNestedManyWithoutSenderInput
-    messagesReceived?: MessageUncheckedCreateNestedManyWithoutReceiverInput
+    sentLikes?: LikeUncheckedCreateNestedManyWithoutSenderInput
+    receivedLikes?: LikeUncheckedCreateNestedManyWithoutReceiverInput
+    matchesAsUser1?: MatchUncheckedCreateNestedManyWithoutUser1Input
+    matchesAsUser2?: MatchUncheckedCreateNestedManyWithoutUser2Input
   }
 
   export type UserCreateOrConnectWithoutInterestsInput = {
@@ -10825,14 +9126,13 @@ export namespace Prisma {
     gender?: StringFilter<"User"> | string
     bio?: StringNullableFilter<"User"> | string | null
     avatar?: StringNullableFilter<"User"> | string | null
-    sexualOrientation?: StringNullableFilter<"User"> | string | null
     latitude?: FloatNullableFilter<"User"> | number | null
     longitude?: FloatNullableFilter<"User"> | number | null
     createdAt?: DateTimeFilter<"User"> | Date | string
     updatedAt?: DateTimeFilter<"User"> | Date | string
   }
 
-  export type UserCreateWithoutLikesSentInput = {
+  export type UserCreateWithoutSentLikesInput = {
     email: string
     password: string
     username: string
@@ -10842,21 +9142,18 @@ export namespace Prisma {
     gender: string
     bio?: string | null
     avatar?: string | null
-    sexualOrientation?: string | null
     latitude?: number | null
     longitude?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string
     photos?: PhotoCreateNestedManyWithoutUserInput
-    likesReceived?: LikeCreateNestedManyWithoutToUserInput
-    blocksSent?: BlockCreateNestedManyWithoutBlockerInput
-    blocksReceived?: BlockCreateNestedManyWithoutBlockedInput
-    messagesSent?: MessageCreateNestedManyWithoutSenderInput
-    messagesReceived?: MessageCreateNestedManyWithoutReceiverInput
     interests?: InterestCreateNestedManyWithoutUsersInput
+    receivedLikes?: LikeCreateNestedManyWithoutReceiverInput
+    matchesAsUser1?: MatchCreateNestedManyWithoutUser1Input
+    matchesAsUser2?: MatchCreateNestedManyWithoutUser2Input
   }
 
-  export type UserUncheckedCreateWithoutLikesSentInput = {
+  export type UserUncheckedCreateWithoutSentLikesInput = {
     id?: number
     email: string
     password: string
@@ -10867,26 +9164,23 @@ export namespace Prisma {
     gender: string
     bio?: string | null
     avatar?: string | null
-    sexualOrientation?: string | null
     latitude?: number | null
     longitude?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string
     photos?: PhotoUncheckedCreateNestedManyWithoutUserInput
-    likesReceived?: LikeUncheckedCreateNestedManyWithoutToUserInput
-    blocksSent?: BlockUncheckedCreateNestedManyWithoutBlockerInput
-    blocksReceived?: BlockUncheckedCreateNestedManyWithoutBlockedInput
-    messagesSent?: MessageUncheckedCreateNestedManyWithoutSenderInput
-    messagesReceived?: MessageUncheckedCreateNestedManyWithoutReceiverInput
     interests?: InterestUncheckedCreateNestedManyWithoutUsersInput
+    receivedLikes?: LikeUncheckedCreateNestedManyWithoutReceiverInput
+    matchesAsUser1?: MatchUncheckedCreateNestedManyWithoutUser1Input
+    matchesAsUser2?: MatchUncheckedCreateNestedManyWithoutUser2Input
   }
 
-  export type UserCreateOrConnectWithoutLikesSentInput = {
+  export type UserCreateOrConnectWithoutSentLikesInput = {
     where: UserWhereUniqueInput
-    create: XOR<UserCreateWithoutLikesSentInput, UserUncheckedCreateWithoutLikesSentInput>
+    create: XOR<UserCreateWithoutSentLikesInput, UserUncheckedCreateWithoutSentLikesInput>
   }
 
-  export type UserCreateWithoutLikesReceivedInput = {
+  export type UserCreateWithoutReceivedLikesInput = {
     email: string
     password: string
     username: string
@@ -10896,21 +9190,18 @@ export namespace Prisma {
     gender: string
     bio?: string | null
     avatar?: string | null
-    sexualOrientation?: string | null
     latitude?: number | null
     longitude?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string
     photos?: PhotoCreateNestedManyWithoutUserInput
-    likesSent?: LikeCreateNestedManyWithoutFromUserInput
-    blocksSent?: BlockCreateNestedManyWithoutBlockerInput
-    blocksReceived?: BlockCreateNestedManyWithoutBlockedInput
-    messagesSent?: MessageCreateNestedManyWithoutSenderInput
-    messagesReceived?: MessageCreateNestedManyWithoutReceiverInput
     interests?: InterestCreateNestedManyWithoutUsersInput
+    sentLikes?: LikeCreateNestedManyWithoutSenderInput
+    matchesAsUser1?: MatchCreateNestedManyWithoutUser1Input
+    matchesAsUser2?: MatchCreateNestedManyWithoutUser2Input
   }
 
-  export type UserUncheckedCreateWithoutLikesReceivedInput = {
+  export type UserUncheckedCreateWithoutReceivedLikesInput = {
     id?: number
     email: string
     password: string
@@ -10921,37 +9212,34 @@ export namespace Prisma {
     gender: string
     bio?: string | null
     avatar?: string | null
-    sexualOrientation?: string | null
     latitude?: number | null
     longitude?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string
     photos?: PhotoUncheckedCreateNestedManyWithoutUserInput
-    likesSent?: LikeUncheckedCreateNestedManyWithoutFromUserInput
-    blocksSent?: BlockUncheckedCreateNestedManyWithoutBlockerInput
-    blocksReceived?: BlockUncheckedCreateNestedManyWithoutBlockedInput
-    messagesSent?: MessageUncheckedCreateNestedManyWithoutSenderInput
-    messagesReceived?: MessageUncheckedCreateNestedManyWithoutReceiverInput
     interests?: InterestUncheckedCreateNestedManyWithoutUsersInput
+    sentLikes?: LikeUncheckedCreateNestedManyWithoutSenderInput
+    matchesAsUser1?: MatchUncheckedCreateNestedManyWithoutUser1Input
+    matchesAsUser2?: MatchUncheckedCreateNestedManyWithoutUser2Input
   }
 
-  export type UserCreateOrConnectWithoutLikesReceivedInput = {
+  export type UserCreateOrConnectWithoutReceivedLikesInput = {
     where: UserWhereUniqueInput
-    create: XOR<UserCreateWithoutLikesReceivedInput, UserUncheckedCreateWithoutLikesReceivedInput>
+    create: XOR<UserCreateWithoutReceivedLikesInput, UserUncheckedCreateWithoutReceivedLikesInput>
   }
 
-  export type UserUpsertWithoutLikesSentInput = {
-    update: XOR<UserUpdateWithoutLikesSentInput, UserUncheckedUpdateWithoutLikesSentInput>
-    create: XOR<UserCreateWithoutLikesSentInput, UserUncheckedCreateWithoutLikesSentInput>
+  export type UserUpsertWithoutSentLikesInput = {
+    update: XOR<UserUpdateWithoutSentLikesInput, UserUncheckedUpdateWithoutSentLikesInput>
+    create: XOR<UserCreateWithoutSentLikesInput, UserUncheckedCreateWithoutSentLikesInput>
     where?: UserWhereInput
   }
 
-  export type UserUpdateToOneWithWhereWithoutLikesSentInput = {
+  export type UserUpdateToOneWithWhereWithoutSentLikesInput = {
     where?: UserWhereInput
-    data: XOR<UserUpdateWithoutLikesSentInput, UserUncheckedUpdateWithoutLikesSentInput>
+    data: XOR<UserUpdateWithoutSentLikesInput, UserUncheckedUpdateWithoutSentLikesInput>
   }
 
-  export type UserUpdateWithoutLikesSentInput = {
+  export type UserUpdateWithoutSentLikesInput = {
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     username?: StringFieldUpdateOperationsInput | string
@@ -10961,21 +9249,18 @@ export namespace Prisma {
     gender?: StringFieldUpdateOperationsInput | string
     bio?: NullableStringFieldUpdateOperationsInput | string | null
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
-    sexualOrientation?: NullableStringFieldUpdateOperationsInput | string | null
     latitude?: NullableFloatFieldUpdateOperationsInput | number | null
     longitude?: NullableFloatFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     photos?: PhotoUpdateManyWithoutUserNestedInput
-    likesReceived?: LikeUpdateManyWithoutToUserNestedInput
-    blocksSent?: BlockUpdateManyWithoutBlockerNestedInput
-    blocksReceived?: BlockUpdateManyWithoutBlockedNestedInput
-    messagesSent?: MessageUpdateManyWithoutSenderNestedInput
-    messagesReceived?: MessageUpdateManyWithoutReceiverNestedInput
     interests?: InterestUpdateManyWithoutUsersNestedInput
+    receivedLikes?: LikeUpdateManyWithoutReceiverNestedInput
+    matchesAsUser1?: MatchUpdateManyWithoutUser1NestedInput
+    matchesAsUser2?: MatchUpdateManyWithoutUser2NestedInput
   }
 
-  export type UserUncheckedUpdateWithoutLikesSentInput = {
+  export type UserUncheckedUpdateWithoutSentLikesInput = {
     id?: IntFieldUpdateOperationsInput | number
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
@@ -10986,32 +9271,29 @@ export namespace Prisma {
     gender?: StringFieldUpdateOperationsInput | string
     bio?: NullableStringFieldUpdateOperationsInput | string | null
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
-    sexualOrientation?: NullableStringFieldUpdateOperationsInput | string | null
     latitude?: NullableFloatFieldUpdateOperationsInput | number | null
     longitude?: NullableFloatFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     photos?: PhotoUncheckedUpdateManyWithoutUserNestedInput
-    likesReceived?: LikeUncheckedUpdateManyWithoutToUserNestedInput
-    blocksSent?: BlockUncheckedUpdateManyWithoutBlockerNestedInput
-    blocksReceived?: BlockUncheckedUpdateManyWithoutBlockedNestedInput
-    messagesSent?: MessageUncheckedUpdateManyWithoutSenderNestedInput
-    messagesReceived?: MessageUncheckedUpdateManyWithoutReceiverNestedInput
     interests?: InterestUncheckedUpdateManyWithoutUsersNestedInput
+    receivedLikes?: LikeUncheckedUpdateManyWithoutReceiverNestedInput
+    matchesAsUser1?: MatchUncheckedUpdateManyWithoutUser1NestedInput
+    matchesAsUser2?: MatchUncheckedUpdateManyWithoutUser2NestedInput
   }
 
-  export type UserUpsertWithoutLikesReceivedInput = {
-    update: XOR<UserUpdateWithoutLikesReceivedInput, UserUncheckedUpdateWithoutLikesReceivedInput>
-    create: XOR<UserCreateWithoutLikesReceivedInput, UserUncheckedCreateWithoutLikesReceivedInput>
+  export type UserUpsertWithoutReceivedLikesInput = {
+    update: XOR<UserUpdateWithoutReceivedLikesInput, UserUncheckedUpdateWithoutReceivedLikesInput>
+    create: XOR<UserCreateWithoutReceivedLikesInput, UserUncheckedCreateWithoutReceivedLikesInput>
     where?: UserWhereInput
   }
 
-  export type UserUpdateToOneWithWhereWithoutLikesReceivedInput = {
+  export type UserUpdateToOneWithWhereWithoutReceivedLikesInput = {
     where?: UserWhereInput
-    data: XOR<UserUpdateWithoutLikesReceivedInput, UserUncheckedUpdateWithoutLikesReceivedInput>
+    data: XOR<UserUpdateWithoutReceivedLikesInput, UserUncheckedUpdateWithoutReceivedLikesInput>
   }
 
-  export type UserUpdateWithoutLikesReceivedInput = {
+  export type UserUpdateWithoutReceivedLikesInput = {
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     username?: StringFieldUpdateOperationsInput | string
@@ -11021,21 +9303,18 @@ export namespace Prisma {
     gender?: StringFieldUpdateOperationsInput | string
     bio?: NullableStringFieldUpdateOperationsInput | string | null
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
-    sexualOrientation?: NullableStringFieldUpdateOperationsInput | string | null
     latitude?: NullableFloatFieldUpdateOperationsInput | number | null
     longitude?: NullableFloatFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     photos?: PhotoUpdateManyWithoutUserNestedInput
-    likesSent?: LikeUpdateManyWithoutFromUserNestedInput
-    blocksSent?: BlockUpdateManyWithoutBlockerNestedInput
-    blocksReceived?: BlockUpdateManyWithoutBlockedNestedInput
-    messagesSent?: MessageUpdateManyWithoutSenderNestedInput
-    messagesReceived?: MessageUpdateManyWithoutReceiverNestedInput
     interests?: InterestUpdateManyWithoutUsersNestedInput
+    sentLikes?: LikeUpdateManyWithoutSenderNestedInput
+    matchesAsUser1?: MatchUpdateManyWithoutUser1NestedInput
+    matchesAsUser2?: MatchUpdateManyWithoutUser2NestedInput
   }
 
-  export type UserUncheckedUpdateWithoutLikesReceivedInput = {
+  export type UserUncheckedUpdateWithoutReceivedLikesInput = {
     id?: IntFieldUpdateOperationsInput | number
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
@@ -11046,21 +9325,18 @@ export namespace Prisma {
     gender?: StringFieldUpdateOperationsInput | string
     bio?: NullableStringFieldUpdateOperationsInput | string | null
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
-    sexualOrientation?: NullableStringFieldUpdateOperationsInput | string | null
     latitude?: NullableFloatFieldUpdateOperationsInput | number | null
     longitude?: NullableFloatFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     photos?: PhotoUncheckedUpdateManyWithoutUserNestedInput
-    likesSent?: LikeUncheckedUpdateManyWithoutFromUserNestedInput
-    blocksSent?: BlockUncheckedUpdateManyWithoutBlockerNestedInput
-    blocksReceived?: BlockUncheckedUpdateManyWithoutBlockedNestedInput
-    messagesSent?: MessageUncheckedUpdateManyWithoutSenderNestedInput
-    messagesReceived?: MessageUncheckedUpdateManyWithoutReceiverNestedInput
     interests?: InterestUncheckedUpdateManyWithoutUsersNestedInput
+    sentLikes?: LikeUncheckedUpdateManyWithoutSenderNestedInput
+    matchesAsUser1?: MatchUncheckedUpdateManyWithoutUser1NestedInput
+    matchesAsUser2?: MatchUncheckedUpdateManyWithoutUser2NestedInput
   }
 
-  export type UserCreateWithoutBlocksSentInput = {
+  export type UserCreateWithoutMatchesAsUser1Input = {
     email: string
     password: string
     username: string
@@ -11070,21 +9346,18 @@ export namespace Prisma {
     gender: string
     bio?: string | null
     avatar?: string | null
-    sexualOrientation?: string | null
     latitude?: number | null
     longitude?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string
     photos?: PhotoCreateNestedManyWithoutUserInput
-    likesSent?: LikeCreateNestedManyWithoutFromUserInput
-    likesReceived?: LikeCreateNestedManyWithoutToUserInput
-    blocksReceived?: BlockCreateNestedManyWithoutBlockedInput
-    messagesSent?: MessageCreateNestedManyWithoutSenderInput
-    messagesReceived?: MessageCreateNestedManyWithoutReceiverInput
     interests?: InterestCreateNestedManyWithoutUsersInput
+    sentLikes?: LikeCreateNestedManyWithoutSenderInput
+    receivedLikes?: LikeCreateNestedManyWithoutReceiverInput
+    matchesAsUser2?: MatchCreateNestedManyWithoutUser2Input
   }
 
-  export type UserUncheckedCreateWithoutBlocksSentInput = {
+  export type UserUncheckedCreateWithoutMatchesAsUser1Input = {
     id?: number
     email: string
     password: string
@@ -11095,26 +9368,23 @@ export namespace Prisma {
     gender: string
     bio?: string | null
     avatar?: string | null
-    sexualOrientation?: string | null
     latitude?: number | null
     longitude?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string
     photos?: PhotoUncheckedCreateNestedManyWithoutUserInput
-    likesSent?: LikeUncheckedCreateNestedManyWithoutFromUserInput
-    likesReceived?: LikeUncheckedCreateNestedManyWithoutToUserInput
-    blocksReceived?: BlockUncheckedCreateNestedManyWithoutBlockedInput
-    messagesSent?: MessageUncheckedCreateNestedManyWithoutSenderInput
-    messagesReceived?: MessageUncheckedCreateNestedManyWithoutReceiverInput
     interests?: InterestUncheckedCreateNestedManyWithoutUsersInput
+    sentLikes?: LikeUncheckedCreateNestedManyWithoutSenderInput
+    receivedLikes?: LikeUncheckedCreateNestedManyWithoutReceiverInput
+    matchesAsUser2?: MatchUncheckedCreateNestedManyWithoutUser2Input
   }
 
-  export type UserCreateOrConnectWithoutBlocksSentInput = {
+  export type UserCreateOrConnectWithoutMatchesAsUser1Input = {
     where: UserWhereUniqueInput
-    create: XOR<UserCreateWithoutBlocksSentInput, UserUncheckedCreateWithoutBlocksSentInput>
+    create: XOR<UserCreateWithoutMatchesAsUser1Input, UserUncheckedCreateWithoutMatchesAsUser1Input>
   }
 
-  export type UserCreateWithoutBlocksReceivedInput = {
+  export type UserCreateWithoutMatchesAsUser2Input = {
     email: string
     password: string
     username: string
@@ -11124,21 +9394,18 @@ export namespace Prisma {
     gender: string
     bio?: string | null
     avatar?: string | null
-    sexualOrientation?: string | null
     latitude?: number | null
     longitude?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string
     photos?: PhotoCreateNestedManyWithoutUserInput
-    likesSent?: LikeCreateNestedManyWithoutFromUserInput
-    likesReceived?: LikeCreateNestedManyWithoutToUserInput
-    blocksSent?: BlockCreateNestedManyWithoutBlockerInput
-    messagesSent?: MessageCreateNestedManyWithoutSenderInput
-    messagesReceived?: MessageCreateNestedManyWithoutReceiverInput
     interests?: InterestCreateNestedManyWithoutUsersInput
+    sentLikes?: LikeCreateNestedManyWithoutSenderInput
+    receivedLikes?: LikeCreateNestedManyWithoutReceiverInput
+    matchesAsUser1?: MatchCreateNestedManyWithoutUser1Input
   }
 
-  export type UserUncheckedCreateWithoutBlocksReceivedInput = {
+  export type UserUncheckedCreateWithoutMatchesAsUser2Input = {
     id?: number
     email: string
     password: string
@@ -11149,37 +9416,34 @@ export namespace Prisma {
     gender: string
     bio?: string | null
     avatar?: string | null
-    sexualOrientation?: string | null
     latitude?: number | null
     longitude?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string
     photos?: PhotoUncheckedCreateNestedManyWithoutUserInput
-    likesSent?: LikeUncheckedCreateNestedManyWithoutFromUserInput
-    likesReceived?: LikeUncheckedCreateNestedManyWithoutToUserInput
-    blocksSent?: BlockUncheckedCreateNestedManyWithoutBlockerInput
-    messagesSent?: MessageUncheckedCreateNestedManyWithoutSenderInput
-    messagesReceived?: MessageUncheckedCreateNestedManyWithoutReceiverInput
     interests?: InterestUncheckedCreateNestedManyWithoutUsersInput
+    sentLikes?: LikeUncheckedCreateNestedManyWithoutSenderInput
+    receivedLikes?: LikeUncheckedCreateNestedManyWithoutReceiverInput
+    matchesAsUser1?: MatchUncheckedCreateNestedManyWithoutUser1Input
   }
 
-  export type UserCreateOrConnectWithoutBlocksReceivedInput = {
+  export type UserCreateOrConnectWithoutMatchesAsUser2Input = {
     where: UserWhereUniqueInput
-    create: XOR<UserCreateWithoutBlocksReceivedInput, UserUncheckedCreateWithoutBlocksReceivedInput>
+    create: XOR<UserCreateWithoutMatchesAsUser2Input, UserUncheckedCreateWithoutMatchesAsUser2Input>
   }
 
-  export type UserUpsertWithoutBlocksSentInput = {
-    update: XOR<UserUpdateWithoutBlocksSentInput, UserUncheckedUpdateWithoutBlocksSentInput>
-    create: XOR<UserCreateWithoutBlocksSentInput, UserUncheckedCreateWithoutBlocksSentInput>
+  export type UserUpsertWithoutMatchesAsUser1Input = {
+    update: XOR<UserUpdateWithoutMatchesAsUser1Input, UserUncheckedUpdateWithoutMatchesAsUser1Input>
+    create: XOR<UserCreateWithoutMatchesAsUser1Input, UserUncheckedCreateWithoutMatchesAsUser1Input>
     where?: UserWhereInput
   }
 
-  export type UserUpdateToOneWithWhereWithoutBlocksSentInput = {
+  export type UserUpdateToOneWithWhereWithoutMatchesAsUser1Input = {
     where?: UserWhereInput
-    data: XOR<UserUpdateWithoutBlocksSentInput, UserUncheckedUpdateWithoutBlocksSentInput>
+    data: XOR<UserUpdateWithoutMatchesAsUser1Input, UserUncheckedUpdateWithoutMatchesAsUser1Input>
   }
 
-  export type UserUpdateWithoutBlocksSentInput = {
+  export type UserUpdateWithoutMatchesAsUser1Input = {
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     username?: StringFieldUpdateOperationsInput | string
@@ -11189,21 +9453,18 @@ export namespace Prisma {
     gender?: StringFieldUpdateOperationsInput | string
     bio?: NullableStringFieldUpdateOperationsInput | string | null
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
-    sexualOrientation?: NullableStringFieldUpdateOperationsInput | string | null
     latitude?: NullableFloatFieldUpdateOperationsInput | number | null
     longitude?: NullableFloatFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     photos?: PhotoUpdateManyWithoutUserNestedInput
-    likesSent?: LikeUpdateManyWithoutFromUserNestedInput
-    likesReceived?: LikeUpdateManyWithoutToUserNestedInput
-    blocksReceived?: BlockUpdateManyWithoutBlockedNestedInput
-    messagesSent?: MessageUpdateManyWithoutSenderNestedInput
-    messagesReceived?: MessageUpdateManyWithoutReceiverNestedInput
     interests?: InterestUpdateManyWithoutUsersNestedInput
+    sentLikes?: LikeUpdateManyWithoutSenderNestedInput
+    receivedLikes?: LikeUpdateManyWithoutReceiverNestedInput
+    matchesAsUser2?: MatchUpdateManyWithoutUser2NestedInput
   }
 
-  export type UserUncheckedUpdateWithoutBlocksSentInput = {
+  export type UserUncheckedUpdateWithoutMatchesAsUser1Input = {
     id?: IntFieldUpdateOperationsInput | number
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
@@ -11214,32 +9475,29 @@ export namespace Prisma {
     gender?: StringFieldUpdateOperationsInput | string
     bio?: NullableStringFieldUpdateOperationsInput | string | null
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
-    sexualOrientation?: NullableStringFieldUpdateOperationsInput | string | null
     latitude?: NullableFloatFieldUpdateOperationsInput | number | null
     longitude?: NullableFloatFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     photos?: PhotoUncheckedUpdateManyWithoutUserNestedInput
-    likesSent?: LikeUncheckedUpdateManyWithoutFromUserNestedInput
-    likesReceived?: LikeUncheckedUpdateManyWithoutToUserNestedInput
-    blocksReceived?: BlockUncheckedUpdateManyWithoutBlockedNestedInput
-    messagesSent?: MessageUncheckedUpdateManyWithoutSenderNestedInput
-    messagesReceived?: MessageUncheckedUpdateManyWithoutReceiverNestedInput
     interests?: InterestUncheckedUpdateManyWithoutUsersNestedInput
+    sentLikes?: LikeUncheckedUpdateManyWithoutSenderNestedInput
+    receivedLikes?: LikeUncheckedUpdateManyWithoutReceiverNestedInput
+    matchesAsUser2?: MatchUncheckedUpdateManyWithoutUser2NestedInput
   }
 
-  export type UserUpsertWithoutBlocksReceivedInput = {
-    update: XOR<UserUpdateWithoutBlocksReceivedInput, UserUncheckedUpdateWithoutBlocksReceivedInput>
-    create: XOR<UserCreateWithoutBlocksReceivedInput, UserUncheckedCreateWithoutBlocksReceivedInput>
+  export type UserUpsertWithoutMatchesAsUser2Input = {
+    update: XOR<UserUpdateWithoutMatchesAsUser2Input, UserUncheckedUpdateWithoutMatchesAsUser2Input>
+    create: XOR<UserCreateWithoutMatchesAsUser2Input, UserUncheckedCreateWithoutMatchesAsUser2Input>
     where?: UserWhereInput
   }
 
-  export type UserUpdateToOneWithWhereWithoutBlocksReceivedInput = {
+  export type UserUpdateToOneWithWhereWithoutMatchesAsUser2Input = {
     where?: UserWhereInput
-    data: XOR<UserUpdateWithoutBlocksReceivedInput, UserUncheckedUpdateWithoutBlocksReceivedInput>
+    data: XOR<UserUpdateWithoutMatchesAsUser2Input, UserUncheckedUpdateWithoutMatchesAsUser2Input>
   }
 
-  export type UserUpdateWithoutBlocksReceivedInput = {
+  export type UserUpdateWithoutMatchesAsUser2Input = {
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     username?: StringFieldUpdateOperationsInput | string
@@ -11249,21 +9507,18 @@ export namespace Prisma {
     gender?: StringFieldUpdateOperationsInput | string
     bio?: NullableStringFieldUpdateOperationsInput | string | null
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
-    sexualOrientation?: NullableStringFieldUpdateOperationsInput | string | null
     latitude?: NullableFloatFieldUpdateOperationsInput | number | null
     longitude?: NullableFloatFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     photos?: PhotoUpdateManyWithoutUserNestedInput
-    likesSent?: LikeUpdateManyWithoutFromUserNestedInput
-    likesReceived?: LikeUpdateManyWithoutToUserNestedInput
-    blocksSent?: BlockUpdateManyWithoutBlockerNestedInput
-    messagesSent?: MessageUpdateManyWithoutSenderNestedInput
-    messagesReceived?: MessageUpdateManyWithoutReceiverNestedInput
     interests?: InterestUpdateManyWithoutUsersNestedInput
+    sentLikes?: LikeUpdateManyWithoutSenderNestedInput
+    receivedLikes?: LikeUpdateManyWithoutReceiverNestedInput
+    matchesAsUser1?: MatchUpdateManyWithoutUser1NestedInput
   }
 
-  export type UserUncheckedUpdateWithoutBlocksReceivedInput = {
+  export type UserUncheckedUpdateWithoutMatchesAsUser2Input = {
     id?: IntFieldUpdateOperationsInput | number
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
@@ -11274,246 +9529,15 @@ export namespace Prisma {
     gender?: StringFieldUpdateOperationsInput | string
     bio?: NullableStringFieldUpdateOperationsInput | string | null
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
-    sexualOrientation?: NullableStringFieldUpdateOperationsInput | string | null
     latitude?: NullableFloatFieldUpdateOperationsInput | number | null
     longitude?: NullableFloatFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     photos?: PhotoUncheckedUpdateManyWithoutUserNestedInput
-    likesSent?: LikeUncheckedUpdateManyWithoutFromUserNestedInput
-    likesReceived?: LikeUncheckedUpdateManyWithoutToUserNestedInput
-    blocksSent?: BlockUncheckedUpdateManyWithoutBlockerNestedInput
-    messagesSent?: MessageUncheckedUpdateManyWithoutSenderNestedInput
-    messagesReceived?: MessageUncheckedUpdateManyWithoutReceiverNestedInput
     interests?: InterestUncheckedUpdateManyWithoutUsersNestedInput
-  }
-
-  export type UserCreateWithoutMessagesSentInput = {
-    email: string
-    password: string
-    username: string
-    firstName: string
-    lastName: string
-    birthDate: Date | string
-    gender: string
-    bio?: string | null
-    avatar?: string | null
-    sexualOrientation?: string | null
-    latitude?: number | null
-    longitude?: number | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    photos?: PhotoCreateNestedManyWithoutUserInput
-    likesSent?: LikeCreateNestedManyWithoutFromUserInput
-    likesReceived?: LikeCreateNestedManyWithoutToUserInput
-    blocksSent?: BlockCreateNestedManyWithoutBlockerInput
-    blocksReceived?: BlockCreateNestedManyWithoutBlockedInput
-    messagesReceived?: MessageCreateNestedManyWithoutReceiverInput
-    interests?: InterestCreateNestedManyWithoutUsersInput
-  }
-
-  export type UserUncheckedCreateWithoutMessagesSentInput = {
-    id?: number
-    email: string
-    password: string
-    username: string
-    firstName: string
-    lastName: string
-    birthDate: Date | string
-    gender: string
-    bio?: string | null
-    avatar?: string | null
-    sexualOrientation?: string | null
-    latitude?: number | null
-    longitude?: number | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    photos?: PhotoUncheckedCreateNestedManyWithoutUserInput
-    likesSent?: LikeUncheckedCreateNestedManyWithoutFromUserInput
-    likesReceived?: LikeUncheckedCreateNestedManyWithoutToUserInput
-    blocksSent?: BlockUncheckedCreateNestedManyWithoutBlockerInput
-    blocksReceived?: BlockUncheckedCreateNestedManyWithoutBlockedInput
-    messagesReceived?: MessageUncheckedCreateNestedManyWithoutReceiverInput
-    interests?: InterestUncheckedCreateNestedManyWithoutUsersInput
-  }
-
-  export type UserCreateOrConnectWithoutMessagesSentInput = {
-    where: UserWhereUniqueInput
-    create: XOR<UserCreateWithoutMessagesSentInput, UserUncheckedCreateWithoutMessagesSentInput>
-  }
-
-  export type UserCreateWithoutMessagesReceivedInput = {
-    email: string
-    password: string
-    username: string
-    firstName: string
-    lastName: string
-    birthDate: Date | string
-    gender: string
-    bio?: string | null
-    avatar?: string | null
-    sexualOrientation?: string | null
-    latitude?: number | null
-    longitude?: number | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    photos?: PhotoCreateNestedManyWithoutUserInput
-    likesSent?: LikeCreateNestedManyWithoutFromUserInput
-    likesReceived?: LikeCreateNestedManyWithoutToUserInput
-    blocksSent?: BlockCreateNestedManyWithoutBlockerInput
-    blocksReceived?: BlockCreateNestedManyWithoutBlockedInput
-    messagesSent?: MessageCreateNestedManyWithoutSenderInput
-    interests?: InterestCreateNestedManyWithoutUsersInput
-  }
-
-  export type UserUncheckedCreateWithoutMessagesReceivedInput = {
-    id?: number
-    email: string
-    password: string
-    username: string
-    firstName: string
-    lastName: string
-    birthDate: Date | string
-    gender: string
-    bio?: string | null
-    avatar?: string | null
-    sexualOrientation?: string | null
-    latitude?: number | null
-    longitude?: number | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    photos?: PhotoUncheckedCreateNestedManyWithoutUserInput
-    likesSent?: LikeUncheckedCreateNestedManyWithoutFromUserInput
-    likesReceived?: LikeUncheckedCreateNestedManyWithoutToUserInput
-    blocksSent?: BlockUncheckedCreateNestedManyWithoutBlockerInput
-    blocksReceived?: BlockUncheckedCreateNestedManyWithoutBlockedInput
-    messagesSent?: MessageUncheckedCreateNestedManyWithoutSenderInput
-    interests?: InterestUncheckedCreateNestedManyWithoutUsersInput
-  }
-
-  export type UserCreateOrConnectWithoutMessagesReceivedInput = {
-    where: UserWhereUniqueInput
-    create: XOR<UserCreateWithoutMessagesReceivedInput, UserUncheckedCreateWithoutMessagesReceivedInput>
-  }
-
-  export type UserUpsertWithoutMessagesSentInput = {
-    update: XOR<UserUpdateWithoutMessagesSentInput, UserUncheckedUpdateWithoutMessagesSentInput>
-    create: XOR<UserCreateWithoutMessagesSentInput, UserUncheckedCreateWithoutMessagesSentInput>
-    where?: UserWhereInput
-  }
-
-  export type UserUpdateToOneWithWhereWithoutMessagesSentInput = {
-    where?: UserWhereInput
-    data: XOR<UserUpdateWithoutMessagesSentInput, UserUncheckedUpdateWithoutMessagesSentInput>
-  }
-
-  export type UserUpdateWithoutMessagesSentInput = {
-    email?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
-    username?: StringFieldUpdateOperationsInput | string
-    firstName?: StringFieldUpdateOperationsInput | string
-    lastName?: StringFieldUpdateOperationsInput | string
-    birthDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    gender?: StringFieldUpdateOperationsInput | string
-    bio?: NullableStringFieldUpdateOperationsInput | string | null
-    avatar?: NullableStringFieldUpdateOperationsInput | string | null
-    sexualOrientation?: NullableStringFieldUpdateOperationsInput | string | null
-    latitude?: NullableFloatFieldUpdateOperationsInput | number | null
-    longitude?: NullableFloatFieldUpdateOperationsInput | number | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    photos?: PhotoUpdateManyWithoutUserNestedInput
-    likesSent?: LikeUpdateManyWithoutFromUserNestedInput
-    likesReceived?: LikeUpdateManyWithoutToUserNestedInput
-    blocksSent?: BlockUpdateManyWithoutBlockerNestedInput
-    blocksReceived?: BlockUpdateManyWithoutBlockedNestedInput
-    messagesReceived?: MessageUpdateManyWithoutReceiverNestedInput
-    interests?: InterestUpdateManyWithoutUsersNestedInput
-  }
-
-  export type UserUncheckedUpdateWithoutMessagesSentInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    email?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
-    username?: StringFieldUpdateOperationsInput | string
-    firstName?: StringFieldUpdateOperationsInput | string
-    lastName?: StringFieldUpdateOperationsInput | string
-    birthDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    gender?: StringFieldUpdateOperationsInput | string
-    bio?: NullableStringFieldUpdateOperationsInput | string | null
-    avatar?: NullableStringFieldUpdateOperationsInput | string | null
-    sexualOrientation?: NullableStringFieldUpdateOperationsInput | string | null
-    latitude?: NullableFloatFieldUpdateOperationsInput | number | null
-    longitude?: NullableFloatFieldUpdateOperationsInput | number | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    photos?: PhotoUncheckedUpdateManyWithoutUserNestedInput
-    likesSent?: LikeUncheckedUpdateManyWithoutFromUserNestedInput
-    likesReceived?: LikeUncheckedUpdateManyWithoutToUserNestedInput
-    blocksSent?: BlockUncheckedUpdateManyWithoutBlockerNestedInput
-    blocksReceived?: BlockUncheckedUpdateManyWithoutBlockedNestedInput
-    messagesReceived?: MessageUncheckedUpdateManyWithoutReceiverNestedInput
-    interests?: InterestUncheckedUpdateManyWithoutUsersNestedInput
-  }
-
-  export type UserUpsertWithoutMessagesReceivedInput = {
-    update: XOR<UserUpdateWithoutMessagesReceivedInput, UserUncheckedUpdateWithoutMessagesReceivedInput>
-    create: XOR<UserCreateWithoutMessagesReceivedInput, UserUncheckedCreateWithoutMessagesReceivedInput>
-    where?: UserWhereInput
-  }
-
-  export type UserUpdateToOneWithWhereWithoutMessagesReceivedInput = {
-    where?: UserWhereInput
-    data: XOR<UserUpdateWithoutMessagesReceivedInput, UserUncheckedUpdateWithoutMessagesReceivedInput>
-  }
-
-  export type UserUpdateWithoutMessagesReceivedInput = {
-    email?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
-    username?: StringFieldUpdateOperationsInput | string
-    firstName?: StringFieldUpdateOperationsInput | string
-    lastName?: StringFieldUpdateOperationsInput | string
-    birthDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    gender?: StringFieldUpdateOperationsInput | string
-    bio?: NullableStringFieldUpdateOperationsInput | string | null
-    avatar?: NullableStringFieldUpdateOperationsInput | string | null
-    sexualOrientation?: NullableStringFieldUpdateOperationsInput | string | null
-    latitude?: NullableFloatFieldUpdateOperationsInput | number | null
-    longitude?: NullableFloatFieldUpdateOperationsInput | number | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    photos?: PhotoUpdateManyWithoutUserNestedInput
-    likesSent?: LikeUpdateManyWithoutFromUserNestedInput
-    likesReceived?: LikeUpdateManyWithoutToUserNestedInput
-    blocksSent?: BlockUpdateManyWithoutBlockerNestedInput
-    blocksReceived?: BlockUpdateManyWithoutBlockedNestedInput
-    messagesSent?: MessageUpdateManyWithoutSenderNestedInput
-    interests?: InterestUpdateManyWithoutUsersNestedInput
-  }
-
-  export type UserUncheckedUpdateWithoutMessagesReceivedInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    email?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
-    username?: StringFieldUpdateOperationsInput | string
-    firstName?: StringFieldUpdateOperationsInput | string
-    lastName?: StringFieldUpdateOperationsInput | string
-    birthDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    gender?: StringFieldUpdateOperationsInput | string
-    bio?: NullableStringFieldUpdateOperationsInput | string | null
-    avatar?: NullableStringFieldUpdateOperationsInput | string | null
-    sexualOrientation?: NullableStringFieldUpdateOperationsInput | string | null
-    latitude?: NullableFloatFieldUpdateOperationsInput | number | null
-    longitude?: NullableFloatFieldUpdateOperationsInput | number | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    photos?: PhotoUncheckedUpdateManyWithoutUserNestedInput
-    likesSent?: LikeUncheckedUpdateManyWithoutFromUserNestedInput
-    likesReceived?: LikeUncheckedUpdateManyWithoutToUserNestedInput
-    blocksSent?: BlockUncheckedUpdateManyWithoutBlockerNestedInput
-    blocksReceived?: BlockUncheckedUpdateManyWithoutBlockedNestedInput
-    messagesSent?: MessageUncheckedUpdateManyWithoutSenderNestedInput
-    interests?: InterestUncheckedUpdateManyWithoutUsersNestedInput
+    sentLikes?: LikeUncheckedUpdateManyWithoutSenderNestedInput
+    receivedLikes?: LikeUncheckedUpdateManyWithoutReceiverNestedInput
+    matchesAsUser1?: MatchUncheckedUpdateManyWithoutUser1NestedInput
   }
 
   export type PhotoCreateManyUserInput = {
@@ -11521,41 +9545,27 @@ export namespace Prisma {
     url: string
   }
 
-  export type LikeCreateManyFromUserInput = {
-    id?: number
-    toUserId: number
-    createdAt?: Date | string
-  }
-
-  export type LikeCreateManyToUserInput = {
-    id?: number
-    fromUserId: number
-    createdAt?: Date | string
-  }
-
-  export type BlockCreateManyBlockerInput = {
-    id?: number
-    blockedId: number
-    createdAt?: Date | string
-  }
-
-  export type BlockCreateManyBlockedInput = {
-    id?: number
-    blockerId: number
-    createdAt?: Date | string
-  }
-
-  export type MessageCreateManySenderInput = {
+  export type LikeCreateManySenderInput = {
     id?: number
     receiverId: number
-    content: string
     createdAt?: Date | string
   }
 
-  export type MessageCreateManyReceiverInput = {
+  export type LikeCreateManyReceiverInput = {
     id?: number
     senderId: number
-    content: string
+    createdAt?: Date | string
+  }
+
+  export type MatchCreateManyUser1Input = {
+    id?: number
+    user2Id: number
+    createdAt?: Date | string
+  }
+
+  export type MatchCreateManyUser2Input = {
+    id?: number
+    user1Id: number
     createdAt?: Date | string
   }
 
@@ -11573,114 +9583,6 @@ export namespace Prisma {
     url?: StringFieldUpdateOperationsInput | string
   }
 
-  export type LikeUpdateWithoutFromUserInput = {
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    toUser?: UserUpdateOneRequiredWithoutLikesReceivedNestedInput
-  }
-
-  export type LikeUncheckedUpdateWithoutFromUserInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    toUserId?: IntFieldUpdateOperationsInput | number
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type LikeUncheckedUpdateManyWithoutFromUserInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    toUserId?: IntFieldUpdateOperationsInput | number
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type LikeUpdateWithoutToUserInput = {
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    fromUser?: UserUpdateOneRequiredWithoutLikesSentNestedInput
-  }
-
-  export type LikeUncheckedUpdateWithoutToUserInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    fromUserId?: IntFieldUpdateOperationsInput | number
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type LikeUncheckedUpdateManyWithoutToUserInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    fromUserId?: IntFieldUpdateOperationsInput | number
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type BlockUpdateWithoutBlockerInput = {
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    blocked?: UserUpdateOneRequiredWithoutBlocksReceivedNestedInput
-  }
-
-  export type BlockUncheckedUpdateWithoutBlockerInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    blockedId?: IntFieldUpdateOperationsInput | number
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type BlockUncheckedUpdateManyWithoutBlockerInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    blockedId?: IntFieldUpdateOperationsInput | number
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type BlockUpdateWithoutBlockedInput = {
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    blocker?: UserUpdateOneRequiredWithoutBlocksSentNestedInput
-  }
-
-  export type BlockUncheckedUpdateWithoutBlockedInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    blockerId?: IntFieldUpdateOperationsInput | number
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type BlockUncheckedUpdateManyWithoutBlockedInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    blockerId?: IntFieldUpdateOperationsInput | number
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type MessageUpdateWithoutSenderInput = {
-    content?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    receiver?: UserUpdateOneRequiredWithoutMessagesReceivedNestedInput
-  }
-
-  export type MessageUncheckedUpdateWithoutSenderInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    receiverId?: IntFieldUpdateOperationsInput | number
-    content?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type MessageUncheckedUpdateManyWithoutSenderInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    receiverId?: IntFieldUpdateOperationsInput | number
-    content?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type MessageUpdateWithoutReceiverInput = {
-    content?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    sender?: UserUpdateOneRequiredWithoutMessagesSentNestedInput
-  }
-
-  export type MessageUncheckedUpdateWithoutReceiverInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    senderId?: IntFieldUpdateOperationsInput | number
-    content?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type MessageUncheckedUpdateManyWithoutReceiverInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    senderId?: IntFieldUpdateOperationsInput | number
-    content?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
   export type InterestUpdateWithoutUsersInput = {
     name?: StringFieldUpdateOperationsInput | string
   }
@@ -11695,6 +9597,74 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
   }
 
+  export type LikeUpdateWithoutSenderInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    receiver?: UserUpdateOneRequiredWithoutReceivedLikesNestedInput
+  }
+
+  export type LikeUncheckedUpdateWithoutSenderInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    receiverId?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type LikeUncheckedUpdateManyWithoutSenderInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    receiverId?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type LikeUpdateWithoutReceiverInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    sender?: UserUpdateOneRequiredWithoutSentLikesNestedInput
+  }
+
+  export type LikeUncheckedUpdateWithoutReceiverInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    senderId?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type LikeUncheckedUpdateManyWithoutReceiverInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    senderId?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type MatchUpdateWithoutUser1Input = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user2?: UserUpdateOneRequiredWithoutMatchesAsUser2NestedInput
+  }
+
+  export type MatchUncheckedUpdateWithoutUser1Input = {
+    id?: IntFieldUpdateOperationsInput | number
+    user2Id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type MatchUncheckedUpdateManyWithoutUser1Input = {
+    id?: IntFieldUpdateOperationsInput | number
+    user2Id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type MatchUpdateWithoutUser2Input = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user1?: UserUpdateOneRequiredWithoutMatchesAsUser1NestedInput
+  }
+
+  export type MatchUncheckedUpdateWithoutUser2Input = {
+    id?: IntFieldUpdateOperationsInput | number
+    user1Id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type MatchUncheckedUpdateManyWithoutUser2Input = {
+    id?: IntFieldUpdateOperationsInput | number
+    user1Id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
   export type UserUpdateWithoutInterestsInput = {
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
@@ -11705,18 +9675,15 @@ export namespace Prisma {
     gender?: StringFieldUpdateOperationsInput | string
     bio?: NullableStringFieldUpdateOperationsInput | string | null
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
-    sexualOrientation?: NullableStringFieldUpdateOperationsInput | string | null
     latitude?: NullableFloatFieldUpdateOperationsInput | number | null
     longitude?: NullableFloatFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     photos?: PhotoUpdateManyWithoutUserNestedInput
-    likesSent?: LikeUpdateManyWithoutFromUserNestedInput
-    likesReceived?: LikeUpdateManyWithoutToUserNestedInput
-    blocksSent?: BlockUpdateManyWithoutBlockerNestedInput
-    blocksReceived?: BlockUpdateManyWithoutBlockedNestedInput
-    messagesSent?: MessageUpdateManyWithoutSenderNestedInput
-    messagesReceived?: MessageUpdateManyWithoutReceiverNestedInput
+    sentLikes?: LikeUpdateManyWithoutSenderNestedInput
+    receivedLikes?: LikeUpdateManyWithoutReceiverNestedInput
+    matchesAsUser1?: MatchUpdateManyWithoutUser1NestedInput
+    matchesAsUser2?: MatchUpdateManyWithoutUser2NestedInput
   }
 
   export type UserUncheckedUpdateWithoutInterestsInput = {
@@ -11730,18 +9697,15 @@ export namespace Prisma {
     gender?: StringFieldUpdateOperationsInput | string
     bio?: NullableStringFieldUpdateOperationsInput | string | null
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
-    sexualOrientation?: NullableStringFieldUpdateOperationsInput | string | null
     latitude?: NullableFloatFieldUpdateOperationsInput | number | null
     longitude?: NullableFloatFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     photos?: PhotoUncheckedUpdateManyWithoutUserNestedInput
-    likesSent?: LikeUncheckedUpdateManyWithoutFromUserNestedInput
-    likesReceived?: LikeUncheckedUpdateManyWithoutToUserNestedInput
-    blocksSent?: BlockUncheckedUpdateManyWithoutBlockerNestedInput
-    blocksReceived?: BlockUncheckedUpdateManyWithoutBlockedNestedInput
-    messagesSent?: MessageUncheckedUpdateManyWithoutSenderNestedInput
-    messagesReceived?: MessageUncheckedUpdateManyWithoutReceiverNestedInput
+    sentLikes?: LikeUncheckedUpdateManyWithoutSenderNestedInput
+    receivedLikes?: LikeUncheckedUpdateManyWithoutReceiverNestedInput
+    matchesAsUser1?: MatchUncheckedUpdateManyWithoutUser1NestedInput
+    matchesAsUser2?: MatchUncheckedUpdateManyWithoutUser2NestedInput
   }
 
   export type UserUncheckedUpdateManyWithoutInterestsInput = {
@@ -11755,7 +9719,6 @@ export namespace Prisma {
     gender?: StringFieldUpdateOperationsInput | string
     bio?: NullableStringFieldUpdateOperationsInput | string | null
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
-    sexualOrientation?: NullableStringFieldUpdateOperationsInput | string | null
     latitude?: NullableFloatFieldUpdateOperationsInput | number | null
     longitude?: NullableFloatFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string

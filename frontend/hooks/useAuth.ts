@@ -11,7 +11,7 @@ export const useAuth = () => {
       });
       
       localStorage.removeItem('user');
-      router.push('/');
+      router.push('/login');
     } catch (error) {
       console.error('Erreur lors de la déconnexion:', error);
     }
